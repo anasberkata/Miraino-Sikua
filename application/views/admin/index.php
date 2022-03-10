@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-8">
                   <h6 class="text-muted font-semibold">Keuangan</h6>
-                  <h6 class="font-extrabold mb-0 small">Rp 120.000.000</h6>
+                  <h6 class="font-extrabold mb-0 small">Rp. <?= number_format($count_payment, 2, ',', '.'); ?></h6>
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-md-8">
                   <h6 class="text-muted font-semibold">Pengeluaran</h6>
-                  <h6 class="font-extrabold mb-0 small">Rp. 40.000.000</h6>
+                  <h6 class="font-extrabold mb-0 small">Rp. <?= number_format($count_report, 2, ',', '.'); ?></h6>
                 </div>
               </div>
             </div>

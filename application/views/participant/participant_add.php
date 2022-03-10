@@ -9,7 +9,7 @@
             <h4 class="card-title pt-2">Tambah Peserta</h4>
           </div>
           <div class="col">
-            <a href="<?= base_url('super/participant'); ?>" class='btn btn-primary float-end icon'>
+            <a href="<?= base_url('participant'); ?>" class='btn btn-primary float-end icon'>
               <span>Kembali</span>
             </a>
           </div>
@@ -17,7 +17,7 @@
       </div>
       <div class="card-body">
 
-        <form action="<?= base_url('super/participant_add'); ?>" method="post">
+        <form action="<?= base_url('participant/participant_add'); ?>" method="post">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">

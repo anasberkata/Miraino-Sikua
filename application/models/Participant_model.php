@@ -1,18 +1,15 @@
 <?php
 class Participant_model extends CI_Model
 {
-  
+
   function count_participants()
-  {   
-      $query = $this->db->get('participants');
-      if($query->num_rows()>0)
-      {
-        return $query->num_rows();
-      }
-      else
-      {
-        return 0;
-      }
+  {
+    $query = $this->db->get('participants');
+    if ($query->num_rows() > 0) {
+      return $query->num_rows();
+    } else {
+      return 0;
+    }
   }
 
   function get_participants()
@@ -33,7 +30,7 @@ class Participant_model extends CI_Model
   {
     $this->db->insert('participants', $data);
     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Peserta berhasil ditambahkan!</div>');
-    redirect('super/participant');
+    redirect('participant');
   }
 
   function update_participant($data, $id)
@@ -41,7 +38,7 @@ class Participant_model extends CI_Model
     $this->db->where('id', $id);
     $this->db->update('participants', $data);
     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Peserta berhasil diedit!</div>');
-    redirect('super/participant_edit_page/' . $id);
+    redirect('participant/participant_edit_page/' . $id);
   }
 
   function delete_participant($id)

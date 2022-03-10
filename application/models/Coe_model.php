@@ -3,14 +3,11 @@ class Coe_model extends CI_Model
 {
 
     function count_coe()
-    {   
+    {
         $query = $this->db->get('participants_coe');
-        if($query->num_rows()>0)
-        {
+        if ($query->num_rows() > 0) {
             return $query->num_rows();
-        }
-        else
-        {
+        } else {
             return 0;
         }
     }
@@ -33,7 +30,7 @@ class Coe_model extends CI_Model
     {
         $this->db->insert('participants_coe', $data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Peserta berhasil ditambahkan!</div>');
-        redirect('super/coe');
+        redirect('coe');
     }
 
     function update_coe($data, $id)
@@ -41,7 +38,7 @@ class Coe_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('participants_coe', $data);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Peserta berhasil diedit!</div>');
-        redirect('super/coe_edit_page/' . $id);
+        redirect('coe/coe_edit_page/' . $id);
     }
 
     function delete_coe($id)
@@ -51,5 +48,4 @@ class Coe_model extends CI_Model
 
         return true;
     }
-
 }

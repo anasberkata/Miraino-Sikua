@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 10, 2022 at 07:22 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Host: 127.0.0.1
+-- Generation Time: Mar 10, 2022 at 06:19 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -75,58 +75,7 @@ CREATE TABLE `participants_coe` (
 --
 
 INSERT INTO `participants_coe` (`id`, `name`, `issue_date`, `program`, `kumiai_name`, `office_name`, `placement`, `date_created`, `is_active`) VALUES
-(1, 'Anas Berkata Aja', '2022-03-10', 'Engineering', 'Saturasi', 'Saturasi', 'Bandung', '2022-03-10', 1),
-(3, 'M Fajriansyah', '2022-03-10', 'Tg Perawat', 'Saturasi', 'Saturasi', 'Bandung', '2022-03-10', 1),
-(5, 'Kakap Merah & Kakap Putih', '2022-03-12', 'Tg Pertanian', 'Kumiai', 'Kumaha Sia', 'Cianjur', '2022-03-10', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payment`
---
-
-CREATE TABLE `payment` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `program` varchar(255) NOT NULL,
-  `date_payment` date NOT NULL,
-  `person_responsible` varchar(255) NOT NULL,
-  `nominal` int(255) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `date_created` date NOT NULL,
-  `is_active` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`id`, `name`, `program`, `date_payment`, `person_responsible`, `nominal`, `description`, `date_created`, `is_active`) VALUES
-(1, 'Anas Berkata', 'Engineering', '2022-03-10', 'Dela', 300000, 'Pendaftaran', '2022-03-10', 1),
-(2, 'Didin Rohidin', 'Magang Pengolahan Makanan', '2022-03-10', 'Dela', 350000, 'SPP Juni', '2022-03-10', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `report`
---
-
-CREATE TABLE `report` (
-  `id` int(11) NOT NULL,
-  `output_type` varchar(255) NOT NULL,
-  `nominal` int(11) NOT NULL,
-  `date_payment` date NOT NULL,
-  `date_created` date NOT NULL,
-  `is_active` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `report`
---
-
-INSERT INTO `report` (`id`, `output_type`, `nominal`, `date_payment`, `date_created`, `is_active`) VALUES
-(1, 'Gaji', 4500000, '2022-03-11', '2022-03-11', 1),
-(2, 'Internet', 1500000, '2022-03-11', '2022-03-10', 1);
+(1, 'Anas Berkata Aja', '2022-03-10', 'Engineering', 'Saturasi', 'Saturasi', 'Bandung', '2022-03-10', 1);
 
 -- --------------------------------------------------------
 
@@ -240,14 +189,13 @@ CREATE TABLE `user_sub_menu` (
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
 (1, 1, 'Dashboard', 'super', 'bi bi-grid-fill', 1),
-(2, 1, 'Peserta', 'participant', 'bi bi-person-square', 1),
-(3, 1, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
-(4, 1, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
-(5, 1, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1),
+(2, 1, 'Peserta', 'super/participant', 'bi bi-person-square', 1),
+(3, 1, 'Peserta CoE', 'super/coe', 'bi bi-person-bounding-box', 1),
+(4, 1, 'Data Keuangan', 'super/payment', 'bi bi-wallet', 1),
+(5, 1, 'Laporan Keuangan', 'super/report', 'bi bi-wallet-fill', 1),
 (6, 3, 'User', 'user', 'bi bi-person', 1),
 (7, 4, 'Menu Management', 'menu', 'bi bi-list', 1),
-(8, 4, 'Submenu Management', 'menu/submenu', 'bi bi-list-nested', 1),
-(9, 2, 'Dashboard', 'admin', 'bi bi-grid-fill', 1);
+(8, 4, 'Submenu Management', 'menu/submenu', 'bi bi-list-nested', 1);
 
 --
 -- Indexes for dumped tables
@@ -263,18 +211,6 @@ ALTER TABLE `participants`
 -- Indexes for table `participants_coe`
 --
 ALTER TABLE `participants_coe`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `payment`
---
-ALTER TABLE `payment`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `report`
---
-ALTER TABLE `report`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -315,25 +251,13 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `participants`
 --
 ALTER TABLE `participants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `participants_coe`
 --
 ALTER TABLE `participants_coe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `payment`
---
-ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `report`
---
-ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -363,7 +287,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

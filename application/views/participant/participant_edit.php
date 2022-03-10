@@ -9,7 +9,7 @@
                         <h4 class="card-title pt-2">Edit Peserta - <?= $participant->name; ?></h4>
                     </div>
                     <div class="col">
-                        <a href="<?= base_url('super/participant'); ?>" class='btn btn-primary float-end icon'>
+                        <a href="<?= base_url('participant'); ?>" class='btn btn-primary float-end icon'>
                             <span>Kembali</span>
                         </a>
                     </div>
@@ -19,7 +19,7 @@
 
                 <?= $this->session->flashdata('message'); ?>
 
-                <form action="<?= base_url('super/participant_edit'); ?>" method="post">
+                <form action="<?= base_url('participant/participant_edit'); ?>" method="post">
                     <div class="row">
                         <div class="col-md-6">
                             <input type="hidden" name="id" value="<?= $participant->id; ?>">

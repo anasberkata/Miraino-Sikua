@@ -8,7 +8,7 @@
                         <h4 class="card-title pt-2">Detail Peserta - <?= $participant->name; ?></h4>
                     </div>
                     <div class="col">
-                        <a href="<?= base_url('super/participant'); ?>" class='btn btn-primary float-end icon'>
+                        <a href="<?= base_url('participant'); ?>" class='btn btn-primary float-end icon'>
                             <span>Kembali</span>
                         </a>
                     </div>

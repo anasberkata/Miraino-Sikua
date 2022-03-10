@@ -8,7 +8,7 @@
             <h4 class="card-title pt-2">Data Peserta</h4>
           </div>
           <div class="col">
-            <a href="<?= base_url('super/participant_add_page'); ?>" class='btn btn-primary float-end icon'>
+            <a href="<?= base_url('participant/participant_add_page'); ?>" class='btn btn-primary float-end icon'>
               <span>Tambah Data</span>
             </a>
           </div>
@@ -41,8 +41,8 @@
                 <td><?= $prt->phone; ?></td>
                 <td><?= $prt->program; ?></td>
                 <td>
-                  <a href="<?= base_url('super/participant_detail/') . $prt->id ?>"><span class="badge bg-success">Detail</span></a>
-                  <a href="<?= base_url('super/participant_edit_page/') . $prt->id ?>"><span class="badge bg-warning">Edit</span></a>
+                  <a href="<?= base_url('participant/participant_detail/') . $prt->id ?>"><span class="badge bg-success">Detail</span></a>
+                  <a href="<?= base_url('participant/participant_edit_page/') . $prt->id ?>"><span class="badge bg-warning">Edit</span></a>
                   <a href="" data-bs-toggle="modal" data-bs-target="#danger<?= $prt->id ?>"><span class="badge bg-danger">Hapus</span></a>
 
                   <!-- Modal Hapus -->
@@ -61,7 +61,7 @@
                           <div class="modal-body">
                             Yakin ingin menghapus data peserta <?= $prt->name ?>!
                           </div>
-                          <form class="form-horizontal" method="post" action="<?= base_url('super/participant_delete') ?>">
+                          <form class="form-horizontal" method="post" action="<?= base_url('participant/participant_delete') ?>">
                             <div class="modal-footer">
                               <input type="hidden" name="id" value="<?= $prt->id; ?>">
                               <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal" aria-hidden="true">
