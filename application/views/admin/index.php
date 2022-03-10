@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-md-8">
                   <h6 class="text-muted font-semibold">Peserta</h6>
-                  <h6 class="font-extrabold mb-0 small">200 Peserta</h6>
+                  <h6 class="font-extrabold mb-0 small"><?= $count_prt; ?> Peserta</h6>
                 </div>
               </div>
             </div>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-8">
                   <h6 class="text-muted font-semibold">Peserta COE</h6>
-                  <h6 class="font-extrabold mb-0 small">50 Peserta</h6>
+                  <h6 class="font-extrabold mb-0 small"><?= $count_prt_coe; ?> Peserta</h6>
                 </div>
               </div>
             </div>

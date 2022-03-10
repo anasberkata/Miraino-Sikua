@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 10, 2022 at 06:19 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Host: localhost
+-- Generation Time: Mar 09, 2022 at 05:55 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,34 +48,8 @@ CREATE TABLE `participants` (
 INSERT INTO `participants` (`id`, `name`, `address`, `phone`, `email`, `lang_level`, `ipk`, `program`, `date_entry`, `date_created`, `is_active`) VALUES
 (1, 'Anas Berkata', 'Protanmas Samolo Indah Blok C5 No. 15', '083817002151', 'anasberkata@gmail.com', 'Excellent', '3.83', 'Design', '2022-03-09', '2022-03-09', 1),
 (2, 'Eka Anas Jatnika', 'Sarijadi Blok 24 No. 80 Bandung', '085156334607', 'ideanasdesain@gmail.com', 'Excellent', '3.83', 'Engineering', '2022-03-09', '0000-00-00', 1),
-(3, 'Dela Sri Faujiah', 'Cianjur', '088177651671', 'dela@gmail.com', 'Good', '3.83', 'Ryuugakusei', '2022-03-09', '0000-00-00', 1),
-(4, 'Azka Siti Muzakiyah', 'Protanmas Samolo Indah Blok C5 No 15', '085156334607', 'azka@gmail.com', 'Good', '3.83', 'Engineering', '2022-03-09', '0000-00-00', 1),
-(9, 'Muhamad Fajriansyah', 'Cibeber Cianjur', '08928176276', 'fajrihacker@gmail.com', 'God', '3.21', 'Ryuugakusei', '2022-03-10', '2022-03-10', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `participants_coe`
---
-
-CREATE TABLE `participants_coe` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `issue_date` date NOT NULL,
-  `program` varchar(128) NOT NULL,
-  `kumiai_name` varchar(255) NOT NULL,
-  `office_name` varchar(255) NOT NULL,
-  `placement` varchar(255) NOT NULL,
-  `date_created` date NOT NULL,
-  `is_active` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `participants_coe`
---
-
-INSERT INTO `participants_coe` (`id`, `name`, `issue_date`, `program`, `kumiai_name`, `office_name`, `placement`, `date_created`, `is_active`) VALUES
-(1, 'Anas Berkata Aja', '2022-03-10', 'Engineering', 'Saturasi', 'Saturasi', 'Bandung', '2022-03-10', 1);
+(3, 'Dela Sri Faujiah', 'Cianjur', '0881776516', 'dela@gmail.com', 'Good', '3.83', 'Ryuugakusei', '2022-03-09', '0000-00-00', 1),
+(4, 'Azka Siti Muzakiyah', 'Protanmas Samolo Indah Blok C5 No 15', '085156334607', 'azka@gmail.com', 'Good', '3.83', 'Engineering', '2022-03-09', '0000-00-00', 1);
 
 -- --------------------------------------------------------
 
@@ -208,12 +182,6 @@ ALTER TABLE `participants`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `participants_coe`
---
-ALTER TABLE `participants_coe`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -251,13 +219,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `participants`
 --
 ALTER TABLE `participants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `participants_coe`
---
-ALTER TABLE `participants_coe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`

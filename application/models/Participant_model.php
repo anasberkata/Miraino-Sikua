@@ -1,6 +1,19 @@
 <?php
 class Participant_model extends CI_Model
 {
+  
+  function count_participants()
+  {   
+      $query = $this->db->get('participants');
+      if($query->num_rows()>0)
+      {
+        return $query->num_rows();
+      }
+      else
+      {
+        return 0;
+      }
+  }
 
   function get_participants()
   {
