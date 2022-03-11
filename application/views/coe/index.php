@@ -8,9 +8,13 @@
             <h4 class="card-title pt-2">Data Peserta CoE</h4>
           </div>
           <div class="col">
-            <a href="<?= base_url('coe/coe_add_page'); ?>" class='btn btn-primary float-end icon'>
-              <span>Tambah Data</span>
-            </a>
+            <?php if ($user['role_id'] == 3) : ?>
+              <!-- Tombol Tambah Hilang -->
+            <?php else : ?>
+              <a href="<?= base_url('coe/coe_add_page'); ?>" class='btn btn-primary float-end icon'>
+                <span>Tambah Data</span>
+              </a>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -38,44 +42,48 @@
                 <td><?= $prt->program; ?></td>
                 <td>
                   <a href="<?= base_url('coe/coe_detail/') . $prt->id ?>"><span class="badge bg-success">Detail</span></a>
-                  <a href="<?= base_url('coe/coe_edit_page/') . $prt->id ?>"><span class="badge bg-warning">Edit</span></a>
-                  <a href="" data-bs-toggle="modal" data-bs-target="#danger<?= $prt->id ?>"><span class="badge bg-danger">Hapus</span></a>
+                  <?php if ($user['role_id'] == 3) : ?>
+                    <!-- Aksi Hilang -->
+                  <?php else : ?>
+                    <a href="<?= base_url('coe/coe_edit_page/') . $prt->id ?>"><span class="badge bg-warning">Edit</span></a>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#danger<?= $prt->id ?>"><span class="badge bg-danger">Hapus</span></a>
 
-                  <!-- Modal Hapus -->
-                  <div class="modal-danger me-1 mb-1 d-inline-block">
-                    <div class="modal fade text-left" id="danger<?= $prt->id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                        <div class="modal-content">
+                    <!-- Modal Hapus -->
+                    <div class="modal-danger me-1 mb-1 d-inline-block">
+                      <div class="modal fade text-left" id="danger<?= $prt->id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                          <div class="modal-content">
 
 
-                          <div class="modal-header bg-danger">
-                            <h5 class="modal-title white" id="myModalLabel120">Hapus Peserta <?= $prt->name; ?></h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                              <i data-feather="x"></i>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            Yakin ingin menghapus data peserta <?= $prt->name ?>!
-                          </div>
-                          <form class="form-horizontal" method="post" action="<?= base_url('coe/coe_delete') ?>">
-                            <div class="modal-footer">
-                              <input type="hidden" name="id" value="<?= $prt->id; ?>">
-                              <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal" aria-hidden="true">
-                                <i class="bx bx-x d-block d-sm-none"></i>
-                                <span class="d-none d-sm-block">Batal</span>
-                              </button>
-                              <button type="submit" class="btn btn-danger ml-1">
-                                <i class="bx bx-check d-block d-sm-none"></i>
-                                <span class="d-none d-sm-block">Hapus</span>
+                            <div class="modal-header bg-danger">
+                              <h5 class="modal-title white" id="myModalLabel120">Hapus Peserta <?= $prt->name; ?></h5>
+                              <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <i data-feather="x"></i>
                               </button>
                             </div>
-                          </form>
+                            <div class="modal-body">
+                              Yakin ingin menghapus data peserta <?= $prt->name ?>!
+                            </div>
+                            <form class="form-horizontal" method="post" action="<?= base_url('coe/coe_delete') ?>">
+                              <div class="modal-footer">
+                                <input type="hidden" name="id" value="<?= $prt->id; ?>">
+                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal" aria-hidden="true">
+                                  <i class="bx bx-x d-block d-sm-none"></i>
+                                  <span class="d-none d-sm-block">Batal</span>
+                                </button>
+                                <button type="submit" class="btn btn-danger ml-1">
+                                  <i class="bx bx-check d-block d-sm-none"></i>
+                                  <span class="d-none d-sm-block">Hapus</span>
+                                </button>
+                              </div>
+                            </form>
 
 
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  <?php endif; ?>
                 </td>
               </tr>
               <?php $i++; ?>

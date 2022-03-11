@@ -6,7 +6,7 @@ class Admin extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    is_logged_in();
+    // is_logged_in();
     $this->load->model('Participant_model', 'participant');
     $this->load->model('Coe_model', 'coe');
     $this->load->model('Payment_model', 'payment');

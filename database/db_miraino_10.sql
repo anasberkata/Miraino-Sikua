@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 11, 2022 at 05:58 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Host: 127.0.0.1
+-- Generation Time: Mar 11, 2022 at 04:28 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -153,7 +153,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `image`, `role_id`, `is_active`, `date_created`) VALUES
 (1, 'Eka Anas Jatnika', 'anasberkata', 'ideanasdesain@gmail.com', '$2y$10$mj7hHAD9DIauc7Z8tjnDs.jiXEDADH/IbgqjHXVlk6rmssNVV0QUa', 'anas.jpg', 1, 1, '2022-03-07'),
 (2, 'Admin Miraino', 'admin', 'admin@miraino.com', '$2y$10$.QkcSRy3CUv5b35/eiUZj.qUYhsFuZhuusZUWxOQGLvLhk25rry.O', 'admin.jpg', 2, 1, '2022-03-07'),
-(3, 'Manager', 'manager', 'manager@miraino.com', '$2y$10$nIYCUd6de5ZpzZDAsdLE7eyhf0KdIYJuJPrZysJwRz9sKPzAm/68S', 'manager.jpg', 3, 1, '2022-03-07');
+(3, 'Manager', 'manager', 'manager@miraino.com', '$2y$10$nIYCUd6de5ZpzZDAsdLE7eyhf0KdIYJuJPrZysJwRz9sKPzAm/68S', 'manager.jpg', 2, 1, '2022-03-07');
 
 -- --------------------------------------------------------
 
@@ -175,9 +175,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
 (2, 1, 3),
 (3, 1, 4),
-(4, 2, 2),
-(5, 2, 3),
-(9, 3, 2);
+(4, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -218,8 +216,7 @@ CREATE TABLE `user_role` (
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
 (1, 'super'),
-(2, 'admin'),
-(4, 'manager');
+(2, 'admin');
 
 -- --------------------------------------------------------
 
@@ -246,15 +243,10 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (3, 1, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
 (4, 1, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
 (5, 1, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1),
-(6, 3, 'User', 'user', 'bi bi-people', 1),
-(7, 3, 'My Profile', 'profile', 'bi bi-person-fill', 1),
-(8, 4, 'Menu Management', 'menu', 'bi bi-list', 1),
-(9, 4, 'Submenu Management', 'menu/submenu', 'bi bi-list-nested', 1),
-(10, 2, 'Dashboard', 'admin', 'bi bi-grid-fill', 1),
-(11, 2, 'Peserta', 'participant', 'bi bi-person-square', 1),
-(12, 2, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
-(13, 2, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
-(16, 2, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1);
+(6, 3, 'User', 'user', 'bi bi-person', 1),
+(7, 4, 'Menu Management', 'menu', 'bi bi-list', 1),
+(8, 4, 'Submenu Management', 'menu/submenu', 'bi bi-list-nested', 1),
+(9, 2, 'Dashboard', 'admin', 'bi bi-grid-fill', 1);
 
 --
 -- Indexes for dumped tables
@@ -346,13 +338,13 @@ ALTER TABLE `report`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
@@ -364,13 +356,13 @@ ALTER TABLE `user_menu`
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
