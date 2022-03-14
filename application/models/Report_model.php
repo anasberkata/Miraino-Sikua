@@ -17,7 +17,15 @@ class Report_model extends CI_Model
   {
     $this->db->select('*');
     $this->db->from('report');
+    $this->db->order_by('date_payment', 'DESC');
     $query = $this->db->get();
+    return $query;
+  }
+
+  function search_report($tgl_awal, $tgl_akhir)
+  {
+    $query = $this->db->query("SELECT * FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' ORDER BY `date_payment` DESC");
+
     return $query;
   }
 

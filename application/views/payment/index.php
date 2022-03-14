@@ -49,7 +49,7 @@
                 <td><?= $i; ?></td>
                 <td><?= $pay->name; ?></td>
                 <td><?= $pay->program; ?></td>
-                <td><?= $pay->date_payment; ?></td>
+                <td><?= date('d F Y', strtotime($pay->date_payment)); ?></td>
                 <td><?= $pay->person_responsible; ?></td>
                 <td>Rp. <?= number_format($pay->nominal, 2, ',', '.'); ?></td>
                 <td><?= $pay->description; ?></td>

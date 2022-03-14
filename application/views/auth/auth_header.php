@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>vendors/bootstrap-icons/bootstrap-icons.css">
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/app.css">
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/pages/auth.css">
+
+  <link rel="shortcut icon" href="<?= base_url('assets/'); ?>images/favicon.png" type="image/x-icon">
 </head>
 
 <body>

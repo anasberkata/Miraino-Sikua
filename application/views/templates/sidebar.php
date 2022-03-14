@@ -35,8 +35,6 @@
           <li class="sidebar-title">
             <?php if ($user['role_id'] == 3) : ?>
               Manager
-            <?php elseif ($user['role_id'] == 1) : ?>
-              Super Admin
             <?php else : ?>
               <?= $m['menu']; ?>
             <?php endif; ?>

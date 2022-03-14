@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/app.css">
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/main.css">
 
-  <link rel="shortcut icon" href="<?= base_url('assets/'); ?>images/favicon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= base_url('assets/'); ?>images/favicon.png" type="image/x-icon">
 </head>
 
 <body>

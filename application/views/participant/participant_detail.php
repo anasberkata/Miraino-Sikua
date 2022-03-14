@@ -61,7 +61,7 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-4">Tanggal Masuk</div>
-                            <div class="col-8">: <?= $participant->date_entry; ?></div>
+                            <div class="col-8">: <?= date('d F Y', strtotime($participant->date_entry)) ?></div>
                         </div>
                     </li>
                 </ul>

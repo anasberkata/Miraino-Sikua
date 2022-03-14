@@ -177,7 +177,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (3, 1, 4),
 (4, 2, 2),
 (5, 2, 3),
-(9, 3, 2);
+(6, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -219,7 +219,7 @@ CREATE TABLE `user_role` (
 INSERT INTO `user_role` (`id`, `role`) VALUES
 (1, 'super'),
 (2, 'admin'),
-(4, 'manager');
+(3, 'manager');
 
 -- --------------------------------------------------------
 
@@ -254,7 +254,7 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (11, 2, 'Peserta', 'participant', 'bi bi-person-square', 1),
 (12, 2, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
 (13, 2, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
-(16, 2, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1);
+(14, 2, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1);
 
 --
 -- Indexes for dumped tables

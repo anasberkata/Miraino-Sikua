@@ -25,7 +25,7 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-4">Tanggal Terbit CoE</div>
-                            <div class="col-8">: <?= $coe->issue_date; ?></div>
+                            <div class="col-8">: <?= date('d F Y', strtotime($coe->issue_date)); ?></div>
                         </div>
                     </li>
                     <li class="list-group-item">

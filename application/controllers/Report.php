@@ -25,6 +25,23 @@ class Report extends CI_Controller
     $this->load->view('templates/footer');
   }
 
+  public function report_search()
+  {
+    $data['title'] = 'Laporan Keuangan';
+    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+
+    $tgl_awal = $this->input->post('tgl_awal', true);
+    $tgl_akhir = $this->input->post('tgl_akhir', true);
+
+    $data['report'] = $this->report->search_report($tgl_awal, $tgl_akhir);
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar', $data);
+    // $this->load->view('report/report_search', $data);
+    $this->load->view('report/index', $data);
+    $this->load->view('templates/footer');
+  }
+
   public function report_add_page()
   {
     $data['title'] = 'Laporan Keuangan';

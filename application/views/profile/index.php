@@ -52,7 +52,7 @@
           <li class="list-group-item">
             <div class="row">
               <div class="col-4">Tanggal Dibuat</div>
-              <div class="col-8">: <?= $user['date_created']; ?></div>
+              <div class="col-8">: <?= date('d F Y', strtotime($user['date_created'])); ?></div>
             </div>
           </li>
         </ul>

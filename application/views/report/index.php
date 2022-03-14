@@ -26,7 +26,7 @@
 
         <div class="row">
           <div class="col-lg-10">
-            <form action="" method="post">
+            <form action="<?= base_url('report/report_search'); ?>" method="post">
               <div class=" row">
                 <div class="col-lg-5">
                   <div class="form-group row align-items-center">
@@ -34,7 +34,12 @@
                       <label class="col-form-label">Tanggal</label>
                     </div>
                     <div class="col-lg-9 col-9">
-                      <input type="date" class="form-control" name="tgl_awal">
+                      <input type="date" class="form-control" name="tgl_awal" value="<?php $format = "%Y-%m-%d";
+                                                                                      if (!$_POST) {
+                                                                                        echo mdate($format);
+                                                                                      } else {
+                                                                                        echo $_POST['tgl_awal'];
+                                                                                      } ?>">
                     </div>
                   </div>
                 </div>
@@ -45,7 +50,12 @@
                       <label class="col-form-label">Sampai</label>
                     </div>
                     <div class="col-lg-9 col-9">
-                      <input type="date" class="form-control" name="tgl_akhir">
+                      <input type="date" class="form-control" name="tgl_akhir" value="<?php $format = "%Y-%m-%d";
+                                                                                      if (!$_POST) {
+                                                                                        echo mdate($format);
+                                                                                      } else {
+                                                                                        echo $_POST['tgl_awal'];
+                                                                                      } ?>">
                     </div>
                   </div>
                 </div>
@@ -88,7 +98,7 @@
                 <td><?= $i; ?></td>
                 <td><?= $re->output_type; ?></td>
                 <td>Rp. <?= number_format($re->nominal, 2, ',', '.'); ?></td>
-                <td><?= $re->date_payment; ?></td>
+                <td><?= date('d F Y', strtotime($re->date_payment)); ?></td>
                 <?php if ($user['role_id'] == 3) : ?>
                   <!-- Aksi Hilang -->
                 <?php else : ?>
