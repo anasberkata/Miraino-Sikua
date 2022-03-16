@@ -11,14 +11,12 @@ class Profile extends CI_Controller
     $this->load->helper('date');
   }
 
-  // ---------------------------------------------- USER CRUD -------------------------------------------------------------------
+  // ---------------------------------------------- PROFILE CRUD -------------------------------------------------------------------
 
   public function index()
   {
     $data['title'] = 'My Profile';
     $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
-
-    // $data['users'] = $this->user->get_users();
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
@@ -26,114 +24,68 @@ class Profile extends CI_Controller
     $this->load->view('templates/footer');
   }
 
-  public function user_detail($id)
+  public function profile_edit_page()
   {
-    $data['title'] = 'User';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
-
-    $data['users'] = $this->user->details_user($id);
-
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar', $data);
-    $this->load->view('user/user_detail', $data);
-    $this->load->view('templates/footer');
-  }
-
-
-  public function user_add_page()
-  {
-    $data['title'] = 'User';
+    $data['title'] = 'My Profile';
     $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
-    $this->load->view('user/user_add', $data);
+    $this->load->view('profile/profile_edit', $data);
     $this->load->view('templates/footer');
   }
 
-  public function user_add()
-  {
-    $this->form_validation->set_rules('name', 'Name', 'required|trim');
-    $this->form_validation->set_rules('username', 'Username', 'required|trim');
-    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[users.email]', [
-      'is_unique' => 'Alamat E-Mail ini sudah terdaftar!'
-    ]);
-    $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[3]', [
-      'min_length' => 'Password terlalu Pendek!'
-    ]);
-    $this->form_validation->set_rules('role_id', 'Role_id', 'required|trim');
-
-    if ($this->form_validation->run() == false) {
-      $data['title'] = 'User';
-      $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
-
-      $this->load->view('templates/header', $data);
-      $this->load->view('templates/sidebar', $data);
-      $this->load->view('user/user_add', $data);
-      $this->load->view('templates/footer');
-    } else {
-      $name = $this->input->post('name', true);
-      $username = $this->input->post('username', true);
-      $email = $this->input->post('email', true);
-      $password = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
-      $image = "default.jpg";
-      $role_id = $this->input->post('role_id', true);
-      $is_active = 1;
-      $format = "%Y-%m-%d";
-      $date_created = mdate($format);
-
-      $data = [
-        'id' => NULL,
-        'name' => $name,
-        'username' => $username,
-        'email' => $email,
-        'password' => $password,
-        'image' => $image,
-        'role_id' => $role_id,
-        'is_active' => $is_active,
-        'date_created' => $date_created
-      ];
-
-      $this->user->save_user($data);
-    }
-  }
-
-  public function user_edit_page($id)
-  {
-    $data['title'] = 'User';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
-
-    $data['users'] = $this->user->details_user($id);
-
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar', $data);
-    $this->load->view('user/user_edit', $data);
-    $this->load->view('templates/footer');
-  }
-
-  public function user_edit()
+  public function profile_edit()
   {
     $id = $this->input->post('id');
     $name = $this->input->post('name');
     $username = $this->input->post('username');
     $email = $this->input->post('email');
-    $role_id = $this->input->post('role_id');
 
     $data = [
       'name' => $name,
       'username' => $username,
-      'email' => $email,
-      'role_id' => $role_id
+      'email' => $email
     ];
-    $this->user->update_user($data, $id);
+    $this->profile->update_profile($data, $id);
   }
 
-  public function user_delete()
+  public function profile_change_password()
   {
-    $id = $this->input->post('id');
-    $this->user->delete_user($id);
+    $data['title'] = 'My Profile';
+    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    
+    $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
+    $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[3]|matches[new_password2]');
+    $this->form_validation->set_rules('new_password2', 'Confirm New Password', 'required|trim|min_length[3]|matches[new_password1]');
 
-    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User berhasil dihapus!</div>');
-    redirect('user/');
+    if ($this->form_validation->run() == false) {
+      $this->load->view('templates/header', $data);
+      $this->load->view('templates/sidebar', $data);
+      $this->load->view('profile/profile_change_password', $data);
+      $this->load->view('templates/footer');
+    } else {
+        $current_password = $this->input->post('current_password');
+        $new_password = $this->input->post('new_password1');
+        if (!password_verify($current_password, $data['user']['password'])) {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Lama Anda Salah!</div>');
+            redirect('user/changepassword');
+        } else {
+            if ($current_password == $new_password) {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Baru Tidak Boleh Sama dengan Password Lama!</div>');
+                redirect('profile/profile_change_password');
+            } else {
+                // password sudah ok
+                $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
+
+                $this->db->set('password', $password_hash);
+                $this->db->where('username', $this->session->userdata('username'));
+                $this->db->update('users');
+
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password Berhasil Di Ubah!</div>');
+                redirect('profile/profile_change_password');
+            }
+        }
+    }
   }
 }
