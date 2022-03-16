@@ -71,7 +71,7 @@
 
           <div class="col-lg-2">
             <div class="btn-group w-100" role="button">
-              <a href="<?= site_url('report/printPDF') ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
+              <a href="<?= base_url('report/printPDF_search'); ?>/?tgl_awal=<?= $_POST['tgl_awal']; ?>&tgl_akhir=<?= $_POST['tgl_akhir']; ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
               <a href="" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
             </div>
           </div>

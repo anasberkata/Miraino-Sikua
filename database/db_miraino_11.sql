@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 16, 2022 at 06:00 PM
+-- Generation Time: Mar 11, 2022 at 05:58 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -126,8 +126,7 @@ CREATE TABLE `report` (
 
 INSERT INTO `report` (`id`, `output_type`, `nominal`, `date_payment`, `date_created`, `is_active`) VALUES
 (1, 'Gaji', 4500000, '2022-03-11', '2022-03-11', 1),
-(2, 'Internet', 1500000, '2022-03-11', '2022-03-10', 1),
-(5, 'Hospitalist', 300000, '2022-02-01', '2022-03-16', 1);
+(2, 'Internet', 1500000, '2022-03-11', '2022-03-10', 1);
 
 -- --------------------------------------------------------
 
@@ -152,9 +151,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `image`, `role_id`, `is_active`, `date_created`) VALUES
-(1, 'Eka Anas Jatnika', 'anasberkata', 'ideanasdesain@gmail.com', '$2y$10$bFHVog6BHgnix/bEaXCWZe/cIRvgOrdf5XIXfbxeezoA97w/A/fTq', 'anas.jpg', 1, 1, '2022-03-07'),
-(2, 'Manager 01', 'manager01', 'manager@miraino.com', '$2y$10$.QkcSRy3CUv5b35/eiUZj.qUYhsFuZhuusZUWxOQGLvLhk25rry.O', 'admin.jpg', 3, 1, '2022-03-07'),
-(3, 'Manager 01', 'manager01', 'manager@miraino.com', '$2y$10$nIYCUd6de5ZpzZDAsdLE7eyhf0KdIYJuJPrZysJwRz9sKPzAm/68S', 'manager.jpg', 2, 1, '2022-03-07');
+(1, 'Eka Anas Jatnika', 'anasberkata', 'ideanasdesain@gmail.com', '$2y$10$mj7hHAD9DIauc7Z8tjnDs.jiXEDADH/IbgqjHXVlk6rmssNVV0QUa', 'anas.jpg', 1, 1, '2022-03-07'),
+(2, 'Admin Miraino', 'admin', 'admin@miraino.com', '$2y$10$.QkcSRy3CUv5b35/eiUZj.qUYhsFuZhuusZUWxOQGLvLhk25rry.O', 'admin.jpg', 2, 1, '2022-03-07'),
+(3, 'Manager', 'manager', 'manager@miraino.com', '$2y$10$nIYCUd6de5ZpzZDAsdLE7eyhf0KdIYJuJPrZysJwRz9sKPzAm/68S', 'manager.jpg', 3, 1, '2022-03-07');
 
 -- --------------------------------------------------------
 
@@ -341,13 +340,13 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`

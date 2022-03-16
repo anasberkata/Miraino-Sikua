@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 16, 2022 at 06:00 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.12
+-- Host: 127.0.0.1
+-- Generation Time: Mar 16, 2022 at 07:14 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -126,8 +126,7 @@ CREATE TABLE `report` (
 
 INSERT INTO `report` (`id`, `output_type`, `nominal`, `date_payment`, `date_created`, `is_active`) VALUES
 (1, 'Gaji', 4500000, '2022-03-11', '2022-03-11', 1),
-(2, 'Internet', 1500000, '2022-03-11', '2022-03-10', 1),
-(5, 'Hospitalist', 300000, '2022-02-01', '2022-03-16', 1);
+(2, 'Internet', 1500000, '2022-03-11', '2022-03-10', 1);
 
 -- --------------------------------------------------------
 
@@ -341,7 +340,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

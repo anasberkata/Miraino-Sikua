@@ -3,9 +3,11 @@
 } */
 
 .main-login {
-  padding: 2rem;
+	padding: 2rem;
 }
 
 .sidebar-wrapper .sidebar-header img {
-  height: 4.2rem;
+	height: 4.2rem;
 }
+
+/* --------------- Print --------------- */
