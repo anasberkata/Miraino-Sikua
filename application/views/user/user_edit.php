@@ -6,7 +6,7 @@
       <div class="card-header">
         <div class="row">
           <div class="col">
-            <h4 class="card-title pt-2">Edit User - <?= $users["name"]; ?></h4>
+            <h4 class="card-title pt-2">Edit User - <?= $users->name; ?></h4>
           </div>
           <div class="col">
             <a href="<?= base_url('user'); ?>" class='btn btn-primary float-end icon'>
@@ -22,16 +22,16 @@
         <form action="<?= base_url('user/user_edit'); ?>" method="post">
           <div class="row">
             <div class="col-md-6">
-              <input type="hidden" name="id" value="<?= $users["id"]; ?>">
+              <input type="hidden" name="id" value="<?= $users->id; ?>">
               <div class="form-group">
                 <label for="name">Nama Lengkap</label>
-                <input type="text" class="form-control" id="name" placeholder="Nama Lengkap" name="name" value="<?= $users["name"]; ?>">
+                <input type="text" class="form-control" id="name" placeholder="Nama Lengkap" name="name" value="<?= $users->name; ?>">
                 <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
 
               <div class="form-group">
                 <label for="username">username</label>
-                <input type="text" class="form-control" id="username" placeholder="Username" name="username" value="<?= $users["username"]; ?>">
+                <input type="text" class="form-control" id="username" placeholder="Username" name="username" value="<?= $users->username; ?>">
                 <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
 
@@ -41,15 +41,21 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label for="email">Alamat E-Mail</label>
-                <input type="email" class="form-control" id="email" placeholder="Alamat E-Mail" name="email" value="<?= $users["email"]; ?>">
+                <input type="email" class="form-control" id="email" placeholder="Alamat E-Mail" name="email" value="<?= $users->email; ?>">
                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
 
               <div class=" form-group">
                 <label for="role_id">Level</label>
                 <select class="form-select" name="role_id" id="role_id" required>
-                  <option value="value= <?= $users["role_id"]; ?>">
-                    <?= $users["role"]; ?>
+                  <option value="value= <?= $users->role_id; ?>">
+                    <?php if ($users->role_id == 1) : ?>
+                      Super Admin
+                    <?php elseif ($users->role_id == 2) : ?>
+                      Admin
+                    <?php elseif ($users->role_id == 3) : ?>
+                      Manager
+                    <?php endif; ?>
                   </option>
                   <option value="2">Admin</option>
                   <option value="3">Manager</option>

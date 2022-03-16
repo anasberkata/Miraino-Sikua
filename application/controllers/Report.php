@@ -32,14 +32,13 @@ class Report extends CI_Controller
 
     $tgl_awal = $this->input->post('tgl_awal', true);
     $tgl_akhir = $this->input->post('tgl_akhir', true);
-    // $type = $this->input->post('jenis', true);
 
     $data['report'] = $this->report->search_report($tgl_awal, $tgl_akhir);
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
-    $this->load->view('report/report_search', $data);
-    // $this->load->view('report/index', $data);
+    // $this->load->view('report/report_search', $data);
+    $this->load->view('report/index', $data);
     $this->load->view('templates/footer');
   }
 
@@ -125,53 +124,5 @@ class Report extends CI_Controller
 
     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
     redirect('report/');
-  }
-
-
-  // ---------------------------------------- MPDF ----------------------------------
-  public function printPDF()
-  {
-    $data['report'] = $this->report->get_report();
-    $data['total'] = $this->report->sum_nominal();
-
-    $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
-    $mpdf->SetHTMLFooter('
-            <table width="100%">
-                <tr>
-                    <td width="33%">{DATE j-m-Y}</td>
-                    <td width="33%" align="center">{PAGENO}/{nbpg}</td>
-                    <td width="33%" style="text-align: right;">Laporan Keuangan</td>
-                </tr>
-            </table>');
-
-    $page = $this->load->view('report/report_print', $data, TRUE);
-
-    $mpdf->WriteHTML($page);
-    $mpdf->Output('Laporan Pengeluaran.pdf', 'I');
-  }
-
-  public function printPDF_search()
-  {
-    $tgl_awal = $this->input->get('tgl_awal', true);
-    $tgl_akhir = $this->input->get('tgl_akhir', true);
-    // $type = $this->input->post('jenis', true);
-
-    $data['report'] = $this->report->search_report($tgl_awal, $tgl_akhir);
-    $data['total'] = $this->report->sum_nominal_search($tgl_awal, $tgl_akhir);
-
-    $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
-    $mpdf->SetHTMLFooter('
-            <table width="100%">
-                <tr>
-                    <td width="33%">{DATE j-m-Y}</td>
-                    <td width="33%" align="center">{PAGENO}/{nbpg}</td>
-                    <td width="33%" style="text-align: right;">Laporan Keuangan</td>
-                </tr>
-            </table>');
-
-    $page = $this->load->view('report/report_print', $data, TRUE);
-
-    $mpdf->WriteHTML($page);
-    $mpdf->Output('Laporan Pengeluaran.pdf', 'I');
   }
 }

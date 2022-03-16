@@ -12,9 +12,19 @@ class User_model extends CI_Model
 
   function details_user($id = NULL)
   {
-    $id_user = $id;
-    $query = "SELECT `users`.*, `user_role`.* FROM `users` JOIN `user_role` ON `users`.`role_id` = `user_role`.`id` WHERE `users`.`id` = '$id_user'";
-    return $this->db->query($query)->row_array();
+    // $this->db->select('users.*, user_role.id AS id_role');
+    // $this->db->join('user_role', 'users.role_id = user_role.id_role');
+    // $this->db->from('users');
+    // $this->db->where('id', $id);
+    // $this->db->from('users');
+    // $query = $this->db->get();
+    // return $query->result();
+
+
+
+    // $query = $this->db->get()->row();
+    $query = $this->db->get_where('users', ['id' => $id])->row();
+    return $query;
   }
 
   function save_user($data)

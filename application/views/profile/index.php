@@ -9,7 +9,7 @@
           </div>
           <div class="col-4">
             <div class="btn-group w-100" role="button">
-              <a href="<?= base_url('profile/profile_edit_page'); ?>" class="btn icon btn-primary">Edit</a>
+              <a href="<?= base_url('profile/profile_edit'); ?>" class="btn icon btn-primary">Edit</a>
               <a href="<?= base_url('profile/profile_change_password'); ?>" class="btn icon btn-warning">Ganti Password</a>
             </div>
           </div>
@@ -33,6 +33,20 @@
             <div class="row">
               <div class="col-4">E-Mail</div>
               <div class="col-8">: <?= $user['email']; ?></div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-4">Role</div>
+              <div class="col-8">:
+                <?php if ($user['role_id'] == 1) : ?>
+                  Super Admin
+                <?php elseif ($user['role_id'] == 2) : ?>
+                  Admin
+                <?php elseif ($user['role_id'] == 3) : ?>
+                  Manager
+                <?php endif; ?>
+              </div>
             </div>
           </li>
           <li class="list-group-item">

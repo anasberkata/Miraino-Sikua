@@ -22,21 +22,6 @@ class Report_model extends CI_Model
     return $query;
   }
 
-  function sum_nominal()
-  {
-    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report`");
-    // $query = $this->db->get();
-    return $query->row();
-  }
-
-  function sum_nominal_search($tgl_awal, $tgl_akhir)
-  {
-    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir'");
-    // $query = $this->db->get();
-    return $query->row();
-  }
-
-
   function search_report($tgl_awal, $tgl_akhir)
   {
     $query = $this->db->query("SELECT * FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' ORDER BY `date_payment` DESC");
