@@ -1,3 +1,8 @@
+<?php
+header("Content-type: application/vnd-ms-excel");
+header("Content-Disposition: attachment; filename=Data Pengeluaran.xls");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +10,10 @@
   <meta charset="UTF-8">
 
   <style>
+    table {
+      width: 100%;
+    }
+
     .table-main {
       width: 100%;
     }
@@ -31,27 +40,28 @@
   </style>
 
   <title>Print</title>
-  <link rel="shortcut icon" href="<?= base_url('assets/'); ?>images/favicon.png" type="image/x-icon">
 </head>
 
 <body>
 
-  <table cellpadding="10">
-    <tr>
-      <td>
+  <table cellpadding="10" width="100%">
+    <tr rowspan="2">
+      <td colspan="2">
         <img src="<?= base_url('assets/'); ?>images/logo/Logo MHJ Web.png" class="logo-print m-auto" width="100">
       </td>
-      <td>
+      <td colspan="2">
         <h4 class="card-title pt-2 title-print">Data Pengeluaran - PT Miraino Hashi Jaya</h4>
-        <p>Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005 Ds. Satria Jaya, Kec. Tambun Utara Kode pos 17510</p>
-        <p>E-Mail : lpkmirainohashijaya@gmail.com || Phone : +62 815-1307-1589</p>
+        <p>
+          Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005 Ds. Satria Jaya, Kec. Tambun Utara Kode pos 17510
+          <br>E-Mail : lpkmirainohashijaya@gmail.com || Phone : +62 815-1307-1589</br>
+          <br><br><br>
+        </p>
+
       </td>
     </tr>
   </table>
 
-  <hr>
-
-  <table class="table-main border" cellpadding="10" cellspacing="0">
+  <table class="table-main border" cellpadding="10" cellspacing="0" border="2">
     <thead>
       <tr>
         <td class="bold border">No.</td>

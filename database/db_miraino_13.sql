@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 17, 2022 at 05:06 PM
+-- Generation Time: Mar 16, 2022 at 06:00 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -153,8 +153,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `image`, `role_id`, `is_active`, `date_created`) VALUES
 (1, 'Eka Anas Jatnika', 'anasberkata', 'ideanasdesain@gmail.com', '$2y$10$bFHVog6BHgnix/bEaXCWZe/cIRvgOrdf5XIXfbxeezoA97w/A/fTq', 'anas.jpg', 1, 1, '2022-03-07'),
-(2, 'Admin', 'admin', 'admin@miraino.com', '$2y$10$.QkcSRy3CUv5b35/eiUZj.qUYhsFuZhuusZUWxOQGLvLhk25rry.O', 'admin.jpg', 2, 1, '2022-03-07'),
-(3, 'Manager 01', 'manager01', 'manager@miraino.com', '$2y$10$nIYCUd6de5ZpzZDAsdLE7eyhf0KdIYJuJPrZysJwRz9sKPzAm/68S', 'manager.jpg', 3, 1, '2022-03-07');
+(2, 'Manager 01', 'manager01', 'manager@miraino.com', '$2y$10$.QkcSRy3CUv5b35/eiUZj.qUYhsFuZhuusZUWxOQGLvLhk25rry.O', 'admin.jpg', 3, 1, '2022-03-07'),
+(3, 'Manager 01', 'manager01', 'manager@miraino.com', '$2y$10$nIYCUd6de5ZpzZDAsdLE7eyhf0KdIYJuJPrZysJwRz9sKPzAm/68S', 'manager.jpg', 2, 1, '2022-03-07');
 
 -- --------------------------------------------------------
 
