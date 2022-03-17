@@ -128,7 +128,7 @@ class Report extends CI_Controller
   }
 
 
-  // ---------------------------------------- MPDF ----------------------------------
+  // ---------------------------------------- MPDF ---------------------------------- //
   public function printPDF()
   {
     $data['report'] = $this->report->get_report();
@@ -173,5 +173,27 @@ class Report extends CI_Controller
 
     $mpdf->WriteHTML($page);
     $mpdf->Output('Laporan Pengeluaran.pdf', 'I');
+  }
+
+  // ---------------------------------------- EXPORT EXCEL ---------------------------------- //
+
+  public function exportExcel()
+  {
+    $data['report'] = $this->report->get_report();
+    $data['total'] = $this->report->sum_nominal();
+
+    $this->load->view('report/report_excel', $data);
+  }
+
+  public function exportExcel_search()
+  {
+    $tgl_awal = $this->input->get('tgl_awal', true);
+    $tgl_akhir = $this->input->get('tgl_akhir', true);
+    // $type = $this->input->post('jenis', true);
+
+    $data['report'] = $this->report->search_report($tgl_awal, $tgl_akhir);
+    $data['total'] = $this->report->sum_nominal_search($tgl_awal, $tgl_akhir);
+
+    $this->load->view('report/report_excel', $data);
   }
 }
