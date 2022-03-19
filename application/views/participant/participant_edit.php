@@ -29,11 +29,11 @@
                                 <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="address">Alamat</label>
                                 <input type="text" class="form-control" id="address" placeholder="Alamat Lengkap" name="address" value="<?= $participant->address; ?>" required>
                                 <?= form_error('address', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <label for="phone">Nomor Telepon (WA)</label>
@@ -46,9 +46,15 @@
                                 <input type="email" class="form-control" id="email" placeholder="Alamat Email" name="email" value="<?= $participant->email; ?>" required>
                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
+
+                            <div class="form-group">
+                                <label for="address">Alamat</label>
+                                <textarea class="form-control" id="address" rows="3" name="address"><?= $participant->address; ?></textarea>
+                                <?= form_error('address', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class=" col-md-6">
                             <div class="form-group">
                                 <label for="lang_level">Level Bahasa</label>
                                 <input type="text" class="form-control" id="lang_level" placeholder="Level Bahasa" name="lang_level" value="<?= $participant->lang_level; ?>" required>
@@ -61,7 +67,7 @@
                                 <?= form_error('ipk', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="program">Program</label>
                                 <select class="form-select" name="program" required>
                                     <option value="<?= $participant->program; ?>"><?= $participant->program; ?></option>
@@ -77,6 +83,23 @@
                                     <option value="Ryuugakusei">Ryuugakusei</option>
                                     <option value="Engineering">Engineering</option>
                                 </select>
+                            </div> -->
+
+                            <div class="form-group">
+                                <label for="program">Program</label>
+                                <input type="text" name="program" list="program" class="form-control" value="<?= $participant->program; ?>">
+                                <datalist id="program" class="form-datalist">
+                                    <option value="Magang Kontruksi">Magang Kontruksi</option>
+                                    <option value="Magang Perawat">Magang Perawat</option>
+                                    <option value="Magang Pertanian">Magang Pertanian</option>
+                                    <option value="Magang Pengolahan Makanan">Magang Pengolahan Makanan</option>
+                                    <option value="Tg Kontruksi">Tg Kontruksi</option>
+                                    <option value="Tg Perawat">Tg Perawat</option>
+                                    <option value="Tg Pertanian">Tg Pertanian</option>
+                                    <option value="Tg Pengolahan Makanan">Tg Pengolahan Makanan</option>
+                                    <option value="Ryuugakusei">Ryuugakusei</option>
+                                    <option value="Engineering">Engineering</option>
+                                </datalist>
                             </div>
 
                             <div class="form-group">
@@ -85,7 +108,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary w-100">Edit</button>
+                                <button type="submit" class="btn btn-primary w-100 mt-3">Edit</button>
                             </div>
                         </div>
                     </div>

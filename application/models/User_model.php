@@ -6,6 +6,8 @@ class User_model extends CI_Model
   {
     $this->db->select('*');
     $this->db->from('users');
+    $this->db->where('role_id', 2);
+    $this->db->or_where('role_id', 3);
     $query = $this->db->get();
     return $query;
   }

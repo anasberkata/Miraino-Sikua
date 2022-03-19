@@ -4,71 +4,99 @@ header("Content-Disposition: attachment; filename=Data Pengeluaran.xls");
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>Print</title>
+  <meta charset="UTF-8">
 
-  <!-- Style -->
   <style>
-    table {
+    .table-main {
       width: 100%;
+    }
+
+    .border {
+      border: 1px solid black;
+    }
+
+    thead {
+      font-weight: bold;
+    }
+
+    .bold {
+      font-weight: bold;
     }
 
     .thead {
       padding: 20px 10px;
-      font-weight: bold;
     }
 
-    table,
-    tr,
-    td {
-      border: 1px solid;
-    }
-
-    td {
-      padding: 10px;
-    }
-
-    td.total {
-      font-weight: bold;
-      text-align: right;
+    hr {
+      margin: 20px 0px;
     }
   </style>
+
+  <title>Print</title>
+  <link rel="shortcut icon" href="<?= base_url('assets/'); ?>images/favicon.png" type="image/x-icon">
 </head>
 
 <body>
 
-  <center>
-    <h2>DATA LAPORAN PENGELUARAN PT. MIRAINO HASHI JAYA</h2>
-  </center>
+  <table cellpadding="10">
+    <tr>
+      <td>
+        <img src="<?= base_url('assets/'); ?>images/logo/Logo MHJ Web.png" class="logo-print m-auto" width="100">
+      </td>
+      <td>
+        <h4 class="card-title pt-2 title-print">Data Pengeluaran - PT Miraino Hashi Jaya</h4>
+        <p>Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005 Ds. Satria Jaya, Kec. Tambun Utara Kode pos 17510</p>
+        <p>E-Mail : lpkmirainohashijaya@gmail.com || Phone : +62 815-1307-1589</p>
+      </td>
+    </tr>
+  </table>
 
-  <table>
+  <hr>
+
+  <table class="table-main border" cellpadding="10" cellspacing="0">
     <thead>
       <tr>
-        <td class="thead">No.</td>
-        <td class="thead">Jenis Pengeluaran</td>
-        <td class="thead">Tanggal Pembayaran</td>
-        <td class="thead">Nominal</td>
+        <td class="bold border">No.</td>
+        <td class="bold border">Jenis Pengeluaran</td>
+        <td class="bold border">Tanggal Pembayaran</td>
+        <td class="bold border">Nominal</td>
       </tr>
     </thead>
     <tbody>
       <?php $i = 1; ?>
       <?php foreach ($report->result() as $re) : ?>
         <tr>
-          <td><?= $i; ?></td>
-          <td><?= $re->output_type; ?></td>
-          <td><?= date('d F Y', strtotime($re->date_payment)); ?></td>
-          <td>Rp. <?= number_format($re->nominal, 2, ',', '.'); ?></td>
+          <td class="border"><?= $i; ?></td>
+          <td class="border"><?= $re->output_type; ?></td>
+          <td class="border"><?= date('d F Y', strtotime($re->date_payment)); ?></td>
+          <td class="border">Rp. <?= number_format($re->nominal, 2, ',', '.'); ?></td>
         </tr>
         <?php $i++; ?>
       <?php endforeach; ?>
       <tr>
-        <td colspan="3" class="total">Jumlah</td>
-        <td>Rp. <?= number_format($total->total, 2, ',', '.'); ?></td>
+        <td colspan="3" class="bold border">Jumlah</td>
+        <td class="bold border">Rp. <?= number_format($total->total, 2, ',', '.'); ?></td>
       </tr>
     </tbody>
   </table>
+
+  <br>
+
+  <table style="width: 100%;">
+    <tr>
+      <td width="25%"></td>
+      <td width="25%"></td>
+      <td width="25%"></td>
+      <td width="25%">Penanggung Jawab
+        <br><br><br><br><br>
+        ______________________
+      </td>
+    </tr>
+  </table>
+
 </body>
 
 </html>

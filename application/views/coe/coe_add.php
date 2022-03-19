@@ -31,7 +31,7 @@
                 <input type="date" class="form-control" id="date" name="issue_date" required>
               </div>
 
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label for="program">Program</label>
                 <select class="form-select" name="program" required>
                   <option value="Magang Kontruksi">Magang Kontruksi</option>
@@ -46,6 +46,23 @@
                   <option value="Ryuugakusei">Ryuugakusei</option>
                   <option value="Engineering">Engineering</option>
                 </select>
+              </div> -->
+
+              <div class="form-group">
+                <label for="program">Program</label>
+                <input type="text" name="program" list="program" class="form-control">
+                <datalist id="program" class="form-datalist">
+                  <option value="Magang Kontruksi">Magang Kontruksi</option>
+                  <option value="Magang Perawat">Magang Perawat</option>
+                  <option value="Magang Pertanian">Magang Pertanian</option>
+                  <option value="Magang Pengolahan Makanan">Magang Pengolahan Makanan</option>
+                  <option value="Tg Kontruksi">Tg Kontruksi</option>
+                  <option value="Tg Perawat">Tg Perawat</option>
+                  <option value="Tg Pertanian">Tg Pertanian</option>
+                  <option value="Tg Pengolahan Makanan">Tg Pengolahan Makanan</option>
+                  <option value="Ryuugakusei">Ryuugakusei</option>
+                  <option value="Engineering">Engineering</option>
+                </datalist>
               </div>
             </div>
 

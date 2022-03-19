@@ -8,6 +8,14 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- NUNITO OFFLINE -->
+  <style type="text/css">
+    @font-face {
+      font-family: "Nunito";
+      src: url("<?= base_url('assets/'); ?>fonts/Nunito/static/Nunito-Regular.ttf");
+    }
+  </style>
+
   <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/bootstrap.css">
 
   <!-- icon -->

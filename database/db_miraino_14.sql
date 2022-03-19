@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 19, 2022 at 04:16 PM
+-- Generation Time: Mar 17, 2022 at 05:06 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -50,9 +50,7 @@ INSERT INTO `participants` (`id`, `name`, `address`, `phone`, `email`, `lang_lev
 (2, 'Eka Anas Jatnika', 'Sarijadi Blok 24 No. 80 Bandung', '085156334607', 'ideanasdesain@gmail.com', 'Excellent', '3.83', 'Engineering', '2022-03-09', '0000-00-00', 1),
 (3, 'Dela Sri Faujiah', 'Cianjur', '088177651671', 'dela@gmail.com', 'Good', '3.83', 'Ryuugakusei', '2022-03-09', '0000-00-00', 1),
 (4, 'Azka Siti Muzakiyah', 'Protanmas Samolo Indah Blok C5 No 15', '085156334607', 'azka@gmail.com', 'Good', '3.83', 'Engineering', '2022-03-09', '0000-00-00', 1),
-(9, 'Muhamad Fajriansyah', 'Cibeber Cianjur', '08928176276', 'fajrihacker@gmail.com', 'God', '3.21', 'Ryuugakusei', '2022-03-10', '2022-03-10', 1),
-(11, 'Eross Chandra', 'Yogyakarta', '0898747586478', 'eross@gmail.com', 'good', '3.00', 'Desainer', '2022-03-18', '2022-03-19', 1),
-(12, 'Rio Ferdinan', 'cianjur', '098781761761', 'Rio@gmail.com', 'Good', '3.45', 'Desainer', '2022-03-17', '2022-03-19', 1);
+(9, 'Muhamad Fajriansyah', 'Cibeber Cianjur', '08928176276', 'fajrihacker@gmail.com', 'God', '3.21', 'Ryuugakusei', '2022-03-10', '2022-03-10', 1);
 
 -- --------------------------------------------------------
 
@@ -79,8 +77,7 @@ CREATE TABLE `participants_coe` (
 INSERT INTO `participants_coe` (`id`, `name`, `issue_date`, `program`, `kumiai_name`, `office_name`, `placement`, `date_created`, `is_active`) VALUES
 (1, 'Anas Berkata Aja', '2022-03-10', 'Engineering', 'Saturasi', 'Saturasi', 'Bandung', '2022-03-10', 1),
 (3, 'M Fajriansyah', '2022-03-10', 'Tg Perawat', 'Saturasi', 'Saturasi', 'Bandung', '2022-03-10', 1),
-(5, 'Kakap Merah & Kakap Putih', '2022-03-12', 'Tg Pertanian', 'Kumiai', 'Kumiai', 'Cianjur', '2022-03-10', 1),
-(7, 'Hamdani Supratman', '2022-03-05', 'Magang Pabrik Kerupuk', 'Kerupuk Udang', 'Kerupuk Udang', 'Bandung', '2022-03-19', 1);
+(5, 'Kakap Merah & Kakap Putih', '2022-03-12', 'Tg Pertanian', 'Kumiai', 'Kumiai', 'Cianjur', '2022-03-10', 1);
 
 -- --------------------------------------------------------
 
@@ -130,9 +127,7 @@ CREATE TABLE `report` (
 INSERT INTO `report` (`id`, `output_type`, `nominal`, `date_payment`, `date_created`, `is_active`) VALUES
 (1, 'Gaji', 4500000, '2022-03-11', '2022-03-11', 1),
 (2, 'Internet', 1500000, '2022-03-11', '2022-03-10', 1),
-(5, 'Hospitalist', 300000, '2022-02-01', '2022-03-16', 1),
-(6, 'Uang Makan', 200000, '2022-03-19', '2022-03-19', 1),
-(7, 'Iuran Wajib Lingkungan (RT/Sampah)', 30000, '2022-02-17', '2022-03-19', 1);
+(5, 'Hospitalist', 300000, '2022-02-01', '2022-03-16', 1);
 
 -- --------------------------------------------------------
 
@@ -328,13 +323,13 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `participants`
 --
 ALTER TABLE `participants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `participants_coe`
 --
 ALTER TABLE `participants_coe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -346,7 +341,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
