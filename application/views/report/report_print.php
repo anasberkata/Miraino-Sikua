@@ -27,6 +27,7 @@
 
     hr {
       margin: 20px 0px;
+      border-top: 3px double #000000;
     }
   </style>
 
@@ -38,13 +39,17 @@
 
   <table cellpadding="10">
     <tr>
-      <td>
+      <td width="15%"></td>
+      <td width="20%">
         <img src="<?= base_url('assets/'); ?>images/logo/Logo MHJ Web.png" class="logo-print m-auto" width="100">
       </td>
-      <td>
-        <h4 class="card-title pt-2 title-print">Data Pengeluaran - PT Miraino Hashi Jaya</h4>
-        <p>Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005 Ds. Satria Jaya, Kec. Tambun Utara Kode pos 17510</p>
-        <p>E-Mail : lpkmirainohashijaya@gmail.com || Phone : +62 815-1307-1589</p>
+      <td width="50%" style="text-align:center;">
+        <h2 class="card-title pt-2 title-print">PT. MIRAINO HASHI JAYA</h2>
+        <p>Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005 Kel. Satria Jaya, Kec. Tambun Utara Kode Pos 17510</p>
+        <p>Telp : 021-29088491, +6281327417947, +6281380229688</p>
+        <p>Website : www.mirainohashi.co.id</p>
+      </td width="">
+      <td width="15%">
       </td>
     </tr>
   </table>

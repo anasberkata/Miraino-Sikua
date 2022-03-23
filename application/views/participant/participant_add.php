@@ -79,17 +79,17 @@
               <div class="form-group">
                 <label for="program">Program</label>
                 <input type="text" name="program" list="program" class="form-control">
-                <datalist id="program" class="form-datalist">
-                  <option value="Magang Kontruksi">Magang Kontruksi</option>
-                  <option value="Magang Perawat">Magang Perawat</option>
-                  <option value="Magang Pertanian">Magang Pertanian</option>
-                  <option value="Magang Pengolahan Makanan">Magang Pengolahan Makanan</option>
-                  <option value="Tg Kontruksi">Tg Kontruksi</option>
-                  <option value="Tg Perawat">Tg Perawat</option>
-                  <option value="Tg Pertanian">Tg Pertanian</option>
-                  <option value="Tg Pengolahan Makanan">Tg Pengolahan Makanan</option>
-                  <option value="Ryuugakusei">Ryuugakusei</option>
-                  <option value="Engineering">Engineering</option>
+                <datalist id="program">
+                  <option value="Magang Kontruksi">
+                  <option value="Magang Perawat">
+                  <option value="Magang Pertanian">
+                  <option value="Magang Pengolahan Makanan">
+                  <option value="Tg Kontruksi">
+                  <option value="Tg Perawat">
+                  <option value="Tg Pertanian">
+                  <option value="Tg Pengolahan Makanan">
+                  <option value="Ryuugakusei">
+                  <option value="Engineering">
                 </datalist>
               </div>
 

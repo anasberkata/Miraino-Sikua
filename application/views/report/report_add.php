@@ -21,27 +21,32 @@
           <div class="row">
             <div class="col-md">
               <div class="form-group">
-                <label for="program">Jenis Pengeluaran</label>
-                <select class="form-select" name="output_type" required>
-                  <option value="Gaji">Gaji</option>
-                  <option value="Uang Makan">Uang Makan</option>
-                  <option value="Biaya Sewa">Biaya Sewa</option>
-                  <option value="Biaya Listrik">Biaya Listrik
-                  </option>
-                  <option value="Internet">Internet</option>
-                  <option value="Biaya Air">Biaya Air</option>
-                  <option value="ATK">ATK</option>
-                  <option value="Iuran Wajib Lingkungan (RT/Sampah)">Iuran Wajib Lingkungan (RT/Sampah)</option>
-                  <option value="Pantry">Pantry</option>
-                  <option value="Hospitalist">Hospitalist</option>
-                  <option value="Transport Lokal">Transport Lokal</option>
-                  <option value="Service">Service</option>
-                  <option value="Fotocopy">Fotocopy</option>
-                  <option value="Promosi & Brosur">Promosi & Brosur</option>
-                  <option value="Perbaikan">Perbaikan</option>
-                  <option value="Entertaint">Entertaint</option>
-                  <option value="THR">THR</option>
-                </select>
+                <label for="output_type">Jenis Pengeluaran</label>
+                <input type="text" name="output_type" list="output_type" class="form-control">
+                <datalist id="output_type">
+                  <option value="Gaji">
+                  <option value="Uang Makan">
+                  <option value="Uang Makan Karyawan">
+                  <option value="Konsumsi">
+                  <option value="Biaya Sewa">
+                  <option value="Biaya Listrik">
+                  <option value="Internet">
+                  <option value="Biaya Air">
+                  <option value="ATK">
+                  <option value="Iuran Wajib Lingkungan (RT/Sampah)">
+                  <option value="Pantry">
+                  <option value="Hospitalist">
+                  <option value="Transport Lokal">
+                  <option value="Transport Luar Negeri">
+                  <option value="Service">
+                  <option value="Maintenance">
+                  <option value="Pengiriman Dokumen">
+                  <option value="Fotocopy">
+                  <option value="Promosi & Brosur">
+                  <option value="Perbaikan">
+                  <option value="Entertaint">
+                  <option value="THR">
+                </datalist>
               </div>
 
               <div class="form-group">

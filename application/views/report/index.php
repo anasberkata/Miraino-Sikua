@@ -5,17 +5,21 @@
 
       <div class="card-header">
         <div class="row">
-          <div class="col">
+          <div class="col-12 col-lg-8">
             <h4 class="card-title pt-2">Data Pengeluaran</h4>
           </div>
-          <div class="col">
+          <div class="col-12 col-lg-4">
             <?php if ($user['role_id'] == 3) : ?>
               <!-- Tombol Tambah Hilang -->
             <?php else : ?>
-              <a href="<?= base_url('report/report_add_page'); ?>" class='btn btn-primary float-end icon'>
+              <a href="<?= base_url('report/report_add_page'); ?>" class='btn btn-primary icon'>
                 <span>Tambah Data</span>
               </a>
             <?php endif; ?>
+            <div class="btn-group float-end w-50" role="button">
+              <a href="<?= base_url('report/printPDF') ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
+              <a href="<?= base_url('report/exportExcel') ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
+            </div>
           </div>
         </div>
       </div>
@@ -24,58 +28,47 @@
 
         <?= $this->session->flashdata('message'); ?>
 
-        <div class="row">
-          <div class="col-lg-10">
-            <form action="<?= base_url('report/report_search'); ?>" method="post">
-              <div class=" row">
-                <div class="col-lg-5">
-                  <div class="form-group row align-items-center">
-                    <div class="col-lg-3 col-3">
-                      <label class="col-form-label">Tanggal</label>
-                    </div>
-                    <div class="col-lg-9 col-9">
-                      <input type="date" class="form-control" name="tgl_awal" value="<?php $format = "%Y-%m-%d";
-                                                                                      if (!$_POST) {
-                                                                                        echo mdate($format);
-                                                                                      } else {
-                                                                                        echo $_POST['tgl_awal'];
-                                                                                      } ?>">
-                    </div>
-                  </div>
-                </div>
+        <form action="<?= base_url('report/report_search'); ?>" method="post">
+          <div class=" row">
+            <div class="col-lg-4">
 
-                <div class="col-lg-5">
-                  <div class="form-group row align-items-center">
-                    <div class="col-lg-3 col-3">
-                      <label class="col-form-label">Sampai</label>
-                    </div>
-                    <div class="col-lg-9 col-9">
-                      <input type="date" class="form-control" name="tgl_akhir" value="<?php $format = "%Y-%m-%d";
-                                                                                      if (!$_POST) {
-                                                                                        echo mdate($format);
-                                                                                      } else {
-                                                                                        echo $_POST['tgl_akhir'];
-                                                                                      } ?>">
-                    </div>
-                  </div>
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-3">
+                  <label class="col-form-label">Tanggal</label>
                 </div>
-
-                <div class="col-lg-2">
-                  <div class="form-group align-items-center">
-                    <button type="submit" class="btn btn-primary w-100" name="submit"><i class="icon dripicons-search"></i></button>
-                  </div>
+                <div class="col-lg-9 col-9">
+                  <input type="date" class="form-control" name="tgl_awal">
                 </div>
               </div>
-            </form>
-          </div>
+            </div>
 
-          <div class="col-lg-2">
-            <div class="btn-group w-100" role="button">
-              <a href="<?= base_url('report/printPDF') ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
-              <a href="<?= base_url('report/exportExcel') ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
+            <div class="col-lg-4">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-3">
+                  <label class="col-form-label">Sampai</label>
+                </div>
+                <div class="col-lg-9 col-9">
+                  <input type="date" class="form-control" name="tgl_akhir">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3">
+              <div class="form-group row align-items-center">
+                <div class="col">
+                  <input type="text" class="form-control" name="jenis" placeholder="Jenis Pengeluaran">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1">
+              <div class="form-group align-items-center">
+                <button type="submit" class="btn btn-primary w-100" name="submit"><i class="icon dripicons-search"></i></button>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
+
 
         <table class="table table-striped small" id="table1">
           <thead>

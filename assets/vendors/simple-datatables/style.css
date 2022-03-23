@@ -2,7 +2,6 @@
 	border-top: 1px solid #d9d9d9;
 }
 
-
 .dataTable-top,
 .dataTable-bottom {
 	padding: 8px 10px;
@@ -26,6 +25,9 @@
 	margin: 7px 0;
 }
 
+.dataTable-search {
+	display: none;
+}
 
 .dataTable-pagination a {
 	border: 1px solid transparent;
@@ -73,7 +75,6 @@
 	border-spacing: 0;
 	border-collapse: separate;
 }
-
 
 .dataTable-table > tfoot > tr > th {
 	vertical-align: bottom;
@@ -130,7 +131,8 @@
 	text-align: center;
 }
 
-.dataTable-top::after, .dataTable-bottom::after {
+.dataTable-top::after,
+.dataTable-bottom::after {
 	clear: both;
 	content: " ";
 	display: table;

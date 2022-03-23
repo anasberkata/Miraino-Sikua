@@ -30,16 +30,21 @@ class Report extends CI_Controller
     $data['title'] = 'Laporan Keuangan';
     $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
 
-    $tgl_awal = $this->input->post('tgl_awal', true);
-    $tgl_akhir = $this->input->post('tgl_akhir', true);
-    // $type = $this->input->post('jenis', true);
+    $tgl_awal = $this->input->post('tgl_awal');
+    $tgl_akhir = $this->input->post('tgl_akhir');
+    $jenis = $this->input->post('jenis');
 
-    $data['report'] = $this->report->search_report($tgl_awal, $tgl_akhir);
+    if (!$this->input->post('jenis')) {
+      $data['report'] = $this->report->search_date_report($tgl_awal, $tgl_akhir);
+    } else if (!$this->input->post('tgl_awal') && !$this->input->post('tgl_akhir')) {
+      $data['report'] = $this->report->search_type_report($jenis);
+    } else {
+      $data['report'] = $this->report->search_all_report($tgl_awal, $tgl_akhir, $jenis);
+    }
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
     $this->load->view('report/report_search', $data);
-    // $this->load->view('report/index', $data);
     $this->load->view('templates/footer');
   }
 
@@ -152,12 +157,32 @@ class Report extends CI_Controller
 
   public function printPDF_search()
   {
-    $tgl_awal = $this->input->get('tgl_awal', true);
-    $tgl_akhir = $this->input->get('tgl_akhir', true);
-    // $type = $this->input->post('jenis', true);
+    // $tgl_awal = $this->input->get('tgl_awal', true);
+    // $tgl_akhir = $this->input->get('tgl_akhir', true);
+    // // $type = $this->input->post('jenis', true);
 
-    $data['report'] = $this->report->search_report($tgl_awal, $tgl_akhir);
-    $data['total'] = $this->report->sum_nominal_search($tgl_awal, $tgl_akhir);
+    // $data['report'] = $this->report->search_report($tgl_awal, $tgl_akhir);
+
+
+    $tgl_awal = $this->input->get('tgl_awal');
+    $tgl_akhir = $this->input->get('tgl_akhir');
+    $jenis = $this->input->get('jenis');
+
+    if (!$this->input->get('jenis')) {
+      $data['report'] = $this->report->search_date_report($tgl_awal, $tgl_akhir);
+    } else if (!$this->input->get('tgl_awal') && !$this->input->get('tgl_akhir')) {
+      $data['report'] = $this->report->search_type_report($jenis);
+    } else {
+      $data['report'] = $this->report->search_all_report($tgl_awal, $tgl_akhir, $jenis);
+    }
+
+    if (!$this->input->get('jenis')) {
+      $data['total'] = $this->report->sum_nominal_date_search($tgl_awal, $tgl_akhir);
+    } else if (!$this->input->get('tgl_awal') && !$this->input->get('tgl_akhir')) {
+      $data['total'] = $this->report->sum_nominal_type_search($jenis);
+    } else {
+      $data['total'] = $this->report->sum_nominal_all_search($tgl_awal, $tgl_akhir, $jenis);
+    }
 
     $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
     $mpdf->SetHTMLFooter('

@@ -24,6 +24,37 @@
 
         <?= $this->session->flashdata('message'); ?>
 
+        <div class="row">
+          <div class="col-lg-10">
+            <form action="<?= base_url('payment/payment_search'); ?>" method="post">
+              <div class=" row">
+                <div class="col-lg-8">
+                  <div class="form-group row align-items-center">
+                    <div class="col-lg-3 col-4">
+                      <label class="col-form-label">Cari Nama</label>
+                    </div>
+                    <div class="col-lg-9 col-8">
+                      <input type="text" class="form-control" name="name">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                  <div class="form-group align-items-center">
+                    <button type="submit" class="btn btn-primary w-100" name="submit"><i class="icon dripicons-search"></i></button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="btn-group w-100" role="button">
+              <a href="<?= base_url('payment/printPDF') ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
+              <a href="<?= base_url('payment/exportExcel') ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
+            </div>
+          </div>
+        </div>
+
         <table class="table table-striped small" id="table1">
           <thead>
             <tr>
