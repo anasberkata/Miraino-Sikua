@@ -14,7 +14,8 @@
 
 .dataTable-top > div:last-child,
 .dataTable-bottom > div:last-child {
-	float: right;
+	/* float: right; */
+	float: left;
 }
 
 .dataTable-input {

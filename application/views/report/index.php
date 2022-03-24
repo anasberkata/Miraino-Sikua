@@ -16,6 +16,7 @@
                 <span>Tambah Data</span>
               </a>
             <?php endif; ?>
+
             <div class="btn-group float-end w-50" role="button">
               <a href="<?= base_url('report/printPDF') ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
               <a href="<?= base_url('report/exportExcel') ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
@@ -31,7 +32,6 @@
         <form action="<?= base_url('report/report_search'); ?>" method="post">
           <div class=" row">
             <div class="col-lg-4">
-
               <div class="form-group row align-items-center">
                 <div class="col-lg-3 col-3">
                   <label class="col-form-label">Tanggal</label>

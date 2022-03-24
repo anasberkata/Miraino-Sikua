@@ -23,7 +23,7 @@
 <script>
   // Simple Datatable
   let table1 = document.querySelector('#table1');
-  let dataTable = new simpleDatatables.DataTable(table1);
+  let dataTable = new simpleDatatables.DataTable(table1, {searchable: false});
 </script>
 
 <script src="<?= base_url('assets/'); ?>js/mazer.js"></script>

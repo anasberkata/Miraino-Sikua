@@ -1,18 +1,7 @@
 <?php
 class Payment_model extends CI_Model
 {
-
-  function count_payment()
-  {
-    $this->db->select_sum('nominal');
-    $query = $this->db->get('payment');
-    if ($query->num_rows() > 0) {
-      return $query->row()->nominal;
-    } else {
-      return 0;
-    }
-  }
-
+  // Menampilkan Semua Data Payment
   function get_payment()
   {
     $this->db->select('*');
@@ -21,12 +10,14 @@ class Payment_model extends CI_Model
     return $query;
   }
 
+  // Menampilkan Detail Payment
   function details_payment($id = NULL)
   {
     $query = $this->db->get_where('payment', ['id' => $id])->row();
     return $query;
   }
 
+  // Menambah Payment
   function save_payment($data)
   {
     $this->db->insert('payment', $data);
@@ -34,6 +25,7 @@ class Payment_model extends CI_Model
     redirect('payment');
   }
 
+  // Mengedit Payment
   function update_payment($data, $id)
   {
     $this->db->where('id', $id);
@@ -45,11 +37,56 @@ class Payment_model extends CI_Model
     redirect('payment/payment_edit_page/' . $id);
   }
 
+  // Menghapus Payment
   function delete_payment($id)
   {
     $this->db->where('id', $id);
     $this->db->delete('payment');
 
     return true;
+  }
+
+
+  // ------------------------------------------ COUNT ------------------------------------ //
+
+  // Menghitung Jumlah Data
+  function count_payment()
+  {
+    $this->db->select_sum('nominal');
+    $query = $this->db->get('payment');
+    if ($query->num_rows() > 0) {
+      return $query->row()->nominal;
+    } else {
+      return 0;
+    }
+  }
+
+  // Menghitung Total
+  function sum_nominal()
+  {
+    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment`");
+    // $query = $this->db->get();
+    return $query->row();
+  }
+
+  function sum_nominal_search($name)
+  {
+    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment` WHERE `name` LIKE '$name%'");
+    // $query = $this->db->get();
+    return $query->row();
+  }
+
+
+
+
+  // ------------------------------------------ SEARCH ------------------------------------ //
+
+  // Mencari Data Berdasarkan Nama
+  function search_name_payment($name)
+  {
+    // $cari = strpos('name', $name);
+    $query = $this->db->query("SELECT * FROM `payment` WHERE `name` LIKE '$name%' ORDER BY `date_payment` DESC");
+
+    return $query;
   }
 }

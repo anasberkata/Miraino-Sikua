@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Payment extends CI_Controller
 {
-
   public function __construct()
   {
     parent::__construct();
@@ -22,6 +21,20 @@ class Payment extends CI_Controller
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
     $this->load->view('payment/index', $data);
+    $this->load->view('templates/footer');
+  }
+
+  public function payment_search()
+  {
+    $data['title'] = 'Data Keuangan';
+    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+
+    $name = $this->input->post('name');
+    $data['payment'] = $this->payment->search_name_payment($name);
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar', $data);
+    $this->load->view('payment/payment_search', $data);
     $this->load->view('templates/footer');
   }
 
@@ -121,5 +134,71 @@ class Payment extends CI_Controller
 
     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
     redirect('payment/');
+  }
+
+  // ---------------------------------------- MPDF ---------------------------------- //
+  public function printPDF()
+  {
+    $data['payment'] = $this->payment->get_payment();
+    $data['total'] = $this->payment->sum_nominal();
+
+    $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
+    $mpdf->SetHTMLFooter('
+            <table width="100%" style="font-size:9;">
+                <tr>
+                    <td width="33%">{DATE j-m-Y}</td>
+                    <td width="33%" align="center">{PAGENO}/{nbpg}</td>
+                    <td width="33%" style="text-align: right;">Data Keuangan PT. Miraino Hashi Jaya</td>
+                </tr>
+            </table>');
+
+    $page = $this->load->view('payment/payment_print', $data, TRUE);
+
+    $mpdf->WriteHTML($page);
+    $mpdf->Output('Data Keuangan.pdf', 'I');
+  }
+
+
+  public function printPDF_search()
+  {
+    $jenis = $this->input->get('name');
+
+    $data['payment'] = $this->payment->search_name_payment($jenis);
+    $data['total'] = $this->payment->sum_nominal_search($jenis);
+
+    $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
+    $mpdf->SetHTMLFooter('
+            <table width="100%" style="font-size: 9pt;">
+                <tr>
+                    <td width="33%">{DATE j F Y}</td>
+                    <td width="33%" align="center">{PAGENO}/{nbpg}</td>
+                    <td width="33%" style="text-align: right;">Data Keuangan PT. Miraino Hashi Jaya</td>
+                </tr>
+            </table>');
+
+    $page = $this->load->view('payment/payment_print', $data, TRUE);
+
+    $mpdf->WriteHTML($page);
+    $mpdf->Output('Data Pengeluaran.pdf', 'I');
+  }
+
+  // ---------------------------------------- EXPORT EXCEL ---------------------------------- //
+
+  public function exportExcel()
+  {
+    $data['payment'] = $this->payment->get_payment();
+    $data['total'] = $this->payment->sum_nominal();
+
+    $this->load->view('payment/payment_excel', $data);
+  }
+
+  public function exportExcel_search()
+  {
+    $jenis = $this->input->get('name');
+
+    $data['payment'] = $this->payment->search_name_payment($jenis);
+    $data['total'] = $this->payment->sum_nominal_search($jenis);
+
+    $this->load->view('payment/payment_excel', $data);
   }
 }

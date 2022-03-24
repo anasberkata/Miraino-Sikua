@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 24, 2022 at 03:29 PM
+-- Generation Time: Mar 24, 2022 at 03:03 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -106,8 +106,7 @@ CREATE TABLE `payment` (
 
 INSERT INTO `payment` (`id`, `name`, `program`, `date_payment`, `person_responsible`, `nominal`, `description`, `date_created`, `is_active`) VALUES
 (1, 'Anas Berkata', 'Engineering', '2022-03-10', 'Dela', 300000, 'Pendaftaran', '2022-03-10', 1),
-(2, 'Didin Rohidin', 'Magang Pengolahan Makanan', '2022-03-10', 'Dela', 350000, 'SPP Juni', '2022-03-10', 1),
-(4, 'Anas Berkata', 'Engineering', '2022-03-24', 'Dela', 500000, 'Konsumsi Lunas', '2022-03-24', 1);
+(2, 'Didin Rohidin', 'Magang Pengolahan Makanan', '2022-03-10', 'Dela', 350000, 'SPP Juni', '2022-03-10', 1);
 
 -- --------------------------------------------------------
 
@@ -343,7 +342,7 @@ ALTER TABLE `participants_coe`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `report`

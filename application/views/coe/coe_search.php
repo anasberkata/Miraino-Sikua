@@ -6,20 +6,20 @@
       <div class="card-header">
         <div class="row">
           <div class="col-12 col-lg-8">
-            <h4 class="card-title pt-2">Data Keuangan</h4>
+            <h4 class="card-title pt-2">Data Peserta CoE</h4>
           </div>
           <div class="col-12 col-lg-4">
             <?php if ($user['role_id'] == 3) : ?>
               <!-- Tombol Tambah Hilang -->
             <?php else : ?>
-              <a href="<?= base_url('payment/payment_add_page'); ?>" class='btn btn-primary icon'>
+              <a href="<?= base_url('coe/coe_add_page'); ?>" class='btn btn-primary icon'>
                 <span>Tambah Data</span>
               </a>
             <?php endif; ?>
 
             <div class="btn-group w-50 float-end" role="button">
-              <a href="<?= base_url('payment/printPDF') ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
-              <a href="<?= base_url('payment/exportExcel') ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
+              <a href="<?= base_url('coe/printPDF_search') ?>/?kumiai_name=<?= $_POST['kumiai_name']; ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
+              <a href="<?= base_url('coe/exportExcel_search') ?>/?kumiai_name=<?= $_POST['kumiai_name']; ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
             </div>
           </div>
         </div>
@@ -29,15 +29,15 @@
 
         <?= $this->session->flashdata('message'); ?>
 
-        <form action="<?= base_url('payment/payment_search'); ?>" method="post">
+        <form action="<?= base_url('coe/coe_search'); ?>" method="post">
           <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-6">
               <div class="form-group row align-items-center">
                 <div class="col-lg-4 col-4">
-                  <label class="col-form-label">Cari Nama</label>
+                  <label class="col-form-label">Nama Kumiai</label>
                 </div>
                 <div class="col-lg-8 col-8">
-                  <input type="text" class="form-control" name="name">
+                  <input type="text" class="form-control" name="kumiai_name" value="<?= $_POST['kumiai_name'] ?>">
                 </div>
               </div>
             </div>
@@ -56,57 +56,46 @@
               <th>No.</th>
               <th>Name</th>
               <th>Program</th>
-              <th>Tanggal Pembayaran</th>
-              <th>Penanggung Jawab</th>
-              <th>Nominal</th>
-              <th>Keterangan</th>
-              <?php if ($user['role_id'] == 3) : ?>
-                <!-- Aksi Hilang -->
-              <?php else : ?>
-                <th>Opsi</th>
-              <?php endif; ?>
-
+              <th>Nama Kumiai</th>
+              <th>Opsi</th>
             </tr>
           </thead>
           <tbody>
+
             <?php $i = 1; ?>
-            <?php foreach ($payment->result() as $pay) : ?>
+            <?php foreach ($coe->result() as $prt) : ?>
               <tr>
                 <td><?= $i; ?></td>
-                <td><?= $pay->name; ?></td>
-                <td><?= $pay->program; ?></td>
-                <td><?= date('d F Y', strtotime($pay->date_payment)); ?></td>
-                <td><?= $pay->person_responsible; ?></td>
-                <td>Rp. <?= number_format($pay->nominal, 2, ',', '.'); ?></td>
-                <td><?= $pay->description; ?></td>
-
-                <?php if ($user['role_id'] == 3) : ?>
-                  <!-- Aksi Hilang -->
-                <?php else : ?>
-                  <td>
-                    <a href="<?= base_url('payment/payment_edit_page/') . $pay->id ?>"><span class="badge bg-warning">Edit</span></a>
-                    <br>
-                    <a href="" data-bs-toggle="modal" data-bs-target="#danger<?= $pay->id ?>"><span class="badge bg-danger">Hapus</span></a>
+                <td><?= $prt->name; ?></td>
+                <td><?= $prt->program; ?></td>
+                <td><?= $prt->kumiai_name; ?></td>
+                <td>
+                  <a href="<?= base_url('coe/coe_detail/') . $prt->id ?>"><span class="badge bg-success">Detail</span></a>
+                  <?php if ($user['role_id'] == 3) : ?>
+                    <!-- Aksi Hilang -->
+                  <?php else : ?>
+                    <a href="<?= base_url('coe/coe_edit_page/') . $prt->id ?>"><span class="badge bg-warning">Edit</span></a>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#danger<?= $prt->id ?>"><span class="badge bg-danger">Hapus</span></a>
 
                     <!-- Modal Hapus -->
                     <div class="modal-danger me-1 mb-1 d-inline-block">
-                      <div class="modal fade text-left" id="danger<?= $pay->id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
+                      <div class="modal fade text-left" id="danger<?= $prt->id ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                           <div class="modal-content">
 
 
                             <div class="modal-header bg-danger">
-                              <h5 class="modal-title white" id="myModalLabel120">Hapus Data Keuangan Peserta <?= $pay->name; ?></h5>
+                              <h5 class="modal-title white" id="myModalLabel120">Hapus Peserta <?= $prt->name; ?></h5>
                               <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                 <i data-feather="x"></i>
                               </button>
                             </div>
                             <div class="modal-body">
-                              Yakin ingin menghapus data keuangan peserta <?= $pay->name ?>!
+                              Yakin ingin menghapus data peserta <?= $prt->name ?>!
                             </div>
-                            <form class="form-horizontal" method="post" action="<?= base_url('payment/payment_delete') ?>">
+                            <form class="form-horizontal" method="post" action="<?= base_url('coe/coe_delete') ?>">
                               <div class="modal-footer">
-                                <input type="hidden" name="id" value="<?= $pay->id; ?>">
+                                <input type="hidden" name="id" value="<?= $prt->id; ?>">
                                 <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal" aria-hidden="true">
                                   <i class="bx bx-x d-block d-sm-none"></i>
                                   <span class="d-none d-sm-block">Batal</span>
@@ -123,13 +112,12 @@
                         </div>
                       </div>
                     </div>
-
-
-                  </td>
-                <?php endif; ?>
+                  <?php endif; ?>
+                </td>
               </tr>
               <?php $i++; ?>
             <?php endforeach; ?>
+
           </tbody>
         </table>
       </div>

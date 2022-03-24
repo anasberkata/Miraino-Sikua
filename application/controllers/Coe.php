@@ -37,6 +37,20 @@ class Coe extends CI_Controller
     $this->load->view('templates/footer');
   }
 
+  public function coe_search()
+  {
+    $data['title'] = 'Peserta CoE';
+    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+
+    $kumiai_name = $this->input->post('kumiai_name');
+    $data['coe'] = $this->coe->search_kumiai_coe($kumiai_name);
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar', $data);
+    $this->load->view('coe/coe_search', $data);
+    $this->load->view('templates/footer');
+  }
+
   public function coe_add_page()
   {
     $data['title'] = 'Peserta CoE';
@@ -133,5 +147,65 @@ class Coe extends CI_Controller
 
     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Peserta berhasil dihapus!</div>');
     redirect('coe/');
+  }
+
+  // ---------------------------------------- MPDF ---------------------------------- //
+  public function printPDF()
+  {
+    $data['coe'] = $this->coe->get_coe();
+
+    $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
+    $mpdf->SetHTMLFooter('
+            <table width="100%" style="font-size:9;">
+                <tr>
+                    <td width="33%">{DATE j-m-Y}</td>
+                    <td width="33%" align="center">{PAGENO}/{nbpg}</td>
+                    <td width="33%" style="text-align: right;">Data Peserta CoE PT. Miraino Hashi Jaya</td>
+                </tr>
+            </table>');
+
+    $page = $this->load->view('coe/coe_print', $data, TRUE);
+
+    $mpdf->WriteHTML($page);
+    $mpdf->Output('Data Peserta CoE.pdf', 'I');
+  }
+
+
+  public function printPDF_search()
+  {
+    $kumiai_name = $this->input->get('kumiai_name');
+    $data['coe'] = $this->coe->search_kumiai_coe($kumiai_name);
+
+    $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
+    $mpdf->SetHTMLFooter('
+            <table width="100%" style="font-size: 9pt;">
+                <tr>
+                    <td width="33%">{DATE j F Y}</td>
+                    <td width="33%" align="center">{PAGENO}/{nbpg}</td>
+                    <td width="33%" style="text-align: right;">Data Peserta CoE PT. Miraino Hashi Jaya</td>
+                </tr>
+            </table>');
+
+    $page = $this->load->view('coe/coe_print', $data, TRUE);
+
+    $mpdf->WriteHTML($page);
+    $mpdf->Output('Data Peserta Coe.pdf', 'I');
+  }
+
+  // ---------------------------------------- EXPORT EXCEL ---------------------------------- //
+
+  public function exportExcel()
+  {
+    $data['coe'] = $this->coe->get_coe();
+
+    $this->load->view('coe/coe_excel', $data);
+  }
+
+  public function exportExcel_search()
+  {
+    $kumiai_name = $this->input->get('kumiai_name');
+    $data['coe'] = $this->coe->search_kumiai_coe($kumiai_name);
+
+    $this->load->view('coe/coe_excel', $data);
   }
 }
