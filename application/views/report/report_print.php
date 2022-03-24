@@ -39,8 +39,8 @@
 
   <table cellpadding="10">
     <tr>
-      <td width="15%"></td>
-      <td width="20%">
+      <td width="10%"></td>
+      <td width="15%">
         <img src="<?= base_url('assets/'); ?>images/logo/Logo MHJ Web.png" class="logo-print m-auto" width="100">
       </td>
       <td width="50%" style="text-align:center;">
@@ -48,17 +48,19 @@
         <p>Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005 Kel. Satria Jaya, Kec. Tambun Utara Kode Pos 17510</p>
         <p>Telp : 021-29088491, +6281327417947, +6281380229688</p>
         <p>Website : www.mirainohashi.co.id</p>
-      </td width="">
-      <td width="15%">
+      </td>
+      <td width="25%">
       </td>
     </tr>
   </table>
 
   <hr>
 
+  <h4 style="text-align: center;">JURNAL PENGELUARAN KAS BESAR</h4>
+
   <table class="table-main border" cellpadding="10" cellspacing="0">
     <thead>
-      <tr>
+      <tr style="background-color:lightcyan;">
         <td class="bold border">No.</td>
         <td class="bold border">Jenis Pengeluaran</td>
         <td class="bold border">Tanggal Pembayaran</td>
@@ -76,7 +78,7 @@
         </tr>
         <?php $i++; ?>
       <?php endforeach; ?>
-      <tr>
+      <tr style="background-color: lightcyan;">
         <td colspan="3" class="bold border">Jumlah</td>
         <td class="bold border">Rp. <?= number_format($total->total, 2, ',', '.'); ?></td>
       </tr>
@@ -87,12 +89,21 @@
 
   <table style="width: 100%;">
     <tr>
-      <td width="25%"></td>
-      <td width="25%"></td>
-      <td width="25%"></td>
-      <td width="25%">Penanggung Jawab
-        <br><br><br><br><br>
-        ______________________
+      <td width="25%" style="text-align: center;">
+        <br>
+        Pembuat
+        <br><br><br><br><br><br><br>
+        <b>NURJANNAH</b>
+        <p>Manager Keuangan</p>
+      </td>
+      <td width="50%"></td>
+      <td width="25%" style="text-align: center;">
+        Bekasi, <?php echo date("d F Y"); ?>
+        <br>
+        Mengetahui,
+        <br><br><br><br><br><br><br>
+        <b>MURDIYONO JAYA</b>
+        <p>Direktur Utama</p>
       </td>
     </tr>
   </table>

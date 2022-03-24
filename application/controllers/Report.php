@@ -186,11 +186,11 @@ class Report extends CI_Controller
 
     $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
     $mpdf->SetHTMLFooter('
-            <table width="100%">
+            <table width="100%" style="font-size: 6pt;">
                 <tr>
-                    <td width="33%">{DATE j-m-Y}</td>
+                    <td width="33%">{DATE j F Y}</td>
                     <td width="33%" align="center">{PAGENO}/{nbpg}</td>
-                    <td width="33%" style="text-align: right;">Laporan Keuangan</td>
+                    <td width="33%" style="text-align: right;">Laporan Keuangan PT. Miraino Hashi Jaya</td>
                 </tr>
             </table>');
 
@@ -212,12 +212,32 @@ class Report extends CI_Controller
 
   public function exportExcel_search()
   {
-    $tgl_awal = $this->input->get('tgl_awal', true);
-    $tgl_akhir = $this->input->get('tgl_akhir', true);
+    // $tgl_awal = $this->input->get('tgl_awal', true);
+    // $tgl_akhir = $this->input->get('tgl_akhir', true);
     // $type = $this->input->post('jenis', true);
 
-    $data['report'] = $this->report->search_report($tgl_awal, $tgl_akhir);
-    $data['total'] = $this->report->sum_nominal_search($tgl_awal, $tgl_akhir);
+    // $data['report'] = $this->report->search_report($tgl_awal, $tgl_akhir);
+    // $data['total'] = $this->report->sum_nominal_search($tgl_awal, $tgl_akhir);
+
+    $tgl_awal = $this->input->get('tgl_awal');
+    $tgl_akhir = $this->input->get('tgl_akhir');
+    $jenis = $this->input->get('jenis');
+
+    if (!$this->input->get('jenis')) {
+      $data['report'] = $this->report->search_date_report($tgl_awal, $tgl_akhir);
+    } else if (!$this->input->get('tgl_awal') && !$this->input->get('tgl_akhir')) {
+      $data['report'] = $this->report->search_type_report($jenis);
+    } else {
+      $data['report'] = $this->report->search_all_report($tgl_awal, $tgl_akhir, $jenis);
+    }
+
+    if (!$this->input->get('jenis')) {
+      $data['total'] = $this->report->sum_nominal_date_search($tgl_awal, $tgl_akhir);
+    } else if (!$this->input->get('tgl_awal') && !$this->input->get('tgl_akhir')) {
+      $data['total'] = $this->report->sum_nominal_type_search($jenis);
+    } else {
+      $data['total'] = $this->report->sum_nominal_all_search($tgl_awal, $tgl_akhir, $jenis);
+    }
 
     $this->load->view('report/report_excel', $data);
   }

@@ -32,6 +32,7 @@ header("Content-Disposition: attachment; filename=Data Pengeluaran.xls");
 
     hr {
       margin: 20px 0px;
+      border-top: 3px double #000000;
     }
   </style>
 
@@ -41,24 +42,31 @@ header("Content-Disposition: attachment; filename=Data Pengeluaran.xls");
 
 <body>
 
-  <table cellpadding="10">
+  <table cellpadding="10" width="100%">
     <tr>
-      <td>
+      <td></td>
+      <td width="15%">
         <img src="<?= base_url('assets/'); ?>images/logo/Logo MHJ Web.png" class="logo-print m-auto" width="100">
       </td>
-      <td>
-        <h4 class="card-title pt-2 title-print">Data Pengeluaran - PT Miraino Hashi Jaya</h4>
-        <p>Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005 Ds. Satria Jaya, Kec. Tambun Utara Kode pos 17510</p>
-        <p>E-Mail : lpkmirainohashijaya@gmail.com || Phone : +62 815-1307-1589</p>
+      <td width="50%" style="text-align:center;">
+        <h2 class="card-title pt-2 title-print">PT. MIRAINO HASHI JAYA</h2>
+        <p>Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005 Kel. Satria Jaya, Kec. Tambun Utara Kode Pos 17510
+          <br>Telp : 021-29088491, +6281327417947, +6281380229688
+          <br>Website : www.mirainohashi.co.id
+        </p>
+      </td>
+      <td width="25%">
       </td>
     </tr>
   </table>
 
   <hr>
 
-  <table class="table-main border" cellpadding="10" cellspacing="0">
+  <h4 style="text-align: center;">JURNAL PENGELUARAN KAS BESAR</h4>
+
+  <table class="table-main border" cellpadding="10" cellspacing="0" border="2" width="100%">
     <thead>
-      <tr>
+      <tr style="background-color:lightcyan;">
         <td class="bold border">No.</td>
         <td class="bold border">Jenis Pengeluaran</td>
         <td class="bold border">Tanggal Pembayaran</td>
@@ -76,7 +84,7 @@ header("Content-Disposition: attachment; filename=Data Pengeluaran.xls");
         </tr>
         <?php $i++; ?>
       <?php endforeach; ?>
-      <tr>
+      <tr style="background-color: lightcyan;">
         <td colspan="3" class="bold border">Jumlah</td>
         <td class="bold border">Rp. <?= number_format($total->total, 2, ',', '.'); ?></td>
       </tr>
@@ -87,12 +95,23 @@ header("Content-Disposition: attachment; filename=Data Pengeluaran.xls");
 
   <table style="width: 100%;">
     <tr>
-      <td width="25%"></td>
-      <td width="25%"></td>
-      <td width="25%"></td>
-      <td width="25%">Penanggung Jawab
+      <td>
+      </td>
+      <td style="text-align: center;" width="25%">
+        <br>
+        Pembuat
         <br><br><br><br><br>
-        ______________________
+        <b>NURJANNAH</b>
+        <p>Manager Keuangan</p>
+      </td>
+      <td width="25%"></td>
+      <td width="25%" style="text-align: center;">
+        Bekasi, <?php echo date("d F Y"); ?>
+        <br>
+        Mengetahui,
+        <br><br><br><br><br>
+        <b>MURDIYONO JAYA</b>
+        <p>Direktur Utama</p>
       </td>
     </tr>
   </table>

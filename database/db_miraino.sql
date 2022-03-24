@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 19, 2022 at 04:16 PM
+-- Generation Time: Mar 24, 2022 at 03:03 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -132,7 +132,9 @@ INSERT INTO `report` (`id`, `output_type`, `nominal`, `date_payment`, `date_crea
 (2, 'Internet', 1500000, '2022-03-11', '2022-03-10', 1),
 (5, 'Hospitalist', 300000, '2022-02-01', '2022-03-16', 1),
 (6, 'Uang Makan', 200000, '2022-03-19', '2022-03-19', 1),
-(7, 'Iuran Wajib Lingkungan (RT/Sampah)', 30000, '2022-02-17', '2022-03-19', 1);
+(7, 'Iuran Wajib Lingkungan (RT/Sampah)', 30000, '2022-02-17', '2022-03-19', 1),
+(8, 'Transport Luar Negeri', 23000000, '2022-03-23', '2022-03-23', 1),
+(9, 'Gaji', 4000000, '2022-02-25', '2022-03-23', 1);
 
 -- --------------------------------------------------------
 
@@ -346,7 +348,7 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
