@@ -71,7 +71,7 @@ class Payment_model extends CI_Model
 
   function sum_nominal_search($name)
   {
-    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment` WHERE `name` LIKE '$name%'");
+    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment` WHERE `name` LIKE '%$name%'");
     // $query = $this->db->get();
     return $query->row();
   }
@@ -85,7 +85,7 @@ class Payment_model extends CI_Model
   function search_name_payment($name)
   {
     // $cari = strpos('name', $name);
-    $query = $this->db->query("SELECT * FROM `payment` WHERE `name` LIKE '$name%' ORDER BY `date_payment` DESC");
+    $query = $this->db->query("SELECT * FROM `payment` WHERE `name` LIKE '%$name%' ORDER BY `date_payment` DESC");
 
     return $query;
   }

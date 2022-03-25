@@ -33,7 +33,7 @@
         <!-- LOOPING MENU -->
         <?php foreach ($menu as $m) : ?>
           <li class="sidebar-title">
-            <?php if ($user['role_id'] == 3) : ?>
+            <?php if ($role_id == 3) : ?>
               Manager
             <?php else : ?>
               <?= $m['menu']; ?>

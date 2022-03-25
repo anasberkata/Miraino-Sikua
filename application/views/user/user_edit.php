@@ -48,7 +48,7 @@
               <div class=" form-group">
                 <label for="role_id">Level</label>
                 <select class="form-select" name="role_id" id="role_id" required>
-                  <option value="value= <?= $users["role_id"]; ?>">
+                  <option value="<?= $users["role_id"]; ?>">
                     <?= $users["role"]; ?>
                   </option>
                   <option value="2">Admin</option>

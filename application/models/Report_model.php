@@ -87,14 +87,14 @@ class Report_model extends CI_Model
 
   function sum_nominal_type_search($jenis)
   {
-    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `output_type` LIKE '$jenis%'");
+    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `output_type` LIKE '%$jenis%'");
     // $query = $this->db->get();
     return $query->row();
   }
 
   function sum_nominal_all_search($tgl_awal, $tgl_akhir, $jenis)
   {
-    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '$jenis%'");
+    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '%$jenis%'");
     // $query = $this->db->get();
     return $query->row();
   }
@@ -112,7 +112,7 @@ class Report_model extends CI_Model
   // Mencari Data Berdasarkan Tipe Pengeluaran
   function search_type_report($jenis)
   {
-    $query = $this->db->query("SELECT * FROM `report` WHERE `output_type` LIKE '$jenis%' ORDER BY `date_payment` DESC");
+    $query = $this->db->query("SELECT * FROM `report` WHERE `output_type` LIKE '&$jenis%' ORDER BY `date_payment` DESC");
 
     return $query;
   }
@@ -120,7 +120,7 @@ class Report_model extends CI_Model
   // Mencari Data Berdasarkan Tanggal dan Tipe Pengeluaran
   function search_all_report($tgl_awal, $tgl_akhir, $jenis)
   {
-    $query = $this->db->query("SELECT * FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '$jenis%' ORDER BY `date_payment` DESC");
+    $query = $this->db->query("SELECT * FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '&$jenis%' ORDER BY `date_payment` DESC");
 
     return $query;
   }

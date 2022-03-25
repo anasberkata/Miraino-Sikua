@@ -66,7 +66,7 @@ class Coe_model extends CI_Model
     function search_kumiai_coe($kumiai_name)
     {
         // $cari = strpos('name', $name);
-        $query = $this->db->query("SELECT * FROM `participants_coe` WHERE `kumiai_name` LIKE '$kumiai_name%'");
+        $query = $this->db->query("SELECT * FROM `participants_coe` WHERE `kumiai_name` LIKE '%$kumiai_name%'");
 
         return $query;
     }
