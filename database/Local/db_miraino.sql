@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 24, 2022 at 03:29 PM
+-- Generation Time: Mar 26, 2022 at 07:31 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -46,13 +46,12 @@ CREATE TABLE `participants` (
 --
 
 INSERT INTO `participants` (`id`, `name`, `address`, `phone`, `email`, `lang_level`, `ipk`, `program`, `date_entry`, `date_created`, `is_active`) VALUES
-(1, 'Anas Berkata', 'Protanmas Samolo Indah Blok C5 No. 15', '083817002151', 'anasberkata@gmail.com', 'Excellent', '3.83', 'Design', '2022-03-09', '2022-03-09', 1),
+(1, 'Anas Berkata', 'Protanmas Samolo Indah Blok C5 No. 15 Desa Babakancaringin Karangtengah Cianjur', '083817002151', 'anasberkata@gmail.com', 'Excellent', '3.83', 'Design', '2022-03-09', '2022-03-09', 1),
 (2, 'Eka Anas Jatnika', 'Sarijadi Blok 24 No. 80 Bandung', '085156334607', 'ideanasdesain@gmail.com', 'Excellent', '3.83', 'Engineering', '2022-03-09', '0000-00-00', 1),
 (3, 'Dela Sri Faujiah', 'Cianjur', '088177651671', 'dela@gmail.com', 'Good', '3.83', 'Ryuugakusei', '2022-03-09', '0000-00-00', 1),
-(4, 'Azka Siti Muzakiyah', 'Protanmas Samolo Indah Blok C5 No 15', '085156334607', 'azka@gmail.com', 'Good', '3.83', 'Engineering', '2022-03-09', '0000-00-00', 1),
 (9, 'Muhamad Fajriansyah', 'Cibeber Cianjur', '08928176276', 'fajrihacker@gmail.com', 'God', '3.21', 'Ryuugakusei', '2022-03-10', '2022-03-10', 1),
 (11, 'Eross Chandra', 'Yogyakarta', '0898747586478', 'eross@gmail.com', 'good', '3.00', 'Desainer', '2022-03-18', '2022-03-19', 1),
-(12, 'Rio Ferdinan', 'cianjur', '098781761761', 'Rio@gmail.com', 'Good', '3.45', 'Desainer', '2022-03-17', '2022-03-19', 1);
+(12, 'Rianto Ferdinan', 'Cianjur Raya', '098781761761', 'Rio@gmail.com', 'Good', '3.45', 'Desainer', '2022-03-17', '2022-03-19', 1);
 
 -- --------------------------------------------------------
 
@@ -79,7 +78,7 @@ CREATE TABLE `participants_coe` (
 INSERT INTO `participants_coe` (`id`, `name`, `issue_date`, `program`, `kumiai_name`, `office_name`, `placement`, `date_created`, `is_active`) VALUES
 (1, 'Anas Berkata Aja', '2022-03-10', 'Engineering', 'Saturasi', 'Saturasi', 'Bandung', '2022-03-10', 1),
 (3, 'M Fajriansyah', '2022-03-10', 'Tg Perawat', 'Saturasi', 'Saturasi', 'Bandung', '2022-03-10', 1),
-(5, 'Kakap Merah & Kakap Putih', '2022-03-12', 'Tg Pertanian', 'Kumiai', 'Kumiai', 'Cianjur', '2022-03-10', 1),
+(5, 'Bawang Putih Menangis', '2022-03-12', 'Tg Pertanian', 'Kumiai', 'Kumiai', 'Cianjur', '2022-03-10', 1),
 (7, 'Hamdani Supratman', '2022-03-05', 'Magang Pabrik Kerupuk', 'Kerupuk Udang', 'Kerupuk Udang', 'Bandung', '2022-03-19', 1);
 
 -- --------------------------------------------------------
@@ -106,8 +105,8 @@ CREATE TABLE `payment` (
 
 INSERT INTO `payment` (`id`, `name`, `program`, `date_payment`, `person_responsible`, `nominal`, `description`, `date_created`, `is_active`) VALUES
 (1, 'Anas Berkata', 'Engineering', '2022-03-10', 'Dela', 300000, 'Pendaftaran', '2022-03-10', 1),
-(2, 'Didin Rohidin', 'Magang Pengolahan Makanan', '2022-03-10', 'Dela', 350000, 'SPP Juni', '2022-03-10', 1),
-(4, 'Anas Berkata', 'Engineering', '2022-03-24', 'Dela', 500000, 'Konsumsi Lunas', '2022-03-24', 1);
+(2, 'Didin Rohidin', 'Magang Pengolahan Makanan', '2022-03-10', 'Dela', 500000, 'SPP Juni', '2022-03-10', 1),
+(4, 'Anas Berkata', 'Engineering', '2022-03-24', 'Dela', 340000, 'Konsumsi Lunas', '2022-03-24', 1);
 
 -- --------------------------------------------------------
 
@@ -130,9 +129,9 @@ CREATE TABLE `report` (
 
 INSERT INTO `report` (`id`, `output_type`, `nominal`, `date_payment`, `date_created`, `is_active`) VALUES
 (1, 'Gaji', 4500000, '2022-03-11', '2022-03-11', 1),
-(2, 'Internet', 1500000, '2022-03-11', '2022-03-10', 1),
+(2, 'Internet', 2500000, '2022-03-11', '2022-03-10', 1),
 (5, 'Hospitalist', 300000, '2022-02-01', '2022-03-16', 1),
-(6, 'Uang Makan', 200000, '2022-03-19', '2022-03-19', 1),
+(6, 'Uang Makan', 570000, '2022-03-19', '2022-03-19', 1),
 (7, 'Iuran Wajib Lingkungan (RT/Sampah)', 30000, '2022-02-17', '2022-03-19', 1),
 (8, 'Transport Luar Negeri', 23000000, '2022-03-23', '2022-03-23', 1),
 (9, 'Gaji', 4000000, '2022-02-25', '2022-03-23', 1);
@@ -160,9 +159,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `image`, `role_id`, `is_active`, `date_created`) VALUES
-(1, 'Eka Anas Jatnika', 'anasberkata', 'ideanasdesain@gmail.com', '$2y$10$bFHVog6BHgnix/bEaXCWZe/cIRvgOrdf5XIXfbxeezoA97w/A/fTq', 'anas.jpg', 1, 1, '2022-03-07'),
-(2, 'Admin', 'admin', 'admin@miraino.com', '$2y$10$.QkcSRy3CUv5b35/eiUZj.qUYhsFuZhuusZUWxOQGLvLhk25rry.O', 'admin.jpg', 2, 1, '2022-03-07'),
-(3, 'Manager 01', 'manager01', 'manager@miraino.com', '$2y$10$nIYCUd6de5ZpzZDAsdLE7eyhf0KdIYJuJPrZysJwRz9sKPzAm/68S', 'manager.jpg', 3, 1, '2022-03-07');
+(1, 'Eka Anas Jatnika, M.Ds.', 'anasberkata', 'ideanasdesain@gmail.com', '$2y$10$ZokNofyyqCwnVjJkoEWoUuUSH9trHRP/Rs4Mx5letlvZIB2upi2G.', 'anas.jpg', 1, 1, '2022-03-07'),
+(2, 'Admin 01', 'admin01', 'admin01@gmail.com', '$2y$10$lOfg.qqEYx9jUYClWfA2wuekCSGt5ADqLVUMKiZxKCHFOOd90xBAe', 'admin.jpg', 2, 1, '2022-03-07'),
+(3, 'Manager 01', 'manager01', 'manager@mirainohashi.co.id', '$2y$10$nIYCUd6de5ZpzZDAsdLE7eyhf0KdIYJuJPrZysJwRz9sKPzAm/68S', 'manager.jpg', 3, 1, '2022-03-07'),
+(7, 'Admin 02', 'admin02', 'admin02@gmail.com', '$2y$10$Q0T4alWJGro1KVXDrmZKIer0kPO9NvRv/v/5Y8VRW6JMWtAzH2eD6', 'default.jpg', 2, 1, '2022-03-25'),
+(8, 'Manager 02', 'manager02', 'manager02@gmail.com', '$2y$10$aredsNW9bu.pakiAll7IveTJ2Q60WSRlUpePJgKeMQViD.zDzX9A6', 'default.jpg', 3, 1, '2022-03-25'),
+(9, 'user01', 'user01gregrge', 'user01@gmail.com', '$2y$10$if84yaVA59RqkmcZnix2jO6xbSAc.p8A37C0D5zI.aYILXrAAGmca', 'default.jpg', 2, 1, '2022-03-26'),
+(10, 'User02huhu', 'user02haha', 'user02@gmail.com', '$2y$10$OjDGpLJv.FKbVerb2zx6/OiSjGZVWnD5xgZDQuWgAC9g/jvVki3s6', 'default.jpg', 3, 1, '2022-03-26');
 
 -- --------------------------------------------------------
 
@@ -255,8 +258,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (3, 1, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
 (4, 1, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
 (5, 1, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1),
-(6, 3, 'User', 'user', 'bi bi-people', 1),
-(7, 3, 'My Profile', 'profile', 'bi bi-person-fill', 1),
+(6, 3, 'User', 'user/users', 'bi bi-people', 1),
+(7, 3, 'My Profile', 'user', 'bi bi-person-fill', 1),
 (8, 4, 'Menu Management', 'menu', 'bi bi-list', 1),
 (9, 4, 'Submenu Management', 'menu/submenu', 'bi bi-list-nested', 1),
 (10, 2, 'Dashboard', 'admin', 'bi bi-grid-fill', 1),
@@ -355,7 +358,7 @@ ALTER TABLE `report`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
