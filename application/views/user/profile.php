@@ -4,18 +4,21 @@
     <div class="card">
       <div class="card-header">
         <div class="row">
-          <div class="col">
+          <div class="col-12 col-lg-8">
             <h4 class="card-title pt-2">Profile Anda</h4>
           </div>
-          <div class="col-4">
+          <div class="col-12 col-lg-4">
             <div class="btn-group w-100" role="button">
-              <a href="<?= base_url('profile/profile_edit_page'); ?>" class="btn icon btn-primary">Edit</a>
-              <a href="<?= base_url('profile/profile_change_password'); ?>" class="btn icon btn-warning">Ganti Password</a>
+              <a href="<?= base_url('user/profile_edit'); ?>" class="btn icon btn-primary">Edit</a>
+              <a href="<?= base_url('user/profile_change_password'); ?>" class="btn icon btn-warning">Ganti Password</a>
             </div>
           </div>
         </div>
       </div>
       <div class="card-body">
+
+        <?= $this->session->flashdata('message'); ?>
+
         <ul class="list-group">
           <li class="list-group-item">
             <div class="row">

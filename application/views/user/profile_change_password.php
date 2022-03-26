@@ -9,7 +9,7 @@
             <h4 class="card-title pt-2">Edit Password Anda</h4>
           </div>
           <div class="col">
-            <a href="<?= base_url('profile'); ?>" class='btn btn-primary float-end icon'>
+            <a href="<?= base_url('user'); ?>" class='btn btn-primary float-end icon'>
               <span>Kembali</span>
             </a>
           </div>
@@ -19,7 +19,7 @@
 
         <?= $this->session->flashdata('message'); ?>
 
-        <form action="<?= base_url('profile/profile_change_password'); ?>" method="post">
+        <form action="<?= base_url('user/profile_change_password'); ?>" method="post">
           <div class="row">
             <div class="col-md">
               <div class="form-group">

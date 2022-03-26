@@ -1,44 +1,53 @@
 <?php
 class User_model extends CI_Model
 {
+  //  Update Profile
+  function update_profile($datas, $id)
+  {
+    $this->db->where('id', $id);
+    $this->db->update('users', $datas);
+    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Profile anda berhasil diedit!</div>');
+    redirect('user');
+  }
 
-  function get_users()
+
+
+  // -------------------------- USER CRUD ---------------------------- //
+  // Read User
+  function user_data()
   {
     $this->db->select('*');
     $this->db->from('users');
-    $this->db->where('role_id', 2);
-    $this->db->or_where('role_id', 3);
+    $this->db->where_not_in('role_id', 1);
     $query = $this->db->get();
     return $query;
   }
 
-  function details_user($id = NULL)
+  function details_user($get_user)
   {
-    $id_user = $id;
-    $query = "SELECT `users`.*, `user_role`.* FROM `users` JOIN `user_role` ON `users`.`role_id` = `user_role`.`id` WHERE `users`.`id` = '$id_user'";
-    return $this->db->query($query)->row_array();
+    // $query = "SELECT `users`.*, `user_role`.* FROM `users` JOIN `user_role` ON `users`.`role_id` = `user_role`.`id` WHERE `users`.`id` = '$get_user'";
+    $this->db->select('users.*, user_role.id AS id_role, user_role.role');
+    $this->db->join('user_role', 'users.role_id = user_role.id');
+    $query = $this->db->get_where('users', $get_user);
+    return $query;
   }
 
   function save_user($data)
   {
     $this->db->insert('users', $data);
-    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User berhasil ditambahkan!</div>');
-    redirect('user');
   }
 
-  function update_user($data, $id)
+  function update_user($get_user_id, $datas)
   {
-    $this->db->where('id', $id);
-    $this->db->update('users', $data);
-    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User berhasil diedit!</div>');
-    redirect('user/user_edit_page/' . $id);
+    $this->db->where('id', $get_user_id);
+    $this->db->update('users', $datas);
   }
 
-  function delete_user($id)
-  {
-    $this->db->where('id', $id);
-    $this->db->delete('users');
+  // function delete_user($id)
+  // {
+  //   $this->db->where('id', $id);
+  //   $this->db->delete('users');
 
-    return true;
-  }
+  //   return true;
+  // }
 }

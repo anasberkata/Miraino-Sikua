@@ -9,7 +9,7 @@
             <h4 class="card-title pt-2">Edit User - <?= $user["name"]; ?></h4>
           </div>
           <div class="col">
-            <a href="<?= base_url('profile'); ?>" class='btn btn-primary float-end icon'>
+            <a href="<?= base_url('user'); ?>" class='btn btn-primary float-end icon'>
               <span>Kembali</span>
             </a>
           </div>
@@ -19,10 +19,9 @@
 
         <?= $this->session->flashdata('message'); ?>
 
-        <form action="<?= base_url('profile/profile_edit'); ?>" method="post">
+        <form action="<?= base_url('user/profile_edit'); ?>" method="post">
           <div class="row">
             <div class="col-md">
-              <input type="hidden" name="id" value="<?= $user["id"]; ?>">
               <div class="form-group">
                 <label for="name">Nama Lengkap</label>
                 <input type="text" class="form-control" id="name" placeholder="Nama Lengkap" name="name" value="<?= $user["name"]; ?>">
