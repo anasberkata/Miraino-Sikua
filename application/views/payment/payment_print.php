@@ -13,7 +13,8 @@
       border: 1px solid black;
     }
 
-    thead {
+    .card-title {
+      font-family: sans-serif;
       font-weight: bold;
     }
 
@@ -21,8 +22,15 @@
       font-weight: bold;
     }
 
-    .thead {
+    .font-italic {
+      font-style: italic;
+    }
+
+    thead {
+      font-weight: bold;
       padding: 20px 10px;
+      text-align: center;
+      vertical-align: middle;
     }
 
     hr {
@@ -61,13 +69,13 @@
   <table class="table-main border" cellpadding="10" cellspacing="0">
     <thead>
       <tr style="background-color:lightcyan;">
-        <td class="bold border">No.</td>
-        <td class="bold border">Nama</td>
-        <td class="bold border">Program</td>
-        <td class="bold border">Tanggal Pembayaran</td>
-        <td class="bold border">Nominal</td>
-        <td class="bold border">Keterangan</td>
-        <td class="bold border">Penanggung Jawab</td>
+        <td class="bold border">N0.</td>
+        <td class="bold border">NAMA</td>
+        <td class="bold border">PROGRAM</td>
+        <td class="bold border">KETERANGAN</td>
+        <td class="bold border">PENANGGUNG JAWAB</td>
+        <td class="bold border">TANGGAL PEMBAYARAN</td>
+        <td class="bold border">NOMINAL</td>
       </tr>
     </thead>
     <tbody>
@@ -85,8 +93,8 @@
         <?php $i++; ?>
       <?php endforeach; ?>
       <tr style="background-color: lightcyan;">
-        <td colspan="6" class="bold border">Jumlah</td>
-        <td class="bold border">Rp. <?= number_format($total->total, 2, ',', '.'); ?></td>
+        <td colspan="6" class="bold border font-italic">TOTAL KEUANGAN</td>
+        <td class="bold border font-italic">Rp. <?= number_format($total->total, 2, ',', '.'); ?></td>
       </tr>
     </tbody>
   </table>
@@ -96,19 +104,21 @@
   <table style="width: 100%;">
     <tr>
       <td width="25%" style="text-align: center;">
-        <br>
+        <br><br>
         Pembuat
         <br><br><br><br><br><br><br>
-        <b>NURJANNAH</b>
-        <p>Manager Keuangan</p>
+        <b><u>NURJANNAH</u></b>
+        <p>Direktur</p>
       </td>
       <td width="50%"></td>
       <td width="25%" style="text-align: center;">
         Bekasi, <?php echo date("d F Y"); ?>
         <br>
         Mengetahui,
+        <br>
+        LPK PT. Miraino Hashi Jaya
         <br><br><br><br><br><br><br>
-        <b>MURDIYONO JAYA</b>
+        <b><u>MURDIYONO JAYA</u></b>
         <p>Direktur Utama</p>
       </td>
     </tr>

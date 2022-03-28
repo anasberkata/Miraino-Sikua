@@ -11,13 +11,13 @@ class User extends CI_Controller
     $this->load->helper('date');
   }
 
-  // ---------------------------------------------- PROFILE CRUD -------------------------------------------------------------------
+  // ---------------------------------------------- PROFILE CRUD -------------------------------------------------
 
   // Halaman Profile
   public function index()
   {
     $data['title'] = 'My Profile';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
@@ -29,7 +29,7 @@ class User extends CI_Controller
   public function profile_edit()
   {
     $data['title'] = 'My Profile';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
 
@@ -58,7 +58,7 @@ class User extends CI_Controller
   public function profile_change_password()
   {
     $data['title'] = 'My Profile';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $this->form_validation->set_rules('current_password', 'Current Password', 'required|trim');
     $this->form_validation->set_rules('new_password1', 'New Password', 'required|trim|min_length[3]|matches[new_password2]');
@@ -99,7 +99,7 @@ class User extends CI_Controller
   public function users()
   {
     $data['title'] = 'User';
-    $data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
     $data['users'] = $this->user->user_data('users')->result();
 
     $this->load->view('templates/header', $data);
@@ -113,7 +113,7 @@ class User extends CI_Controller
   {
     $get_user = ['users.id' => $id];
     $data['title'] = 'User';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
     $data['detail_user'] = $this->user->details_user($get_user)->row_array();
 
     $this->load->view('templates/header', $data);
@@ -126,7 +126,7 @@ class User extends CI_Controller
   public function user_add()
   {
     $data['title'] = 'User';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $this->form_validation->set_rules('name', 'Name', 'required|trim');
     $this->form_validation->set_rules('username', 'Username', 'required|trim');
@@ -178,7 +178,7 @@ class User extends CI_Controller
     $id = $this->input->get('id', true);
     $get_user = ['users.id' => $id];
     $data['title'] = 'User';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
     $data['detail_user'] = $this->user->details_user($get_user)->row_array();
 
     $this->form_validation->set_rules('name', "Name", 'required|trim');
@@ -206,12 +206,12 @@ class User extends CI_Controller
     }
   }
 
-  // public function user_delete()
-  // {
-  //   $id = $this->input->post('id');
-  //   $this->user->delete_user($id);
+  public function user_delete()
+  {
+    $id = $this->input->post('id');
+    $this->user->delete_user($id);
 
-  //   $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User berhasil dihapus!</div>');
-  //   redirect('user/');
-  // }
+    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">User berhasil dihapus!</div>');
+    redirect('user/users');
+  }
 }

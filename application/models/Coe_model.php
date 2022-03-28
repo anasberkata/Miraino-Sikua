@@ -62,7 +62,7 @@ class Coe_model extends CI_Model
 
     // ------------------------------------------ SEARCH ------------------------------------ //
 
-    // Mencari Data Berdasarkan Nama
+    // Mencari Data Berdasarkan Nama Kumiai
     function search_kumiai_coe($kumiai_name)
     {
         // $cari = strpos('name', $name);

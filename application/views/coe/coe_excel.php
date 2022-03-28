@@ -18,7 +18,8 @@ header("Content-Disposition: attachment; filename=Data Peserta CoE.xls");
       border: 1px solid black;
     }
 
-    thead {
+    .card-title {
+      font-family: sans-serif;
       font-weight: bold;
     }
 
@@ -26,8 +27,15 @@ header("Content-Disposition: attachment; filename=Data Peserta CoE.xls");
       font-weight: bold;
     }
 
-    .thead {
+    .font-italic {
+      font-style: italic;
+    }
+
+    thead {
+      font-weight: bold;
       padding: 20px 10px;
+      text-align: center;
+      vertical-align: middle;
     }
 
     hr {
@@ -42,37 +50,40 @@ header("Content-Disposition: attachment; filename=Data Peserta CoE.xls");
 
 <body>
 
-  <table cellpadding="10" width="100%">
+  <table cellpadding="10">
     <tr>
-      <td></td>
+      <td width="10%"></td>
       <td width="15%">
         <img src="<?= base_url('assets/'); ?>images/logo/Logo MHJ Web.png" class="logo-print m-auto" width="100">
       </td>
-      <td width="50%" style="text-align:center; padding: 0 20px;" colspan="4">
+      <td width="50%" style="text-align:center;" colspan="3">
         <h2 class="card-title pt-2 title-print">PT. MIRAINO HASHI JAYA</h2>
         <p>Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005 Kel. Satria Jaya, Kec. Tambun Utara Kode Pos 17510
-          <br>Telp : 021-29088491, +6281327417947, +6281380229688
-          <br>Website : www.mirainohashi.co.id
+          <br>
+          Telp : 021-29088491, +6281327417947, +6281380229688
+          <br>
+          Website : www.mirainohashi.co.id
         </p>
       </td>
-      <td width="25%"></td>
+      <td width="25%">
+      </td>
     </tr>
   </table>
 
   <hr>
 
-  <h4 style="text-align: center;">DATA PESERTA COE</h4>
+  <h4 style="text-align: center;">DATA SISWA SISWI YANG SUDAH TURUN COE DAN SIAP BERANGKAT KE JEPANG</h4>
 
-  <table class="table-main border" cellpadding="10" cellspacing="0" border="2" width="100%">
+  <table class="table-main border" cellpadding="10" cellspacing="0" border="2">
     <thead>
       <tr style="background-color:lightcyan;">
-        <td class="bold border">No.</td>
-        <td class="bold border">Nama</td>
-        <td class="bold border">Tanggal Terbit CoE</td>
-        <td class="bold border">Program</td>
-        <td class="bold border">Nama Kumiai</td>
-        <td class="bold border">Nama Perusahaan</td>
-        <td class="bold border">Penempatan</td>
+        <td class="bold border">NO.</td>
+        <td class="bold border">NAMA</td>
+        <td class="bold border">TANGGAL TERBIT COE</td>
+        <td class="bold border">PROGRAM</td>
+        <td class="bold border">NAMA KUMIAI</td>
+        <td class="bold border">PERUSAHAAN PENERIMA</td>
+        <td class="bold border">DAERAH PENEMPATAN</td>
       </tr>
     </thead>
     <tbody>
@@ -81,7 +92,7 @@ header("Content-Disposition: attachment; filename=Data Peserta CoE.xls");
         <tr>
           <td class="border"><?= $i; ?></td>
           <td class="border"><?= $c->name; ?></td>
-          <td class="border"><?= date('d F Y', strtotime($c->issue_date)); ?></td>
+          <td class="border"><?= date('d / m / Y', strtotime($c->issue_date)); ?></td>
           <td class="border"><?= $c->program; ?></td>
           <td class="border"><?= $c->kumiai_name; ?></td>
           <td class="border"><?= $c->office_name; ?></td>
@@ -89,6 +100,10 @@ header("Content-Disposition: attachment; filename=Data Peserta CoE.xls");
         </tr>
         <?php $i++; ?>
       <?php endforeach; ?>
+      <tr style="background-color: lightcyan;">
+        <td colspan="6" class="bold border font-italic">TOTAL SISWA YANG SUDAH MENERIMA COE</td>
+        <td class="bold border font-italic"><?= $count_prt_coe; ?> SISWA</td>
+      </tr>
     </tbody>
   </table>
 
@@ -96,30 +111,24 @@ header("Content-Disposition: attachment; filename=Data Peserta CoE.xls");
 
   <table style="width: 100%;">
     <tr>
-      <td>
-      </td>
-      <td style="text-align: center;" width="25%">
-        <br>
+      <td></td>
+      <td width="25%" style="text-align: center;">
+        <br><br>
         Pembuat
-        <br><br><br><br><br>
-        <p>
-          <b>NURJANNAH</b>
-          <br>Manager Keuangan
-        </p>
+        <br><br><br><br><br><br><br>
+        <b><u>NURJANNAH</u></b>
+        <p>Direktur</p>
       </td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td width="50%" colspan="3"></td>
       <td width="25%" style="text-align: center;">
         Bekasi, <?php echo date("d F Y"); ?>
         <br>
         Mengetahui,
-        <br><br><br><br><br>
-        <p>
-          <b>MURDIYONO JAYA</b>
-          <br>Direktur Utama
-        </p>
-
+        <br>
+        LPK PT. Miraino Hashi Jaya
+        <br><br><br><br><br><br><br>
+        <b><u>MURDIYONO JAYA</u></b>
+        <p>Direktur Utama</p>
       </td>
     </tr>
   </table>

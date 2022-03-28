@@ -49,8 +49,8 @@
               <div class="form-group">
                 <label for="role_id">Level</label>
                 <select class="form-select" name="role_id" id="role_id" required>
-                  <option value="2">Admin</option>
-                  <option value="3">Manager</option>
+                  <option value="2">Direktur</option>
+                  <option value="3">Admin</option>
                 </select>
               </div>
 

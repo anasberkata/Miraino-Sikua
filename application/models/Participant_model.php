@@ -12,6 +12,16 @@ class Participant_model extends CI_Model
     }
   }
 
+  function search_count_participants($name)
+  {
+    $query = $this->db->query("SELECT * FROM `participants` WHERE `name` LIKE '%$name%'");
+    if ($query->num_rows() > 0) {
+      return $query->num_rows();
+    } else {
+      return 0;
+    }
+  }
+
   function get_participants()
   {
     $this->db->select('*');
@@ -47,5 +57,16 @@ class Participant_model extends CI_Model
     $this->db->delete('participants');
 
     return true;
+  }
+
+  // ----------------------------- SEARCH --------------------------------//
+
+  // Mencari Data Berdasarkan Nama
+  function search_name_participant($name)
+  {
+    // $cari = strpos('name', $name);
+    $query = $this->db->query("SELECT * FROM `participants` WHERE `name` LIKE '%$name%'");
+
+    return $query;
   }
 }

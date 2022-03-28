@@ -15,7 +15,7 @@ class Report extends CI_Controller
   public function index()
   {
     $data['title'] = 'Laporan Keuangan';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $data['report'] = $this->report->get_report();
 
@@ -28,7 +28,7 @@ class Report extends CI_Controller
   public function report_search()
   {
     $data['title'] = 'Laporan Keuangan';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $tgl_awal = $this->input->post('tgl_awal');
     $tgl_akhir = $this->input->post('tgl_akhir');
@@ -51,7 +51,7 @@ class Report extends CI_Controller
   public function report_add_page()
   {
     $data['title'] = 'Laporan Keuangan';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
@@ -66,7 +66,7 @@ class Report extends CI_Controller
 
     if ($this->form_validation->run() == false) {
       $data['title'] = 'Laporan Keuangan';
-      $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+      $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
       $this->load->view('templates/header', $data);
       $this->load->view('templates/sidebar', $data);
@@ -97,7 +97,7 @@ class Report extends CI_Controller
   public function report_edit_page($id)
   {
     $data['title'] = 'Laporan Keuangan';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $data['report'] = $this->report->details_report($id);
 

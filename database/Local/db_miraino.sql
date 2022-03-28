@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 26, 2022 at 07:31 PM
+-- Generation Time: Mar 28, 2022 at 06:30 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -51,7 +51,8 @@ INSERT INTO `participants` (`id`, `name`, `address`, `phone`, `email`, `lang_lev
 (3, 'Dela Sri Faujiah', 'Cianjur', '088177651671', 'dela@gmail.com', 'Good', '3.83', 'Ryuugakusei', '2022-03-09', '0000-00-00', 1),
 (9, 'Muhamad Fajriansyah', 'Cibeber Cianjur', '08928176276', 'fajrihacker@gmail.com', 'God', '3.21', 'Ryuugakusei', '2022-03-10', '2022-03-10', 1),
 (11, 'Eross Chandra', 'Yogyakarta', '0898747586478', 'eross@gmail.com', 'good', '3.00', 'Desainer', '2022-03-18', '2022-03-19', 1),
-(12, 'Rianto Ferdinan', 'Cianjur Raya', '098781761761', 'Rio@gmail.com', 'Good', '3.45', 'Desainer', '2022-03-17', '2022-03-19', 1);
+(12, 'Rianto Ferdinan', 'Cianjur Raya', '098781761761', 'Rio@gmail.com', 'Good', '3.45', 'Desainer', '2022-03-17', '2022-03-19', 1),
+(13, 'Akew', 'b', '0898', 'e@g.com', 'go', '3.4', 'Magang Kontruksi', '2022-02-28', '2022-03-28', 1);
 
 -- --------------------------------------------------------
 
@@ -79,7 +80,8 @@ INSERT INTO `participants_coe` (`id`, `name`, `issue_date`, `program`, `kumiai_n
 (1, 'Anas Berkata Aja', '2022-03-10', 'Engineering', 'Saturasi', 'Saturasi', 'Bandung', '2022-03-10', 1),
 (3, 'M Fajriansyah', '2022-03-10', 'Tg Perawat', 'Saturasi', 'Saturasi', 'Bandung', '2022-03-10', 1),
 (5, 'Bawang Putih Menangis', '2022-03-12', 'Tg Pertanian', 'Kumiai', 'Kumiai', 'Cianjur', '2022-03-10', 1),
-(7, 'Hamdani Supratman', '2022-03-05', 'Magang Pabrik Kerupuk', 'Kerupuk Udang', 'Kerupuk Udang', 'Bandung', '2022-03-19', 1);
+(7, 'Hamdani Supratman', '2022-03-05', 'Magang Pabrik Kerupuk', 'Kerupuk Udang', 'Kerupuk Udang', 'Bandung', '2022-03-19', 1),
+(8, 'Akew', '2022-02-27', 'Magang Kontruksi', 'sa', 'satu', 'rasi', '2022-03-28', 1);
 
 -- --------------------------------------------------------
 
@@ -106,7 +108,8 @@ CREATE TABLE `payment` (
 INSERT INTO `payment` (`id`, `name`, `program`, `date_payment`, `person_responsible`, `nominal`, `description`, `date_created`, `is_active`) VALUES
 (1, 'Anas Berkata', 'Engineering', '2022-03-10', 'Dela', 300000, 'Pendaftaran', '2022-03-10', 1),
 (2, 'Didin Rohidin', 'Magang Pengolahan Makanan', '2022-03-10', 'Dela', 500000, 'SPP Juni', '2022-03-10', 1),
-(4, 'Anas Berkata', 'Engineering', '2022-03-24', 'Dela', 340000, 'Konsumsi Lunas', '2022-03-24', 1);
+(4, 'Anas Berkata', 'Engineering', '2022-03-24', 'Dela', 340000, 'Konsumsi Lunas', '2022-03-24', 1),
+(5, 'Didin Rohidin', 'Magang Perawat', '2022-03-28', 'Dela', 300000, 'SPP April', '2022-03-28', 1);
 
 -- --------------------------------------------------------
 
@@ -159,13 +162,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `image`, `role_id`, `is_active`, `date_created`) VALUES
-(1, 'Eka Anas Jatnika, M.Ds.', 'anasberkata', 'ideanasdesain@gmail.com', '$2y$10$ZokNofyyqCwnVjJkoEWoUuUSH9trHRP/Rs4Mx5letlvZIB2upi2G.', 'anas.jpg', 1, 1, '2022-03-07'),
-(2, 'Admin 01', 'admin01', 'admin01@gmail.com', '$2y$10$lOfg.qqEYx9jUYClWfA2wuekCSGt5ADqLVUMKiZxKCHFOOd90xBAe', 'admin.jpg', 2, 1, '2022-03-07'),
-(3, 'Manager 01', 'manager01', 'manager@mirainohashi.co.id', '$2y$10$nIYCUd6de5ZpzZDAsdLE7eyhf0KdIYJuJPrZysJwRz9sKPzAm/68S', 'manager.jpg', 3, 1, '2022-03-07'),
-(7, 'Admin 02', 'admin02', 'admin02@gmail.com', '$2y$10$Q0T4alWJGro1KVXDrmZKIer0kPO9NvRv/v/5Y8VRW6JMWtAzH2eD6', 'default.jpg', 2, 1, '2022-03-25'),
-(8, 'Manager 02', 'manager02', 'manager02@gmail.com', '$2y$10$aredsNW9bu.pakiAll7IveTJ2Q60WSRlUpePJgKeMQViD.zDzX9A6', 'default.jpg', 3, 1, '2022-03-25'),
-(9, 'user01', 'user01gregrge', 'user01@gmail.com', '$2y$10$if84yaVA59RqkmcZnix2jO6xbSAc.p8A37C0D5zI.aYILXrAAGmca', 'default.jpg', 2, 1, '2022-03-26'),
-(10, 'User02huhu', 'user02haha', 'user02@gmail.com', '$2y$10$OjDGpLJv.FKbVerb2zx6/OiSjGZVWnD5xgZDQuWgAC9g/jvVki3s6', 'default.jpg', 3, 1, '2022-03-26');
+(1, 'Eka Anas Jatnika', 'anasberkata', 'ideanasdesain@gmail.com', '$2y$10$ZokNofyyqCwnVjJkoEWoUuUSH9trHRP/Rs4Mx5letlvZIB2upi2G.', 'anas.jpg', 1, 1, '2022-03-07'),
+(2, 'Direktur', 'direktur', 'direktur@mirainohashi.co.id', '$2y$10$lOfg.qqEYx9jUYClWfA2wuekCSGt5ADqLVUMKiZxKCHFOOd90xBAe', 'admin.jpg', 2, 1, '2022-03-07'),
+(3, 'Admin 01', 'admin01', 'admin01@mirainohashi.co.id', '$2y$10$72tdhRa1SDNSHkKNQzdU3uC/EDrUTIaZFtgKsRIdlMKwDv7X28TRm', 'manager.jpg', 3, 1, '2022-03-07'),
+(7, 'Admin 02', 'admin02', 'admin02@mirainohashi.co.id', '$2y$10$Q0T4alWJGro1KVXDrmZKIer0kPO9NvRv/v/5Y8VRW6JMWtAzH2eD6', 'default.jpg', 3, 1, '2022-03-25');
 
 -- --------------------------------------------------------
 
@@ -185,11 +185,12 @@ CREATE TABLE `user_access_menu` (
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
-(2, 1, 3),
-(3, 1, 4),
+(2, 1, 4),
+(3, 1, 5),
 (4, 2, 2),
-(5, 2, 3),
-(6, 3, 2);
+(5, 2, 4),
+(6, 3, 3),
+(10, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -209,9 +210,10 @@ CREATE TABLE `user_menu` (
 
 INSERT INTO `user_menu` (`id`, `menu`, `menu_order`) VALUES
 (1, 'Super', 1),
-(2, 'Admin', 2),
-(3, 'User', 3),
-(4, 'Menu', 4);
+(2, 'Direktur', 2),
+(3, 'Admin', 3),
+(4, 'User', 4),
+(5, 'Menu', 5);
 
 -- --------------------------------------------------------
 
@@ -229,9 +231,9 @@ CREATE TABLE `user_role` (
 --
 
 INSERT INTO `user_role` (`id`, `role`) VALUES
-(1, 'super'),
-(2, 'admin'),
-(3, 'manager');
+(1, 'Super'),
+(2, 'Direktur'),
+(3, 'Admin');
 
 -- --------------------------------------------------------
 
@@ -258,15 +260,16 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (3, 1, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
 (4, 1, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
 (5, 1, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1),
-(6, 3, 'User', 'user/users', 'bi bi-people', 1),
-(7, 3, 'My Profile', 'user', 'bi bi-person-fill', 1),
-(8, 4, 'Menu Management', 'menu', 'bi bi-list', 1),
-(9, 4, 'Submenu Management', 'menu/submenu', 'bi bi-list-nested', 1),
+(6, 3, 'Dashboard', 'admin', 'bi bi-grid-fill', 1),
+(7, 3, 'Peserta', 'participant', 'bi bi-person-square', 1),
+(8, 4, 'User', 'user/users', 'bi bi-people', 1),
+(9, 4, 'My Profile', 'user', 'bi bi-person-fill', 1),
 (10, 2, 'Dashboard', 'admin', 'bi bi-grid-fill', 1),
 (11, 2, 'Peserta', 'participant', 'bi bi-person-square', 1),
 (12, 2, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
 (13, 2, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
-(14, 2, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1);
+(14, 2, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1),
+(17, 3, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1);
 
 --
 -- Indexes for dumped tables
@@ -334,19 +337,19 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `participants`
 --
 ALTER TABLE `participants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `participants_coe`
 --
 ALTER TABLE `participants_coe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `report`
@@ -364,13 +367,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_role`
@@ -382,7 +385,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

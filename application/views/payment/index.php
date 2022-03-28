@@ -33,10 +33,10 @@
           <div class="row">
             <div class="col-lg-5">
               <div class="form-group row align-items-center">
-                <div class="col-lg-4 col-4">
-                  <label class="col-form-label">Cari Nama</label>
+                <div class="col-lg-3 col-3">
+                  <label class="col-form-label">Nama</label>
                 </div>
-                <div class="col-lg-8 col-8">
+                <div class="col-lg-9 col-9">
                   <input type="text" class="form-control" name="name">
                 </div>
               </div>

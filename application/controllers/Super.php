@@ -19,7 +19,7 @@ class Super extends CI_Controller
   public function index()
   {
     $data['title'] = 'Dashboard';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $data['count_prt'] = $this->participant->count_participants();
     $data['count_prt_coe'] = $this->coe->count_coe();

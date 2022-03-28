@@ -1,10 +1,10 @@
 <footer>
   <div class="footer clearfix mb-0 text-muted">
     <div class="float-start">
-      <p>2022 &copy; PT. Miraino Hashi Jaya</p>
+      <p><?= date('Y'); ?> &copy; PT. Miraino Hashi Jaya</>
     </div>
     <div class="float-end">
-      <p>Crafted with by <a href="https://www.instagram.com/anasberkata">Anas Berkata</a></p>
+      <p>Dev by <a href="https://www.instagram.com/anasberkata">Anas Berkata</a></p>
     </div>
   </div>
 </footer>
@@ -23,7 +23,9 @@
 <script>
   // Simple Datatable
   let table1 = document.querySelector('#table1');
-  let dataTable = new simpleDatatables.DataTable(table1, {searchable: false});
+  let dataTable = new simpleDatatables.DataTable(table1, {
+    searchable: false
+  });
 </script>
 
 <script src="<?= base_url('assets/'); ?>js/mazer.js"></script>

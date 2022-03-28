@@ -14,7 +14,7 @@ class Coe extends CI_Controller
   public function index()
   {
     $data['title'] = 'Peserta CoE';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $data['coe'] = $this->coe->get_coe();
 
@@ -27,7 +27,7 @@ class Coe extends CI_Controller
   public function coe_detail($id)
   {
     $data['title'] = 'Peserta CoE';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $data['coe'] = $this->coe->details_coe($id);
 
@@ -40,7 +40,7 @@ class Coe extends CI_Controller
   public function coe_search()
   {
     $data['title'] = 'Peserta CoE';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $kumiai_name = $this->input->post('kumiai_name');
     $data['coe'] = $this->coe->search_kumiai_coe($kumiai_name);
@@ -54,7 +54,7 @@ class Coe extends CI_Controller
   public function coe_add_page()
   {
     $data['title'] = 'Peserta CoE';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
@@ -71,7 +71,7 @@ class Coe extends CI_Controller
 
     if ($this->form_validation->run() == false) {
       $data['title'] = 'Peserta CoE';
-      $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+      $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
       $this->load->view('templates/header', $data);
       $this->load->view('templates/sidebar', $data);
@@ -108,7 +108,7 @@ class Coe extends CI_Controller
   public function coe_edit_page($id)
   {
     $data['title'] = 'Peserta CoE';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $data['coe'] = $this->coe->details_coe($id);
 
@@ -153,6 +153,7 @@ class Coe extends CI_Controller
   public function printPDF()
   {
     $data['coe'] = $this->coe->get_coe();
+    $data['count_prt_coe'] = $this->coe->count_coe();
 
     $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
     $mpdf->SetHTMLFooter('
@@ -175,6 +176,7 @@ class Coe extends CI_Controller
   {
     $kumiai_name = $this->input->get('kumiai_name');
     $data['coe'] = $this->coe->search_kumiai_coe($kumiai_name);
+    $data['count_prt_coe'] = $this->coe->count_coe();
 
     $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
     $mpdf->SetHTMLFooter('
@@ -197,6 +199,7 @@ class Coe extends CI_Controller
   public function exportExcel()
   {
     $data['coe'] = $this->coe->get_coe();
+    $data['count_prt_coe'] = $this->coe->count_coe();
 
     $this->load->view('coe/coe_excel', $data);
   }
@@ -205,6 +208,7 @@ class Coe extends CI_Controller
   {
     $kumiai_name = $this->input->get('kumiai_name');
     $data['coe'] = $this->coe->search_kumiai_coe($kumiai_name);
+    $data['count_prt_coe'] = $this->coe->count_coe();
 
     $this->load->view('coe/coe_excel', $data);
   }

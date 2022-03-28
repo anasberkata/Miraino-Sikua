@@ -49,8 +49,8 @@
                   <option value="<?= $detail_user["role_id"]; ?>">
                     <?= $detail_user["role"]; ?>
                   </option>
-                  <option value="2">Admin</option>
-                  <option value="3">Manager</option>
+                  <option value="2">Direktur</option>
+                  <option value="3">Admin</option>
                 </select>
               </div>
 

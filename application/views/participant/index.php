@@ -4,17 +4,22 @@
     <div class="card">
       <div class="card-header">
         <div class="row">
-          <div class="col">
+          <div class="col-12 col-lg-8">
             <h4 class="card-title pt-2">Data Peserta</h4>
           </div>
-          <div class="col">
+          <div class="col-12 col-lg-4">
             <?php if ($user['role_id'] == 3) : ?>
               <!-- Tombol Tambah Hilang -->
             <?php else : ?>
-              <a href="<?= base_url('participant/participant_add_page'); ?>" class='btn btn-primary float-end icon'>
+              <a href="<?= base_url('participant/participant_add_page'); ?>" class='btn btn-primary icon'>
                 <span>Tambah Data</span>
               </a>
             <?php endif; ?>
+
+            <div class="btn-group w-50 float-end" role="button">
+              <a href="<?= base_url('participant/printPDF') ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
+              <a href="<?= base_url('participant/exportExcel') ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
+            </div>
           </div>
         </div>
       </div>
@@ -22,6 +27,27 @@
       <div class="card-body">
 
         <?= $this->session->flashdata('message'); ?>
+
+        <form action="<?= base_url('participant/participant_search'); ?>" method="post">
+          <div class="row">
+            <div class="col-lg-5">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-3 col-3">
+                  <label class="col-form-label">Nama</label>
+                </div>
+                <div class="col-lg-9 col-9">
+                  <input type="text" class="form-control" name="name">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-1">
+              <div class="form-group align-items-center">
+                <button type="submit" class="btn btn-primary w-100" name="submit"><i class="icon dripicons-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </form>
 
         <table class="table table-striped small" id="table1">
           <thead>

@@ -14,7 +14,7 @@ class Payment extends CI_Controller
   public function index()
   {
     $data['title'] = 'Data Keuangan';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $data['payment'] = $this->payment->get_payment();
 
@@ -27,7 +27,7 @@ class Payment extends CI_Controller
   public function payment_search()
   {
     $data['title'] = 'Data Keuangan';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $name = $this->input->post('name');
     $data['payment'] = $this->payment->search_name_payment($name);
@@ -41,7 +41,7 @@ class Payment extends CI_Controller
   public function payment_add_page()
   {
     $data['title'] = 'Data Keuangan';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
@@ -58,7 +58,7 @@ class Payment extends CI_Controller
 
     if ($this->form_validation->run() == false) {
       $data['title'] = 'Data Keuangan';
-      $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+      $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
       $this->load->view('templates/header', $data);
       $this->load->view('templates/sidebar', $data);
@@ -95,7 +95,7 @@ class Payment extends CI_Controller
   public function payment_edit_page($id)
   {
     $data['title'] = 'Data Keuangan';
-    $data['user'] = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $data['payment'] = $this->payment->details_payment($id);
 
@@ -194,10 +194,10 @@ class Payment extends CI_Controller
 
   public function exportExcel_search()
   {
-    $jenis = $this->input->get('name');
+    $name = $this->input->get('name');
 
-    $data['payment'] = $this->payment->search_name_payment($jenis);
-    $data['total'] = $this->payment->sum_nominal_search($jenis);
+    $data['payment'] = $this->payment->search_name_payment($name);
+    $data['total'] = $this->payment->sum_nominal_search($name);
 
     $this->load->view('payment/payment_excel', $data);
   }
