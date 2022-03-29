@@ -24,15 +24,22 @@
             <div class="col-md-6">
               <input type="hidden" name="id" value="<?= $detail_user["id"]; ?>">
               <div class="form-group">
+                <input type="hidden" class="form-control" id="id" name="id" value="<?= $detail_user["id"]; ?>">
                 <label for="name">Nama Lengkap</label>
                 <input type="text" class="form-control" id="name" placeholder="Nama Lengkap" name="name" value="<?= $detail_user["name"]; ?>">
                 <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
 
               <div class="form-group">
-                <label for="username">username</label>
+                <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" placeholder="Username" name="username" value="<?= $detail_user["username"]; ?>">
                 <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
+              </div>
+
+              <div class="form-group">
+                <label for="new_password">Password Baru (Kosongkan jika tidak ingin dirubah)</label>
+                <input type="password" class="form-control" id="new_password" placeholder="Password Baru" name="new_password">
+                <?= form_error('new_password', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
             </div>
 
@@ -55,7 +62,7 @@
               </div>
 
               <div class=" form-group">
-                <button type="submit" class="btn btn-primary w-100">Edit</button>
+                <button type="submit" class="btn btn-primary w-100 mt-4">Edit</button>
               </div>
             </div>
           </div>

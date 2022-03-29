@@ -17,6 +17,15 @@ class Payment_model extends CI_Model
     return $query;
   }
 
+  // Mencari Data Berdasarkan Nama
+  function search_payment($name)
+  {
+    // $cari = strpos('name', $name);
+    $query = $this->db->query("SELECT * FROM `payment` WHERE `name` LIKE '%$name%' ORDER BY `date_payment` DESC");
+
+    return $query;
+  }
+
   // Menambah Payment
   function save_payment($data)
   {
@@ -46,7 +55,6 @@ class Payment_model extends CI_Model
     return true;
   }
 
-
   // ------------------------------------------ COUNT ------------------------------------ //
 
   // Menghitung Jumlah Data
@@ -65,28 +73,12 @@ class Payment_model extends CI_Model
   function sum_nominal()
   {
     $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment`");
-    // $query = $this->db->get();
     return $query->row();
   }
 
-  function sum_nominal_search($name)
+  function search_sum_nominal($name)
   {
     $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment` WHERE `name` LIKE '%$name%'");
-    // $query = $this->db->get();
     return $query->row();
-  }
-
-
-
-
-  // ------------------------------------------ SEARCH ------------------------------------ //
-
-  // Mencari Data Berdasarkan Nama
-  function search_name_payment($name)
-  {
-    // $cari = strpos('name', $name);
-    $query = $this->db->query("SELECT * FROM `payment` WHERE `name` LIKE '%$name%' ORDER BY `date_payment` DESC");
-
-    return $query;
   }
 }

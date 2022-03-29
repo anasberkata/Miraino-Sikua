@@ -9,17 +9,13 @@
             <h4 class="card-title pt-2">Data Keuangan</h4>
           </div>
           <div class="col-12 col-lg-4">
-            <?php if ($user['role_id'] == 3) : ?>
-              <!-- Tombol Tambah Hilang -->
-            <?php else : ?>
-              <a href="<?= base_url('payment/payment_add_page'); ?>" class='btn btn-primary icon'>
-                <span>Tambah Data</span>
-              </a>
-            <?php endif; ?>
+            <a href="<?= base_url('payment/payment_add'); ?>" class='btn btn-primary icon'>
+              <span>Tambah Data</span>
+            </a>
 
             <div class="btn-group w-50 float-end" role="button">
-              <a href="<?= base_url('payment/printPDF_search') ?>/?name=<?= $_POST['name']; ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
-              <a href="<?= base_url('payment/exportExcel_search') ?>/?name=<?= $_POST['name']; ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
+              <a href="<?= base_url('payment/printPDF') ?>/?name=<?= $_POST['name']; ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
+              <a href="<?= base_url('payment/exportExcel') ?>/?name=<?= $_POST['name']; ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
             </div>
           </div>
         </div>

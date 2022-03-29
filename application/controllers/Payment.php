@@ -30,22 +30,11 @@ class Payment extends CI_Controller
     $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $name = $this->input->post('name');
-    $data['payment'] = $this->payment->search_name_payment($name);
+    $data['payment'] = $this->payment->search_payment($name);
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
     $this->load->view('payment/payment_search', $data);
-    $this->load->view('templates/footer');
-  }
-
-  public function payment_add_page()
-  {
-    $data['title'] = 'Data Keuangan';
-    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
-
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar', $data);
-    $this->load->view('payment/payment_add', $data);
     $this->load->view('templates/footer');
   }
 
@@ -139,8 +128,14 @@ class Payment extends CI_Controller
   // ---------------------------------------- MPDF ---------------------------------- //
   public function printPDF()
   {
-    $data['payment'] = $this->payment->get_payment();
-    $data['total'] = $this->payment->sum_nominal();
+    $name = $this->input->get('name');
+    if (!isset($name)) {
+      $data['payment'] = $this->payment->get_payment();
+      $data['total'] = $this->payment->sum_nominal();
+    } else {
+      $data['payment'] = $this->payment->search_payment($name);
+      $data['total'] = $this->payment->search_sum_nominal($name);
+    }
 
     $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
     $mpdf->SetHTMLFooter('
@@ -158,46 +153,18 @@ class Payment extends CI_Controller
     $mpdf->Output('Data Keuangan.pdf', 'I');
   }
 
-
-  public function printPDF_search()
-  {
-    $jenis = $this->input->get('name');
-
-    $data['payment'] = $this->payment->search_name_payment($jenis);
-    $data['total'] = $this->payment->sum_nominal_search($jenis);
-
-    $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
-    $mpdf->SetHTMLFooter('
-            <table width="100%" style="font-size: 9pt;">
-                <tr>
-                    <td width="33%">{DATE j F Y}</td>
-                    <td width="33%" align="center">{PAGENO}/{nbpg}</td>
-                    <td width="33%" style="text-align: right;">Data Keuangan PT. Miraino Hashi Jaya</td>
-                </tr>
-            </table>');
-
-    $page = $this->load->view('payment/payment_print', $data, TRUE);
-
-    $mpdf->WriteHTML($page);
-    $mpdf->Output('Data Pengeluaran.pdf', 'I');
-  }
-
   // ---------------------------------------- EXPORT EXCEL ---------------------------------- //
 
   public function exportExcel()
   {
-    $data['payment'] = $this->payment->get_payment();
-    $data['total'] = $this->payment->sum_nominal();
-
-    $this->load->view('payment/payment_excel', $data);
-  }
-
-  public function exportExcel_search()
-  {
     $name = $this->input->get('name');
-
-    $data['payment'] = $this->payment->search_name_payment($name);
-    $data['total'] = $this->payment->sum_nominal_search($name);
+    if (!isset($name)) {
+      $data['payment'] = $this->payment->get_payment();
+      $data['total'] = $this->payment->sum_nominal();
+    } else {
+      $data['payment'] = $this->payment->search_payment($name);
+      $data['total'] = $this->payment->search_sum_nominal($name);
+    }
 
     $this->load->view('payment/payment_excel', $data);
   }

@@ -9,16 +9,12 @@
             <h4 class="card-title pt-2">Data Pengeluaran</h4>
           </div>
           <div class="col-12 col-lg-4">
-            <?php if ($user['role_id'] == 3) : ?>
-              <!-- Tombol Tambah Hilang -->
-            <?php else : ?>
-              <a href="<?= base_url('report/report_add_page'); ?>" class='btn btn-primary icon'>
-                <span>Tambah Data</span>
-              </a>
-            <?php endif; ?>
+            <a href="<?= base_url('report/report_add'); ?>" class='btn btn-primary icon'>
+              <span>Tambah Data</span>
+            </a>
             <div class="btn-group float-end w-50" role="button">
-              <a href="<?= base_url('report/printPDF_search'); ?>/?tgl_awal=<?= $_POST['tgl_awal']; ?>&tgl_akhir=<?= $_POST['tgl_akhir']; ?>&jenis=<?= $_POST['jenis']; ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
-              <a href="<?= base_url('report/exportExcel_search'); ?>/?tgl_awal=<?= $_POST['tgl_awal']; ?>&tgl_akhir=<?= $_POST['tgl_akhir']; ?>&jenis=<?= $_POST['jenis']; ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
+              <a href="<?= base_url('report/printPDF'); ?>/?tgl_awal=<?= $_POST['tgl_awal']; ?>&tgl_akhir=<?= $_POST['tgl_akhir']; ?>&jenis=<?= $_POST['jenis']; ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
+              <a href="<?= base_url('report/exportExcel'); ?>/?tgl_awal=<?= $_POST['tgl_awal']; ?>&tgl_akhir=<?= $_POST['tgl_akhir']; ?>&jenis=<?= $_POST['jenis']; ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
             </div>
           </div>
         </div>
@@ -66,7 +62,7 @@
             <div class="col-lg-3">
               <div class="form-group row align-items-center">
                 <div class="col">
-                  <input type="text" class="form-control" name="jenis" placeholder="<?php echo $_POST['jenis']; ?>">
+                  <input type="text" class="form-control" name="jenis" placeholder="Jenis Pengeluaran" value="<?php echo $_POST['jenis']; ?>">
                 </div>
               </div>
             </div>

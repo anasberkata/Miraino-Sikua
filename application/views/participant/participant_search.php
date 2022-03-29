@@ -11,14 +11,14 @@
             <?php if ($user['role_id'] == 3) : ?>
               <!-- Tombol Tambah Hilang -->
             <?php else : ?>
-              <a href="<?= base_url('participant/participant_add_page'); ?>" class='btn btn-primary icon'>
+              <a href="<?= base_url('participant/participant_add'); ?>" class='btn btn-primary icon'>
                 <span>Tambah Data</span>
               </a>
             <?php endif; ?>
 
             <div class="btn-group w-50 float-end" role="button">
-              <a href="<?= base_url('participant/printPDF_search') ?>/?name=<?= $_POST['name']; ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
-              <a href="<?= base_url('participant/exportExcel_search') ?>/?name=<?= $_POST['name']; ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
+              <a href="<?= base_url('participant/printPDF') ?>/?name=<?= $_POST['name']; ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
+              <a href="<?= base_url('participant/exportExcel') ?>/?name=<?= $_POST['name']; ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
             </div>
           </div>
         </div>

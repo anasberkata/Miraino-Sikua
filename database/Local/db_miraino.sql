@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 28, 2022 at 06:30 PM
+-- Generation Time: Mar 29, 2022 at 07:29 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -81,7 +81,8 @@ INSERT INTO `participants_coe` (`id`, `name`, `issue_date`, `program`, `kumiai_n
 (3, 'M Fajriansyah', '2022-03-10', 'Tg Perawat', 'Saturasi', 'Saturasi', 'Bandung', '2022-03-10', 1),
 (5, 'Bawang Putih Menangis', '2022-03-12', 'Tg Pertanian', 'Kumiai', 'Kumiai', 'Cianjur', '2022-03-10', 1),
 (7, 'Hamdani Supratman', '2022-03-05', 'Magang Pabrik Kerupuk', 'Kerupuk Udang', 'Kerupuk Udang', 'Bandung', '2022-03-19', 1),
-(8, 'Akew', '2022-02-27', 'Magang Kontruksi', 'sa', 'satu', 'rasi', '2022-03-28', 1);
+(8, 'Akew', '2022-02-27', 'Magang Kontruksi', 'sa', 'satu', 'rasi', '2022-03-28', 1),
+(9, 'amir', '2022-03-05', 'Tg Pertanian', 'bna', 'bna', 'cianjur', '2022-03-29', 1);
 
 -- --------------------------------------------------------
 
@@ -109,7 +110,8 @@ INSERT INTO `payment` (`id`, `name`, `program`, `date_payment`, `person_responsi
 (1, 'Anas Berkata', 'Engineering', '2022-03-10', 'Dela', 300000, 'Pendaftaran', '2022-03-10', 1),
 (2, 'Didin Rohidin', 'Magang Pengolahan Makanan', '2022-03-10', 'Dela', 500000, 'SPP Juni', '2022-03-10', 1),
 (4, 'Anas Berkata', 'Engineering', '2022-03-24', 'Dela', 340000, 'Konsumsi Lunas', '2022-03-24', 1),
-(5, 'Didin Rohidin', 'Magang Perawat', '2022-03-28', 'Dela', 300000, 'SPP April', '2022-03-28', 1);
+(5, 'Didin Rohidin', 'Magang Perawat', '2022-03-28', 'Dela', 300000, 'SPP April', '2022-03-28', 1),
+(6, 'Dera Albar', 'Ryuugakusei', '2022-03-30', 'Dela', 1500000, 'Bayar Bangunan', '2022-03-29', 1);
 
 -- --------------------------------------------------------
 
@@ -137,7 +139,9 @@ INSERT INTO `report` (`id`, `output_type`, `nominal`, `date_payment`, `date_crea
 (6, 'Uang Makan', 570000, '2022-03-19', '2022-03-19', 1),
 (7, 'Iuran Wajib Lingkungan (RT/Sampah)', 30000, '2022-02-17', '2022-03-19', 1),
 (8, 'Transport Luar Negeri', 23000000, '2022-03-23', '2022-03-23', 1),
-(9, 'Gaji', 4000000, '2022-02-25', '2022-03-23', 1);
+(9, 'Gaji', 4000000, '2022-02-25', '2022-03-23', 1),
+(10, 'Biaya Listrik', 250000, '2022-03-28', '2022-03-29', 1),
+(11, 'Biaya Air', 425000, '2022-03-30', '2022-03-29', 1);
 
 -- --------------------------------------------------------
 
@@ -165,7 +169,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `image`, `ro
 (1, 'Eka Anas Jatnika', 'anasberkata', 'ideanasdesain@gmail.com', '$2y$10$ZokNofyyqCwnVjJkoEWoUuUSH9trHRP/Rs4Mx5letlvZIB2upi2G.', 'anas.jpg', 1, 1, '2022-03-07'),
 (2, 'Direktur', 'direktur', 'direktur@mirainohashi.co.id', '$2y$10$lOfg.qqEYx9jUYClWfA2wuekCSGt5ADqLVUMKiZxKCHFOOd90xBAe', 'admin.jpg', 2, 1, '2022-03-07'),
 (3, 'Admin 01', 'admin01', 'admin01@mirainohashi.co.id', '$2y$10$72tdhRa1SDNSHkKNQzdU3uC/EDrUTIaZFtgKsRIdlMKwDv7X28TRm', 'manager.jpg', 3, 1, '2022-03-07'),
-(7, 'Admin 02', 'admin02', 'admin02@mirainohashi.co.id', '$2y$10$Q0T4alWJGro1KVXDrmZKIer0kPO9NvRv/v/5Y8VRW6JMWtAzH2eD6', 'default.jpg', 3, 1, '2022-03-25');
+(7, 'Admin 02', 'admin02', 'admin02@mirainohashi.co.id', '$2y$10$0yz26.c/4rMlX/ziS4oxeup1WCFhlTQCiCPbMUpXpPdrO4XdTaLqa', 'default.jpg', 3, 1, '2022-03-25');
 
 -- --------------------------------------------------------
 
@@ -189,8 +193,7 @@ INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (3, 1, 5),
 (4, 2, 2),
 (5, 2, 4),
-(6, 3, 3),
-(10, 3, 4);
+(6, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -343,19 +346,19 @@ ALTER TABLE `participants`
 -- AUTO_INCREMENT for table `participants_coe`
 --
 ALTER TABLE `participants_coe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`

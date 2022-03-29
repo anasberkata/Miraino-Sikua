@@ -19,6 +19,19 @@ class Report_model extends CI_Model
     return $query;
   }
 
+  // Mencari Data
+  function search_report($tgl_awal, $tgl_akhir, $jenis)
+  {
+
+    if (!$tgl_awal && !$tgl_akhir) {
+      $query = $this->db->query("SELECT * FROM `report` WHERE `output_type` LIKE '%$jenis%' ORDER BY `date_payment` DESC");
+      return $query;
+    } else {
+      $query = $this->db->query("SELECT * FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '%$jenis%' ORDER BY `date_payment` DESC");
+      return $query;
+    }
+  }
+
   // Menambah Laporan
   function save_report($data)
   {
@@ -74,54 +87,17 @@ class Report_model extends CI_Model
   function sum_nominal()
   {
     $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report`");
-    // $query = $this->db->get();
     return $query->row();
   }
 
-  function sum_nominal_date_search($tgl_awal, $tgl_akhir)
+  function search_sum_nominal($tgl_awal, $tgl_akhir, $jenis)
   {
-    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir'");
-    // $query = $this->db->get();
-    return $query->row();
-  }
-
-  function sum_nominal_type_search($jenis)
-  {
-    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `output_type` LIKE '%$jenis%'");
-    // $query = $this->db->get();
-    return $query->row();
-  }
-
-  function sum_nominal_all_search($tgl_awal, $tgl_akhir, $jenis)
-  {
-    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '%$jenis%'");
-    // $query = $this->db->get();
-    return $query->row();
-  }
-
-  // ------------------------------------------ SEARCH ------------------------------------ //
-
-  // Mencari Data Berdasarkan Tanggal
-  function search_date_report($tgl_awal, $tgl_akhir)
-  {
-    $query = $this->db->query("SELECT * FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' ORDER BY `date_payment` DESC");
-
-    return $query;
-  }
-
-  // Mencari Data Berdasarkan Tipe Pengeluaran
-  function search_type_report($jenis)
-  {
-    $query = $this->db->query("SELECT * FROM `report` WHERE `output_type` LIKE '&$jenis%' ORDER BY `date_payment` DESC");
-
-    return $query;
-  }
-
-  // Mencari Data Berdasarkan Tanggal dan Tipe Pengeluaran
-  function search_all_report($tgl_awal, $tgl_akhir, $jenis)
-  {
-    $query = $this->db->query("SELECT * FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '&$jenis%' ORDER BY `date_payment` DESC");
-
-    return $query;
+    if (!$tgl_awal && !$tgl_akhir) {
+      $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `output_type` LIKE '%$jenis%' ORDER BY `date_payment` DESC");
+      return $query->row();
+    } else {
+      $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '%$jenis%' ORDER BY `date_payment` DESC");
+      return $query->row();
+    }
   }
 }

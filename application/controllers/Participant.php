@@ -24,20 +24,6 @@ class Participant extends CI_Controller
     $this->load->view('templates/footer');
   }
 
-  public function participant_search()
-  {
-    $data['title'] = 'Peserta';
-    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
-
-    $name = $this->input->post('name');
-    $data['participant'] = $this->participant->search_name_participant($name);
-
-    $this->load->view('templates/header', $data);
-    $this->load->view('templates/sidebar', $data);
-    $this->load->view('participant/participant_search', $data);
-    $this->load->view('templates/footer');
-  }
-
   public function participant_detail($id)
   {
     $data['title'] = 'Peserta';
@@ -51,15 +37,17 @@ class Participant extends CI_Controller
     $this->load->view('templates/footer');
   }
 
-
-  public function participant_add_page()
+  public function participant_search()
   {
     $data['title'] = 'Peserta';
     $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
+    $name = $this->input->post('name');
+    $data['participant'] = $this->participant->search_participant($name);
+
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
-    $this->load->view('participant/participant_add', $data);
+    $this->load->view('participant/participant_search', $data);
     $this->load->view('templates/footer');
   }
 
@@ -166,10 +154,17 @@ class Participant extends CI_Controller
   // ---------------------------------------- MPDF ---------------------------------- //
   public function printPDF()
   {
-    $data['participant'] = $this->participant->get_participants();
-    $data['count_prt'] = $this->participant->count_participants();
+    $name = $this->input->get('name');
 
-    $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'LEGAL-L']);
+    if (!isset($name)) {
+      $data['participant'] = $this->participant->get_participants();
+      $data['count_prt'] = $this->participant->count_participants();
+    } else {
+      $data['participant'] = $this->participant->search_participant($name);
+      $data['count_prt'] = $this->participant->search_count_participants($name);
+    }
+
+    $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
     $mpdf->SetHTMLFooter('
             <table width="100%" style="font-size:9;">
                 <tr>
@@ -185,46 +180,19 @@ class Participant extends CI_Controller
     $mpdf->Output('Data Peserta.pdf', 'I');
   }
 
-
-  public function printPDF_search()
-  {
-    $name = $this->input->get('name');
-
-    $data['participant'] = $this->participant->search_name_participant($name);
-    $data['count_prt'] = $this->participant->search_count_participants($name);
-
-    $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
-    $mpdf->SetHTMLFooter('
-            <table width="100%" style="font-size: 9pt;">
-                <tr>
-                    <td width="33%">{DATE j F Y}</td>
-                    <td width="33%" align="center">{PAGENO}/{nbpg}</td>
-                    <td width="33%" style="text-align: right;">Data Peserta PT. Miraino Hashi Jaya</td>
-                </tr>
-            </table>');
-
-    $page = $this->load->view('participant/participant_print', $data, TRUE);
-
-    $mpdf->WriteHTML($page);
-    $mpdf->Output('Data Peserta.pdf', 'I');
-  }
-
   // ---------------------------------------- EXPORT EXCEL ---------------------------------- //
 
   public function exportExcel()
   {
-    $data['participant'] = $this->participant->get_participants();
-    $data['count_prt'] = $this->participant->count_participants();
-
-    $this->load->view('participant/participant_excel', $data);
-  }
-
-  public function exportExcel_search()
-  {
     $name = $this->input->get('name');
 
-    $data['participant'] = $this->participant->search_name_participant($name);
-    $data['count_prt'] = $this->participant->search_count_participants($name);
+    if (!isset($name)) {
+      $data['participant'] = $this->participant->get_participants();
+      $data['count_prt'] = $this->participant->count_participants();
+    } else {
+      $data['participant'] = $this->participant->search_participant($name);
+      $data['count_prt'] = $this->participant->search_count_participants($name);
+    }
 
     $this->load->view('participant/participant_excel', $data);
   }

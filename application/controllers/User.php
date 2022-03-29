@@ -11,7 +11,7 @@ class User extends CI_Controller
     $this->load->helper('date');
   }
 
-  // ---------------------------------------------- PROFILE CRUD -------------------------------------------------
+  // ---------------------------------------------- PROFILE CRUD ----------------------------- //
 
   // Halaman Profile
   public function index()
@@ -95,6 +95,9 @@ class User extends CI_Controller
     }
   }
 
+
+
+  // ---------------------------------------------- USER CRUD ----------------------------- //
   // Menampilkan Semua User
   public function users()
   {
@@ -183,6 +186,7 @@ class User extends CI_Controller
 
     $this->form_validation->set_rules('name', "Name", 'required|trim');
     $this->form_validation->set_rules('username', "Username", 'required|trim');
+    $this->form_validation->set_rules('new_password', 'New Password', 'trim|min_length[3]');
     $this->form_validation->set_rules('email', "Email", 'required|trim|valid_email');
 
     if ($this->form_validation->run() == false) {
@@ -191,10 +195,22 @@ class User extends CI_Controller
       $this->load->view('user/user_edit', $data);
       $this->load->view('templates/footer');
     } else {
+      $new_password = $this->input->post('new_password');
+      $id = $this->input->post('id');
+      $get_user = ['users.id' => $id];
+      $dt['d'] = $this->user->details_user($get_user)->row_array();
+
+      if (!$new_password) {
+        $password = $dt['d']['password'];
+      } else {
+        $password = password_hash($new_password, PASSWORD_DEFAULT);
+      }
+
       $datas = [
         'name' => htmlspecialchars($this->input->post('name')),
         'username' => htmlspecialchars($this->input->post('username')),
         'email' => htmlspecialchars($this->input->post('email')),
+        'password' => $password,
         'role_id' => $this->input->post('role_id')
       ];
 

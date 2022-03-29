@@ -9,17 +9,13 @@
             <h4 class="card-title pt-2">Data Peserta CoE</h4>
           </div>
           <div class="col-12 col-lg-4">
-            <?php if ($user['role_id'] == 3) : ?>
-              <!-- Tombol Tambah Hilang -->
-            <?php else : ?>
-              <a href="<?= base_url('coe/coe_add_page'); ?>" class='btn btn-primary icon'>
-                <span>Tambah Data</span>
-              </a>
-            <?php endif; ?>
+            <a href="<?= base_url('coe/coe_add_page'); ?>" class='btn btn-primary icon'>
+              <span>Tambah Data</span>
+            </a>
 
             <div class="btn-group w-50 float-end" role="button">
-              <a href="<?= base_url('coe/printPDF_search') ?>/?kumiai_name=<?= $_POST['kumiai_name']; ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
-              <a href="<?= base_url('coe/exportExcel_search') ?>/?kumiai_name=<?= $_POST['kumiai_name']; ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
+              <a href="<?= base_url('coe/printPDF') ?>/?kumiai_name=<?= $_POST['kumiai_name']; ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
+              <a href="<?= base_url('coe/exportExcel') ?>/?kumiai_name=<?= $_POST['kumiai_name']; ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
             </div>
           </div>
         </div>
@@ -31,7 +27,7 @@
 
         <form action="<?= base_url('coe/coe_search'); ?>" method="post">
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-5">
               <div class="form-group row align-items-center">
                 <div class="col-lg-3 col-3">
                   <label class="col-form-label">Kumiai</label>

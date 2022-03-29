@@ -17,6 +17,13 @@ class Coe_model extends CI_Model
         return $query;
     }
 
+    // Mencari Data Berdasarkan Nama Kumiai
+    function search_coe($kumiai_name)
+    {
+        $query = $this->db->query("SELECT * FROM `participants_coe` WHERE `kumiai_name` LIKE '%$kumiai_name%'");
+        return $query;
+    }
+
     // Menambah Peserta Coe
     function save_coe($data)
     {
@@ -46,10 +53,9 @@ class Coe_model extends CI_Model
         return true;
     }
 
-
     // ------------------------------------------ COUNT ------------------------------------ //
 
-    // Menghitung Jumlah Data
+    // Menghitung Jumlah Data Peserta Coe
     function count_coe()
     {
         $query = $this->db->get('participants_coe');
@@ -60,14 +66,14 @@ class Coe_model extends CI_Model
         }
     }
 
-    // ------------------------------------------ SEARCH ------------------------------------ //
-
-    // Mencari Data Berdasarkan Nama Kumiai
-    function search_kumiai_coe($kumiai_name)
+    // Menghitung Jumlah Data Peserta Coe Sesuai Pencarian
+    function search_count_coe($kumiai_name)
     {
-        // $cari = strpos('name', $name);
         $query = $this->db->query("SELECT * FROM `participants_coe` WHERE `kumiai_name` LIKE '%$kumiai_name%'");
-
-        return $query;
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
     }
 }
