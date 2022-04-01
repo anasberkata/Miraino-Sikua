@@ -18,12 +18,16 @@ class Payment_model extends CI_Model
   }
 
   // Mencari Data Berdasarkan Nama
-  function search_payment($name)
+  function search_payment($name, $periode_awal, $periode_akhir, $periode_awal_null, $periode_akhir_null)
   {
-    // $cari = strpos('name', $name);
-    $query = $this->db->query("SELECT * FROM `payment` WHERE `name` LIKE '%$name%' ORDER BY `date_payment` DESC");
 
-    return $query;
+    if (!$periode_awal_null && !$periode_akhir_null) {
+      $query = $this->db->query("SELECT * FROM `payment` WHERE `name` LIKE '%$name%' ORDER BY `date_payment` DESC");
+      return $query;
+    } else {
+      $query = $this->db->query("SELECT * FROM `payment` WHERE `date_payment` BETWEEN '$periode_awal' AND '$periode_akhir' AND `name` LIKE '%$name%' ORDER BY `date_payment` DESC");
+      return $query;
+    }
   }
 
   // Menambah Payment
@@ -76,9 +80,14 @@ class Payment_model extends CI_Model
     return $query->row();
   }
 
-  function search_sum_nominal($name)
+  function search_sum_nominal($name, $periode_awal, $periode_akhir, $periode_awal_null, $periode_akhir_null)
   {
-    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment` WHERE `name` LIKE '%$name%'");
-    return $query->row();
+    if (!$periode_awal_null && !$periode_akhir_null) {
+      $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment` WHERE `name` LIKE '%$name%' ORDER BY `date_payment` DESC");
+      return $query->row();
+    } else {
+      $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment` WHERE `date_payment` BETWEEN '$periode_awal' AND '$periode_akhir' AND `name` LIKE '%$name%' ORDER BY `date_payment` DESC");
+      return $query->row();
+    }
   }
 }

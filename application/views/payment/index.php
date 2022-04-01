@@ -25,7 +25,7 @@
 
         <?= $this->session->flashdata('message'); ?>
 
-        <form action="<?= base_url('payment/payment_search'); ?>" method="post">
+        <!-- <form action="<?= base_url('payment/payment_search'); ?>" method="post">
           <div class="row">
             <div class="col-lg-5">
               <div class="form-group row align-items-center">
@@ -44,7 +44,105 @@
               </div>
             </div>
           </div>
+        </form> -->
+
+        <form action="<?= base_url('payment/payment_search'); ?>" method="post">
+
+          <div class=" row">
+            <div class="col-lg-10">
+              <div class="form-group row align-items-center">
+                <div class="col-lg-2 col-3">
+                  <label class="col-form-label">Nama Siswa</label>
+                </div>
+                <div class="col-lg-10 col-9">
+                  <input type="text" class="form-control" name="name">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group row align-items-center">
+                    <div class="col-lg-3 col-3">
+                      <label class="col-form-label" for="month_start">Bulan</label>
+                    </div>
+                    <div class="col-lg-9 col-9">
+                      <select class="form-select" id="month_start" name="month_start">
+                        <option value="">Pilih Bulan</option>
+                        <option value="01">Januari</option>
+                        <option value="02">Februari</option>
+                        <option value="03">Maret</option>
+                        <option value="04">April</option>
+                        <option value="05">Mei</option>
+                        <option value="06">Juni</option>
+                        <option value="07">Juli</option>
+                        <option value="08">Agustus</option>
+                        <option value="09">September</option>
+                        <option value="10">Oktober</option>
+                        <option value="11">November</option>
+                        <option value="12">Desember</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group row align-items-center">
+                    <div class="col-lg-3 col-3">
+                      <label class="col-form-label" for="year_start">Tahun</label>
+                    </div>
+                    <div class="col-lg-9 col-9">
+                      <input type="number" class="form-control" id="year_start" name="year_start" placeholder="2015" min="2015" max="2100">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group row align-items-center">
+                    <div class="col-lg-3 col-3">
+                      <label class="col-form-label" for="month_end">Bulan</label>
+                    </div>
+                    <div class="col-lg-9 col-9">
+                      <select class="form-select" id="month_end" name="month_end">
+                        <option value="">Pilih Bulan</option>
+                        <option value="01">Januari</option>
+                        <option value="02">Februari</option>
+                        <option value="03">Maret</option>
+                        <option value="04">April</option>
+                        <option value="05">Mei</option>
+                        <option value="06">Juni</option>
+                        <option value="07">Juli</option>
+                        <option value="08">Agustus</option>
+                        <option value="09">September</option>
+                        <option value="10">Oktober</option>
+                        <option value="11">November</option>
+                        <option value="12">Desember</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group row align-items-center">
+                    <div class="col-lg-3 col-3">
+                      <label class="col-form-label" for="year_start">Tahun</label>
+                    </div>
+                    <div class="col-lg-9 col-9">
+                      <input type="number" class="form-control" id="year_start" name="year_end" placeholder="2015" min="2015" max="2100">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-2">
+              <div class="form-group align-items-center pb-2 h-100">
+                <button type="submit" class="btn btn-primary w-100" name="submit" style="height: 98%;"><i class="icon dripicons-search"></i></button>
+              </div>
+            </div>
+          </div>
+
         </form>
+
 
         <table class="table table-striped small" id="table1">
           <thead>
@@ -133,3 +231,9 @@
   </section>
 
 </div>
+
+<!-- Script Tahun -->
+<script>
+  document.querySelector("input[type=number]")
+    .oninput = e => console.log(new Date(e.target.valueAsNumber, 0, 1))
+</script>

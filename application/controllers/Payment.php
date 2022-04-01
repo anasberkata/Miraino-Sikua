@@ -30,7 +30,21 @@ class Payment extends CI_Controller
     $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
     $name = $this->input->post('name');
-    $data['payment'] = $this->payment->search_payment($name);
+
+    $bulan_awal = $this->input->post('month_start');
+    $bulan_akhir = $this->input->post('month_end');
+    $tahun_awal = $this->input->post('year_start');
+    $tahun_akhir = $this->input->post('year_end');
+    $tanggal_awal = 01;
+    $tanggal_akhir = 31;
+
+    $periode_awal = $tahun_awal . "-" . $bulan_awal . "-" . $tanggal_awal;
+    $periode_akhir = $tahun_akhir . "-" . $bulan_akhir . "-" . $tanggal_akhir;
+
+    $periode_awal_null = $bulan_awal;
+    $periode_akhir_null = $bulan_akhir;
+
+    $data['payment'] = $this->payment->search_payment($name, $periode_awal, $periode_akhir, $periode_awal_null, $periode_akhir_null);
 
     $this->load->view('templates/header', $data);
     $this->load->view('templates/sidebar', $data);
@@ -129,12 +143,26 @@ class Payment extends CI_Controller
   public function printPDF()
   {
     $name = $this->input->get('name');
-    if (!isset($name)) {
+
+    $bulan_awal = $this->input->get('month_start');
+    $bulan_akhir = $this->input->get('month_end');
+    $tahun_awal = $this->input->get('year_start');
+    $tahun_akhir = $this->input->get('year_end');
+    $tanggal_awal = 01;
+    $tanggal_akhir = 31;
+
+    $periode_awal = $tahun_awal . "-" . $bulan_awal . "-" . $tanggal_awal;
+    $periode_akhir = $tahun_akhir . "-" . $bulan_akhir . "-" . $tanggal_akhir;
+
+    $periode_awal_null = $bulan_awal;
+    $periode_akhir_null = $bulan_akhir;
+
+    if (!isset($name) && !isset($periode_awal_null) && !isset($periode_akhir_null)) {
       $data['payment'] = $this->payment->get_payment();
       $data['total'] = $this->payment->sum_nominal();
     } else {
-      $data['payment'] = $this->payment->search_payment($name);
-      $data['total'] = $this->payment->search_sum_nominal($name);
+      $data['payment'] = $this->payment->search_payment($name, $periode_awal, $periode_akhir, $periode_awal_null, $periode_akhir_null);
+      $data['total'] = $this->payment->search_sum_nominal($name, $periode_awal, $periode_akhir, $periode_awal_null, $periode_akhir_null);
     }
 
     $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
@@ -157,13 +185,37 @@ class Payment extends CI_Controller
 
   public function exportExcel()
   {
+    // $name = $this->input->get('name');
+    // if (!isset($name)) {
+    //   $data['payment'] = $this->payment->get_payment();
+    //   $data['total'] = $this->payment->sum_nominal();
+    // } else {
+    //   $data['payment'] = $this->payment->search_payment($name);
+    //   $data['total'] = $this->payment->search_sum_nominal($name);
+    // }
+
+
     $name = $this->input->get('name');
-    if (!isset($name)) {
+
+    $bulan_awal = $this->input->get('month_start');
+    $bulan_akhir = $this->input->get('month_end');
+    $tahun_awal = $this->input->get('year_start');
+    $tahun_akhir = $this->input->get('year_end');
+    $tanggal_awal = 01;
+    $tanggal_akhir = 31;
+
+    $periode_awal = $tahun_awal . "-" . $bulan_awal . "-" . $tanggal_awal;
+    $periode_akhir = $tahun_akhir . "-" . $bulan_akhir . "-" . $tanggal_akhir;
+
+    $periode_awal_null = $bulan_awal;
+    $periode_akhir_null = $bulan_akhir;
+
+    if (!isset($name) && !isset($periode_awal_null) && !isset($periode_akhir_null)) {
       $data['payment'] = $this->payment->get_payment();
       $data['total'] = $this->payment->sum_nominal();
     } else {
-      $data['payment'] = $this->payment->search_payment($name);
-      $data['total'] = $this->payment->search_sum_nominal($name);
+      $data['payment'] = $this->payment->search_payment($name, $periode_awal, $periode_akhir, $periode_awal_null, $periode_akhir_null);
+      $data['total'] = $this->payment->search_sum_nominal($name, $periode_awal, $periode_akhir, $periode_awal_null, $periode_akhir_null);
     }
 
     $this->load->view('payment/payment_excel', $data);
