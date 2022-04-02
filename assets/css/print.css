@@ -1,0 +1,76 @@
+table,
+tr,
+td {
+    height: 60px;
+}
+
+h2.head-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+p.head-desc {
+    font-family: "Times New Roman", Times, serif;
+    /* font-weight: bold; */
+    font-size: 14px;
+}
+
+table.devider {
+    width: 100%;
+    border-top: 3px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+tr.devider {
+    height: 2px;
+}
+
+td.devider {
+    height: 2px;
+}
+
+h2.head-table {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.table-main {
+    width: 100%;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 12px;
+}
+
+.table-main tr td {
+    border: 1px solid black;
+}
+
+tr.head-row {
+    background-color: #bdd7ee;
+}
+
+tr.head-row td {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.text-left {
+    text-align: left;
+}
+
+tr.body-row td {
+    font-size: 12px;
+}
+
+tr.foot-row {
+    background-color: #b4c6e7;
+}
+
+tr.foot-row td {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 14px;
+}

@@ -3,105 +3,76 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <style>
-        .table-main {
-            width: 100%;
-        }
-
-        .border {
-            border: 1px solid black;
-        }
-
-        .card-title {
-            font-family: sans-serif;
-            font-weight: bold;
-        }
-
-        .bold {
-            font-weight: bold;
-        }
-
-        .font-italic {
-            font-style: italic;
-        }
-
-        thead {
-            font-weight: bold;
-            padding: 20px 10px;
-            text-align: center;
-            vertical-align: middle;
-        }
-
-        hr {
-            margin: 20px 0px;
-            border-top: 3px double #000000;
-        }
-    </style>
-
-    <title>Print</title>
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/print.css">
     <link rel="shortcut icon" href="<?= base_url('assets/'); ?>images/favicon.png" type="image/x-icon">
+    <title>Print</title>
 </head>
 
 <body>
-
-    <table cellpadding="10">
+    <!-- HEADER -->
+    <table cellpadding="10" width="100%">
         <tr>
             <td width="10%"></td>
-            <td width="15%">
-                <img src="<?= base_url('assets/'); ?>images/logo/Logo MHJ Web.png" class="logo-print m-auto" width="100">
+            <td width="15%"><img src="<?= base_url('assets/'); ?>images/logo/logo-miraino-kotak.jpeg" width="100px" class="logo"></td>
+            <td width="50%" style="text-align: center;">
+                <h2 class="head-title"><b>PT. MIRAINO HASHI JAYA</b></h2>
+                <p class="head-desc">Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005
+                    <br>Kel. Satria Jaya, Kec. Tambun Utara, Kab. Bekasi Kode Pos 17510
+                    <br>Telp : 021-29088491, +6281327417947, +6281380229688
+                    <br>Website : www.mirainohashi.co.id
+                </p>
             </td>
-            <td width="50%" style="text-align:center;">
-                <h2 class="card-title pt-2 title-print">PT. MIRAINO HASHI JAYA</h2>
-                <p>Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005 Kel. Satria Jaya, Kec. Tambun Utara Kode Pos 17510</p>
-                <p>Telp : 021-29088491, +6281327417947, +6281380229688</p>
-                <p>Website : www.mirainohashi.co.id</p>
-            </td>
-            <td width="25%">
+            <td width="25%"></td>
+        </tr>
+    </table>
+    <!-- END HEADER -->
+
+    <table class="devider">
+        <tr class="devider">
+            <td class="devider">
             </td>
         </tr>
     </table>
 
-    <hr>
+    <h2 class="head-table">DATA SISWA SISWI PT. MIRAINO HASHI JAYA</h2>
 
-    <h4 style="text-align: center;">DATA SISWA SISWI PT. MIRAINO HASHI JAYA</h4>
+    <table class="table-main" cellpadding="10" cellspacing="0">
 
-    <table class="table-main border" cellpadding="10" cellspacing="0">
-        <thead>
-            <tr style="background-color:lightcyan;">
-                <td class="bold border">N0.</td>
-                <td class="bold border">NAMA</td>
-                <td class="bold border">ALAMAT</td>
-                <td class="bold border">TELEPON (WA)</td>
-                <td class="bold border">EMAIL</td>
-                <td class="bold border">LEVEL BAHASA</td>
-                <td class="bold border">ASAL IPK</td>
-                <td class="bold border">PROGRAM</td>
-                <td class="bold border">TANGGAL MASUK</td>
+        <tr class="head-row">
+            <td>N0.</td>
+            <td>NAMA</td>
+            <td>ALAMAT</td>
+            <td>TELEPON (WA)</td>
+            <td>EMAIL</td>
+            <td>LEVEL BAHASA</td>
+            <td>ASAL IPK</td>
+            <td>PROGRAM</td>
+            <td>TANGGAL MASUK</td>
+        </tr>
+
+        <?php $i = 1; ?>
+        <?php foreach ($participant->result() as $p) : ?>
+            <tr>
+                <td><?= $i; ?></td>
+                <td class="text-left"><?= $p->name; ?></td>
+                <td><?= $p->address; ?></td>
+                <td><?= $p->phone; ?></td>
+                <td><?= $p->email; ?></td>
+                <td><?= $p->lang_level; ?></td>
+                <td><?= $p->ipk; ?></td>
+                <td><?= $p->program; ?></td>
+                <td><?= date('d / m / Y', strtotime($p->date_entry)); ?></td>
             </tr>
-        </thead>
-        <tbody>
-            <?php $i = 1; ?>
-            <?php foreach ($participant->result() as $p) : ?>
-                <tr>
-                    <td class="border"><?= $i; ?></td>
-                    <td class="border"><?= $p->name; ?></td>
-                    <td class="border"><?= $p->address; ?></td>
-                    <td class="border"><?= $p->phone; ?></td>
-                    <td class="border"><?= $p->email; ?></td>
-                    <td class="border"><?= $p->lang_level; ?></td>
-                    <td class="border"><?= $p->ipk; ?></td>
-                    <td class="border"><?= $p->program; ?></td>
-                    <td class="border"><?= date('d F Y', strtotime($p->date_entry)); ?></td>
-                </tr>
-                <?php $i++; ?>
-            <?php endforeach; ?>
-            <tr style="background-color: lightcyan;">
-                <td colspan="8" class="bold border font-italic">JUMLAH SISWA</td>
-                <td class="bold border font-italic"><?= $count_prt; ?> SISWA</td>
-            </tr>
-        </tbody>
+            <?php $i++; ?>
+        <?php endforeach; ?>
+
+        <tr class="foot-row">
+            <td colspan="8">JUMLAH SISWA</td>
+            <td><?= $count_prt; ?> SISWA</td>
+        </tr>
+
     </table>
+
 
     <br>
 

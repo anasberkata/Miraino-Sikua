@@ -3,100 +3,68 @@
 
 <head>
   <meta charset="UTF-8">
-
-  <style>
-    .table-main {
-      width: 100%;
-    }
-
-    .border {
-      border: 1px solid black;
-    }
-
-    .card-title {
-      font-family: sans-serif;
-      font-weight: bold;
-    }
-
-    .bold {
-      font-weight: bold;
-    }
-
-    .font-italic {
-      font-style: italic;
-    }
-
-    thead {
-      font-weight: bold;
-      padding: 20px 10px;
-      text-align: center;
-      vertical-align: middle;
-    }
-
-    hr {
-      margin: 20px 0px;
-      border-top: 3px double #000000;
-    }
-  </style>
-
-  <title>Print</title>
+  <link rel="stylesheet" href="<?= base_url('assets/'); ?>css/print.css">
   <link rel="shortcut icon" href="<?= base_url('assets/'); ?>images/favicon.png" type="image/x-icon">
+  <title>Print</title>
 </head>
 
 <body>
-
-  <table cellpadding="10">
+  <!-- HEADER -->
+  <table cellpadding="10" width="100%">
     <tr>
       <td width="10%"></td>
-      <td width="15%">
-        <img src="<?= base_url('assets/'); ?>images/logo/Logo MHJ Web.png" class="logo-print m-auto" width="100">
+      <td width="15%"><img src="<?= base_url('assets/'); ?>images/logo/logo-miraino-kotak.jpeg" width="100px" class="logo"></td>
+      <td width="50%" style="text-align: center;">
+        <h2 class="head-title"><b>PT. MIRAINO HASHI JAYA</b></h2>
+        <p class="head-desc">Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005
+          <br>Kel. Satria Jaya, Kec. Tambun Utara, Kab. Bekasi Kode Pos 17510
+          <br>Telp : 021-29088491, +6281327417947, +6281380229688
+          <br>Website : www.mirainohashi.co.id
+        </p>
       </td>
-      <td width="50%" style="text-align:center;">
-        <h2 class="card-title pt-2 title-print">PT. MIRAINO HASHI JAYA</h2>
-        <p>Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005 Kel. Satria Jaya, Kec. Tambun Utara Kode Pos 17510</p>
-        <p>Telp : 021-29088491, +6281327417947, +6281380229688</p>
-        <p>Website : www.mirainohashi.co.id</p>
-      </td>
-      <td width="25%">
+      <td width="25%"></td>
+    </tr>
+  </table>
+  <!-- END HEADER -->
+
+  <table class="devider">
+    <tr class="devider">
+      <td class="devider">
       </td>
     </tr>
   </table>
 
-  <hr>
+  <h2 class="head-table">DATA SISWA SISWI YANG SUDAH TURUN COE DAN SIAP BERANGKAT KE JEPANG</h2>
 
-  <h4 style="text-align: center;">DATA SISWA SISWI YANG SUDAH TURUN COE DAN SIAP BERANGKAT KE JEPANG</h4>
+  <table class="table-main" cellpadding="10" cellspacing="0">
+    <tr class="head-row">
+      <td>NO.</td>
+      <td>NAMA</td>
+      <td>TANGGAL TERBIT COE</td>
+      <td>PROGRAM</td>
+      <td>NAMA KUMIAI</td>
+      <td>PERUSAHAAN PENERIMA</td>
+      <td>DAERAH PENEMPATAN</td>
+    </tr>
 
-  <table class="table-main border" cellpadding="10" cellspacing="0">
-    <thead>
-      <tr style="background-color:lightcyan;">
-        <td class="bold border">NO.</td>
-        <td class="bold border">NAMA</td>
-        <td class="bold border">TANGGAL TERBIT COE</td>
-        <td class="bold border">PROGRAM</td>
-        <td class="bold border">NAMA KUMIAI</td>
-        <td class="bold border">PERUSAHAAN PENERIMA</td>
-        <td class="bold border">DAERAH PENEMPATAN</td>
+    <?php $i = 1; ?>
+    <?php foreach ($coe->result() as $c) : ?>
+      <tr class="body-row">
+        <td><?= $i; ?></td>
+        <td class="text-left"><?= $c->name; ?></td>
+        <td><?= date('d / m / Y', strtotime($c->issue_date)); ?></td>
+        <td><?= $c->program; ?></td>
+        <td><?= $c->kumiai_name; ?></td>
+        <td><?= $c->office_name; ?></td>
+        <td><?= $c->placement; ?></td>
       </tr>
-    </thead>
-    <tbody>
-      <?php $i = 1; ?>
-      <?php foreach ($coe->result() as $c) : ?>
-        <tr>
-          <td class="border"><?= $i; ?></td>
-          <td class="border"><?= $c->name; ?></td>
-          <td class="border"><?= date('d / m / Y', strtotime($c->issue_date)); ?></td>
-          <td class="border"><?= $c->program; ?></td>
-          <td class="border"><?= $c->kumiai_name; ?></td>
-          <td class="border"><?= $c->office_name; ?></td>
-          <td class="border"><?= $c->placement; ?></td>
-        </tr>
-        <?php $i++; ?>
-      <?php endforeach; ?>
-      <tr style="background-color: lightcyan;">
-        <td colspan="6" class="bold border font-italic">TOTAL SISWA YANG SUDAH MENERIMA COE</td>
-        <td class="bold border font-italic"><?= $count_prt_coe; ?> SISWA</td>
-      </tr>
-    </tbody>
+      <?php $i++; ?>
+    <?php endforeach; ?>
+
+    <tr class="foot-row">
+      <td colspan="6">TOTAL SISWA YANG SUDAH MENERIMA COE</td>
+      <td><?= $count_prt_coe; ?> SISWA</td>
+    </tr>
   </table>
 
   <br>
