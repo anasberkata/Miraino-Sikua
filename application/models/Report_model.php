@@ -7,7 +7,7 @@ class Report_model extends CI_Model
   {
     $this->db->select('*');
     $this->db->from('report');
-    $this->db->order_by('date_payment', 'DESC');
+    $this->db->order_by('date_payment', 'ASC');
     $query = $this->db->get();
     return $query;
   }
@@ -24,10 +24,10 @@ class Report_model extends CI_Model
   {
 
     if (!$tgl_awal && !$tgl_akhir) {
-      $query = $this->db->query("SELECT * FROM `report` WHERE `output_type` LIKE '%$jenis%' ORDER BY `date_payment` DESC");
+      $query = $this->db->query("SELECT * FROM `report` WHERE `output_type` LIKE '%$jenis%' ORDER BY `date_payment` ASC");
       return $query;
     } else {
-      $query = $this->db->query("SELECT * FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '%$jenis%' ORDER BY `date_payment` DESC");
+      $query = $this->db->query("SELECT * FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '%$jenis%' ORDER BY `date_payment` ASC");
       return $query;
     }
   }
@@ -93,10 +93,10 @@ class Report_model extends CI_Model
   function search_sum_nominal($tgl_awal, $tgl_akhir, $jenis)
   {
     if (!$tgl_awal && !$tgl_akhir) {
-      $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `output_type` LIKE '%$jenis%' ORDER BY `date_payment` DESC");
+      $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `output_type` LIKE '%$jenis%' ORDER BY `date_payment` ASC");
       return $query->row();
     } else {
-      $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '%$jenis%' ORDER BY `date_payment` DESC");
+      $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '%$jenis%' ORDER BY `date_payment` ASC");
       return $query->row();
     }
   }

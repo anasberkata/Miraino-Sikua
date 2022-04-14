@@ -6,6 +6,7 @@ class Payment_model extends CI_Model
   {
     $this->db->select('*');
     $this->db->from('payment');
+    $this->db->order_by('date_payment', 'ASC');
     $query = $this->db->get();
     return $query;
   }
@@ -22,10 +23,10 @@ class Payment_model extends CI_Model
   {
 
     if (!$periode_awal_null && !$periode_akhir_null) {
-      $query = $this->db->query("SELECT * FROM `payment` WHERE `name` LIKE '%$name%' ORDER BY `date_payment` DESC");
+      $query = $this->db->query("SELECT * FROM `payment` WHERE `name` LIKE '%$name%' ORDER BY `date_payment` ASC");
       return $query;
     } else {
-      $query = $this->db->query("SELECT * FROM `payment` WHERE `date_payment` BETWEEN '$periode_awal' AND '$periode_akhir' AND `name` LIKE '%$name%' ORDER BY `date_payment` DESC");
+      $query = $this->db->query("SELECT * FROM `payment` WHERE `date_payment` BETWEEN '$periode_awal' AND '$periode_akhir' AND `name` LIKE '%$name%' ORDER BY `date_payment` ASC");
       return $query;
     }
   }
@@ -76,17 +77,17 @@ class Payment_model extends CI_Model
   // Menghitung Total
   function sum_nominal()
   {
-    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment`");
+    $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment` ORDER BY `date_payment` ASC");
     return $query->row();
   }
 
   function search_sum_nominal($name, $periode_awal, $periode_akhir, $periode_awal_null, $periode_akhir_null)
   {
     if (!$periode_awal_null && !$periode_akhir_null) {
-      $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment` WHERE `name` LIKE '%$name%' ORDER BY `date_payment` DESC");
+      $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment` WHERE `name` LIKE '%$name%' ORDER BY `date_payment` ASC");
       return $query->row();
     } else {
-      $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment` WHERE `date_payment` BETWEEN '$periode_awal' AND '$periode_akhir' AND `name` LIKE '%$name%' ORDER BY `date_payment` DESC");
+      $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `payment` WHERE `date_payment` BETWEEN '$periode_awal' AND '$periode_akhir' AND `name` LIKE '%$name%' ORDER BY `date_payment` ASC");
       return $query->row();
     }
   }

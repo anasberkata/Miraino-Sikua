@@ -152,14 +152,14 @@ class Coe extends CI_Controller
     }
 
     $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L']);
-    $mpdf->SetHTMLFooter('
-            <table width="100%" style="font-size:9;">
-                <tr>
-                    <td width="33%">{DATE j-m-Y}</td>
-                    <td width="33%" align="center">{PAGENO}/{nbpg}</td>
-                    <td width="33%" style="text-align: right;">Data Peserta CoE PT. Miraino Hashi Jaya</td>
-                </tr>
-            </table>');
+    // $mpdf->SetHTMLFooter('
+    //         <table width="100%" style="font-size:9;">
+    //             <tr>
+    //                 <td width="33%">{DATE j-m-Y}</td>
+    //                 <td width="33%" align="center">{PAGENO}/{nbpg}</td>
+    //                 <td width="33%" style="text-align: right;">Data Peserta CoE PT. Miraino Hashi Jaya</td>
+    //             </tr>
+    //         </table>');
 
     $page = $this->load->view('coe/coe_print', $data, TRUE);
 

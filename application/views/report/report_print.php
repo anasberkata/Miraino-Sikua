@@ -15,7 +15,8 @@
       <td width="10%"></td>
       <td width="15%"><img src="<?= base_url('assets/'); ?>images/logo/logo-miraino-kotak.jpeg" width="100px" class="logo"></td>
       <td width="50%" style="text-align: center;">
-        <h2 class="head-title"><b>PT. MIRAINO HASHI JAYA</b></h2>
+        <!-- <h2 class="head-title"><b>PT. MIRAINO HASHI JAYA</b></h2> -->
+        <img src="<?= base_url('assets/'); ?>images/head-text.png" width="300px" style="margin-bottom:15px">
         <p class="head-desc">Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005
           <br>Kel. Satria Jaya, Kec. Tambun Utara, Kab. Bekasi Kode Pos 17510
           <br>Telp : 021-29088491, +6281327417947, +6281380229688
