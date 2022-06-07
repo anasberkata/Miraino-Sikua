@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 29, 2022 at 07:29 PM
+-- Generation Time: Jun 07, 2022 at 05:05 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -111,7 +111,34 @@ INSERT INTO `payment` (`id`, `name`, `program`, `date_payment`, `person_responsi
 (2, 'Didin Rohidin', 'Magang Pengolahan Makanan', '2022-03-10', 'Dela', 500000, 'SPP Juni', '2022-03-10', 1),
 (4, 'Anas Berkata', 'Engineering', '2022-03-24', 'Dela', 340000, 'Konsumsi Lunas', '2022-03-24', 1),
 (5, 'Didin Rohidin', 'Magang Perawat', '2022-03-28', 'Dela', 300000, 'SPP April', '2022-03-28', 1),
-(6, 'Dera Albar', 'Ryuugakusei', '2022-03-30', 'Dela', 1500000, 'Bayar Bangunan', '2022-03-29', 1);
+(6, 'Dera Albar', 'Ryuugakusei', '2022-03-30', 'Dela', 1500000, 'Bayar Bangunan', '2022-03-29', 1),
+(7, 'Anas Berkata', 'Engineering', '2022-02-01', 'Dela', 300000, 'Uang Makan', '2022-03-31', 1),
+(8, 'Anas Berkata', 'Engineering', '2022-01-19', 'Dela', 200000, 'Uang Makan', '2022-03-31', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `petty_cash_journal`
+--
+
+CREATE TABLE `petty_cash_journal` (
+  `id` int(11) NOT NULL,
+  `details` varchar(10000) NOT NULL,
+  `nominal` int(11) NOT NULL,
+  `date_payment` date NOT NULL,
+  `date_created` date NOT NULL,
+  `is_active` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `petty_cash_journal`
+--
+
+INSERT INTO `petty_cash_journal` (`id`, `details`, `nominal`, `date_payment`, `date_created`, `is_active`) VALUES
+(1, 'Beban Gaji', 4500000, '2022-01-25', '2022-06-07', 1),
+(2, 'Beban Uang Makan Karyawan', 4270000, '2022-01-18', '2022-06-07', 1),
+(3, 'Beban Konsumsi', 12847700, '2022-01-20', '2022-06-07', 1),
+(4, 'Beban Sewa', 10000000, '2022-02-16', '2022-06-07', 1);
 
 -- --------------------------------------------------------
 
@@ -272,7 +299,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (12, 2, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
 (13, 2, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
 (14, 2, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1),
-(17, 3, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1);
+(17, 3, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
+(19, 1, 'Jurnal Kas Kecil', 'petty_cash_journal', 'bi bi-cash', 1);
 
 --
 -- Indexes for dumped tables
@@ -294,6 +322,12 @@ ALTER TABLE `participants_coe`
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `petty_cash_journal`
+--
+ALTER TABLE `petty_cash_journal`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -352,7 +386,13 @@ ALTER TABLE `participants_coe`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `petty_cash_journal`
+--
+ALTER TABLE `petty_cash_journal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `report`
@@ -388,7 +428,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

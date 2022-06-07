@@ -35,45 +35,33 @@
         </tr>
     </table>
 
-    <h2 class="head-table">DATA SISWA SISWI PT. MIRAINO HASHI JAYA</h2>
+    <h2 class="head-table">JURNAL KAS KECIL BULAN <?= $bulan; ?></h2>
 
     <table class="table-main" cellpadding="10" cellspacing="0">
-
         <tr class="head-row">
-            <td>N0.</td>
-            <td>NAMA</td>
-            <td>ALAMAT</td>
-            <td>TELEPON (WA)</td>
-            <td>EMAIL</td>
-            <td>LEVEL BAHASA</td>
-            <td>ASAL IPK</td>
-            <td>PROGRAM</td>
-            <td>TANGGAL MASUK</td>
+            <td>NO.</td>
+            <td>RINCIAN</td>
+            <td>TANGGAL PEMBAYARAN</td>
+            <td>NOMINAL</td>
         </tr>
 
         <?php $i = 1; ?>
-        <?php foreach ($participant->result() as $p) : ?>
-            <tr>
+        <?php foreach ($petty_cash_journal->result() as $pcj) : ?>
+            <tr class="body-row">
                 <td><?= $i; ?></td>
-                <td class="text-left"><?= $p->name; ?></td>
-                <td><?= $p->address; ?></td>
-                <td><?= $p->phone; ?></td>
-                <td><?= $p->email; ?></td>
-                <td><?= $p->lang_level; ?></td>
-                <td><?= $p->ipk; ?></td>
-                <td><?= $p->program; ?></td>
-                <td><?= date('d / m / Y', strtotime($p->date_entry)); ?></td>
+                <td class="text-left"><?= $pcj->details; ?></td>
+                <td><?= date('d / m / Y', strtotime($pcj->date_payment)); ?></td>
+                <td>Rp. <?= number_format($pcj->nominal, 2, ',', '.'); ?></td>
             </tr>
             <?php $i++; ?>
         <?php endforeach; ?>
 
         <tr class="foot-row">
-            <td colspan="8">JUMLAH SISWA</td>
-            <td><?= $count_prt; ?> SISWA</td>
+            <td colspan="3">TOTAL PENGELUARAN</td>
+            <td>Rp. <?= number_format($total->total, 2, ',', '.'); ?></td>
         </tr>
-
+        </tbody>
     </table>
-
 
     <br>
 

@@ -23,7 +23,7 @@
                     <p class="fs-5 text-gray-600">Maaf sepertinya anda tidak diijinkan untuk mengakses halaman ini. Terima Kasih</p> -->
                         <h3>Halaman tidak bisa di akses!</h3>
                         <p class="text-gray-600">Maaf sepertinya anda tidak diijinkan untuk mengakses halaman ini. Terima Kasih</p>
-                        <a href="<?= base_url("admin"); ?>" class="btn btn-lg btn-outline-primary mt-3">Kembali ke halaman utama</a>
+                        <a href="<?= base_url(); ?>admin" class="btn btn-lg btn-outline-primary mt-3">Kembali ke halaman utama</a>
                     </div>
                 </div>
             </div>
