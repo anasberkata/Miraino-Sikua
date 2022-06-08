@@ -29,8 +29,8 @@
   <!-- END HEADER -->
 
   <table class="devider">
-    <tr class="devider-tr">
-      <td class="devider-td">
+    <tr class="devider">
+      <td class="devider">
       </td>
     </tr>
   </table>

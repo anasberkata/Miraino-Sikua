@@ -76,43 +76,43 @@ class Petty_cash_journal extends CI_Controller
         }
     }
 
-    // public function report_edit_page($id)
-    // {
-    //     $data['title'] = 'Laporan Keuangan';
-    //     $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+    public function petty_cash_journal_edit_page($id)
+    {
+        $data['title'] = 'Jurnal Kas Kecil';
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
 
-    //     $data['report'] = $this->report->details_report($id);
+        $data['petty_cash_journal'] = $this->pcj->details_petty_cash_journal($id);
 
-    //     $this->load->view('templates/header', $data);
-    //     $this->load->view('templates/sidebar', $data);
-    //     $this->load->view('report/report_edit', $data);
-    //     $this->load->view('templates/footer');
-    // }
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('petty_cash_journal/petty_cash_journal_edit', $data);
+        $this->load->view('templates/footer');
+    }
 
-    // public function report_edit()
-    // {
-    //     $id = $this->input->post('id');
-    //     $output_type = $this->input->post('output_type', true);
-    //     $nominal = $this->input->post('nominal', true);
-    //     $date_payment = $this->input->post('date_payment', true);
+    public function petty_cash_journal_edit()
+    {
+        $id = $this->input->post('id');
+        $details = $this->input->post('details', true);
+        $nominal = $this->input->post('nominal', true);
+        $date_payment = $this->input->post('date_payment', true);
 
-    //     $data = [
-    //         'output_type' => $output_type,
-    //         'nominal' => $nominal,
-    //         'date_payment' => $date_payment
-    //     ];
+        $data = [
+            'details' => $details,
+            'nominal' => $nominal,
+            'date_payment' => $date_payment
+        ];
 
-    //     $this->report->update_report($data, $id);
-    // }
+        $this->pcj->update_petty_cash_journal($data, $id);
+    }
 
-    // public function report_delete()
-    // {
-    //     $id = $this->input->post('id');
-    //     $this->report->delete_report($id);
+    public function petty_cash_journal_delete()
+    {
+        $id = $this->input->post('id');
+        $this->pcj->delete_petty_cash_journal($id);
 
-    //     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
-    //     redirect('report/');
-    // }
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
+        redirect('petty_cash_journal/');
+    }
 
 
     // // ---------------------------------------- MPDF ---------------------------------- //
@@ -123,11 +123,11 @@ class Petty_cash_journal extends CI_Controller
         $year = $this->input->get('year');
 
         if (!isset($month) && !isset($year)) {
-            $data['bulan'] = $month . " " . $year;
             $data['petty_cash_journal'] = $this->pcj->get_petty_cash_journal();
             $data['total'] = $this->pcj->sum_nominal();
         } else {
-            $data['bulan'] = $month . " " . $year;
+            $data['bulan'] = $month;
+            $data['tahun'] = $year;
             $data['petty_cash_journal'] = $this->pcj->search_petty_cash_journal($month, $year);
             $data['total'] = $this->pcj->search_sum_nominal($month, $year);
         }
@@ -150,20 +150,21 @@ class Petty_cash_journal extends CI_Controller
 
     // // ---------------------------------------- EXPORT EXCEL ---------------------------------- //
 
-    // public function exportExcel()
-    // {
-    //     $tgl_awal = $this->input->get('tgl_awal');
-    //     $tgl_akhir = $this->input->get('tgl_akhir');
-    //     $jenis = $this->input->get('jenis');
+    public function exportExcel()
+    {
+        $month = $this->input->get('month');
+        $year = $this->input->get('year');
 
-    //     if (!isset($tgl_awal) && !isset($tgl_akhir) && !isset($jenis)) {
-    //         $data['report'] = $this->report->get_report();
-    //         $data['total'] = $this->report->sum_nominal();
-    //     } else {
-    //         $data['report'] = $this->report->search_report($tgl_awal, $tgl_akhir, $jenis);
-    //         $data['total'] = $this->report->search_sum_nominal($tgl_awal, $tgl_akhir, $jenis);
-    //     }
+        if (!isset($month) && !isset($year)) {
+            $data['petty_cash_journal'] = $this->pcj->get_petty_cash_journal();
+            $data['total'] = $this->pcj->sum_nominal();
+        } else {
+            $data['bulan'] = $month;
+            $data['tahun'] = $year;
+            $data['petty_cash_journal'] = $this->pcj->search_petty_cash_journal($month, $year);
+            $data['total'] = $this->pcj->search_sum_nominal($month, $year);
+        }
 
-    //     $this->load->view('report/report_excel', $data);
-    // }
+        $this->load->view('petty_cash_journal/petty_cash_journal_excel', $data);
+    }
 }

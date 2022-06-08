@@ -13,11 +13,11 @@ class Petty_cash_journal_model extends CI_Model
     }
 
     // // Menampilkan Detail Laporan
-    // function details_report($id = NULL)
-    // {
-    //     $query = $this->db->get_where('report', ['id' => $id])->row();
-    //     return $query;
-    // }
+    function details_petty_cash_journal($id = NULL)
+    {
+        $query = $this->db->get_where('petty_cash_journal', ['id' => $id])->row();
+        return $query;
+    }
 
     // // Mencari Data
     function search_petty_cash_journal($month, $year)
@@ -46,30 +46,30 @@ class Petty_cash_journal_model extends CI_Model
     }
 
     // // Mengedit Laporan
-    // function update_report(
-    //     $data,
-    //     $id
-    // ) {
-    //     $this->db->where('id', $id);
-    //     $this->db->update(
-    //         'report',
-    //         $data
-    //     );
-    //     $this->session->set_flashdata(
-    //         'message',
-    //         '<div class="alert alert-success" role="alert">Data berhasil diedit!</div>'
-    //     );
-    //     redirect('report/report_edit_page/' . $id);
-    // }
+    function update_petty_cash_journal(
+        $data,
+        $id
+    ) {
+        $this->db->where('id', $id);
+        $this->db->update(
+            'petty_cash_journal',
+            $data
+        );
+        $this->session->set_flashdata(
+            'message',
+            '<div class="alert alert-success" role="alert">Data berhasil diedit!</div>'
+        );
+        redirect('petty_cash_journal/petty_cash_journal_edit_page/' . $id);
+    }
 
     // // Menghapus Laporan
-    // function delete_report($id)
-    // {
-    //     $this->db->where('id', $id);
-    //     $this->db->delete('report');
+    function delete_petty_cash_journal($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('petty_cash_journal');
 
-    //     return true;
-    // }
+        return true;
+    }
 
     // // ------------------------------------------ COUNT ------------------------------------ //
 

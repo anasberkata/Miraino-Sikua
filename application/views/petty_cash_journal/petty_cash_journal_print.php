@@ -35,7 +35,54 @@
         </tr>
     </table>
 
-    <h2 class="head-table">JURNAL KAS KECIL BULAN <?= $bulan; ?></h2>
+    <h2 class="head-table">JURNAL KAS KECIL
+        <?php
+        if (!isset($bulan) && !isset($year)) {
+            echo "KESELURUHAN";
+        } else {
+            switch ($bulan) {
+                case "01":
+                    echo "JANUARI ";
+                    break;
+                case "02":
+                    echo "FEBRUARI ";
+                    break;
+                case "03":
+                    echo "MARET ";
+                    break;
+                case "04":
+                    echo "APRIL ";
+                    break;
+                case "05":
+                    echo "MEI ";
+                    break;
+                case "06":
+                    echo "JUNI ";
+                    break;
+                case "07":
+                    echo "JULI ";
+                    break;
+                case "08":
+                    echo "AGUSTUS ";
+                    break;
+                case "09":
+                    echo "SEPTEMBER ";
+                    break;
+                case "10":
+                    echo "OKTOBER ";
+                    break;
+                case "11":
+                    echo "NOVEMBER ";
+                    break;
+                case "12":
+                    echo "DESEMBER ";
+                    break;
+            }
+            echo $tahun;
+        }
+
+        ?>
+    </h2>
 
     <table class="table-main" cellpadding="10" cellspacing="0">
         <tr class="head-row">

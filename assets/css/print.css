@@ -26,13 +26,14 @@ table.devider {
     width: 100%;
     border-bottom: 4px solid #000;
     border-top: 1px solid #000;
+    /* border-top: 4px solid #000; */
 }
 
-tr.devider-tr {
+tr.devider {
     height: 0px;
 }
 
-td.devider-td {
+td.devider {
     height: -2px;
 }
 

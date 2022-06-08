@@ -79,7 +79,7 @@
 
                             <div class="form-group">
                                 <label for="nominal">Nominal (Rp.)</label>
-                                <input type="text" class="form-control" id="nominal" placeholder="Nominal" name="nominal" value="<?= number_format($payment->nominal, 2, ',', '.'); ?>" required>
+                                <input type="text" class="form-control" id="nominal" placeholder="Nominal" name="nominal" value="<?= $payment->nominal; ?>" required>
                                 <?= form_error('nominal', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
 

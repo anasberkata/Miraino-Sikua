@@ -112,13 +112,13 @@
 
 
                                                         <div class="modal-header bg-danger">
-                                                            <h5 class="modal-title white" id="myModalLabel120">Hapus Data Jurnal Kas <?= $pcj->output_type; ?></h5>
+                                                            <h5 class="modal-title white" id="myModalLabel120">Hapus Data Jurnal Kas <?= $pcj->details; ?></h5>
                                                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                                 <i data-feather="x"></i>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            Yakin ingin menghapus data pengeluaran <?= $pcj->output_type ?>!
+                                                            Yakin ingin menghapus data pengeluaran <?= $pcj->details ?>!
                                                         </div>
                                                         <form class="form-horizontal" method="post" action="<?= base_url('petty_cash_journal/petty_cash_journal_delete') ?>">
                                                             <div class="modal-footer">

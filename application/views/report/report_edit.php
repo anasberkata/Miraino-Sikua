@@ -54,7 +54,7 @@
 
                             <div class="form-group">
                                 <label for="nominal">Nominal (Rp. )</label>
-                                <input type="text" class="form-control" id="nominal" placeholder="Nominal" name="nominal" value="<?= number_format($report->nominal, 2, ',', '.'); ?>" required>
+                                <input type="text" class="form-control" id="nominal" placeholder="Nominal" name="nominal" value="<?= $report->nominal; ?>" required>
                                 <?= form_error('nominal', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
 
