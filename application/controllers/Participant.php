@@ -53,6 +53,7 @@ class Participant extends CI_Controller
 
   public function participant_add()
   {
+    $this->form_validation->set_rules('nik', 'Nik', 'required|trim');
     $this->form_validation->set_rules('name', 'Name', 'required|trim');
     $this->form_validation->set_rules('address', 'Address', 'required|trim');
     $this->form_validation->set_rules('phone', 'Phone', 'required|trim');
@@ -71,6 +72,7 @@ class Participant extends CI_Controller
       $this->load->view('participant/participant_add', $data);
       $this->load->view('templates/footer');
     } else {
+      $nik = $this->input->post('nik', true);
       $name = $this->input->post('name', true);
       $address = $this->input->post('address', true);
       $phone = $this->input->post('phone', true);
@@ -86,6 +88,7 @@ class Participant extends CI_Controller
 
       $data = [
         'id' => NULL,
+        'nik' => $nik,
         'name' => $name,
         'address' => $address,
         'phone' => $phone,
@@ -118,6 +121,7 @@ class Participant extends CI_Controller
   public function participant_edit()
   {
     $id = $this->input->post('id');
+    $nik = $this->input->post('nik');
     $name = $this->input->post('name');
     $address = $this->input->post('address');
     $phone = $this->input->post('phone');
@@ -128,6 +132,7 @@ class Participant extends CI_Controller
     $date_entry = $this->input->post('date_entry');
 
     $data = [
+      'nik' => $nik,
       'name' => $name,
       'address' => $address,
       'phone' => $phone,

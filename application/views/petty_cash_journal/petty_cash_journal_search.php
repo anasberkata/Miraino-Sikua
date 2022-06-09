@@ -14,8 +14,8 @@
                         </a>
 
                         <div class="btn-group float-end w-50" role="button">
-                            <a href="<?= base_url('petty_cash_journal/printPDF') ?>/?month=<?= $_POST['month']; ?>&year=<?= $_POST['year']; ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
-                            <a href="<?= base_url('petty_cash_journal/exportExcel') ?>/?month=<?= $_POST['month']; ?>&year=<?= $_POST['year']; ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
+                            <a href="<?= base_url('petty_cash_journal/printPDF'); ?>/?tgl_awal=<?= $_POST['tgl_awal']; ?>&tgl_akhir=<?= $_POST['tgl_akhir']; ?>&jenis=<?= $_POST['jenis']; ?>" class="btn icon btn-success" target="_blank"><i class="bicon dripicons-print"></i></a>
+                            <a href="<?= base_url('petty_cash_journal/exportExcel'); ?>/?tgl_awal=<?= $_POST['tgl_awal']; ?>&tgl_akhir=<?= $_POST['tgl_akhir']; ?>&jenis=<?= $_POST['jenis']; ?>" class="btn icon btn-info"><i class="icon dripicons-download"></i></a>
                         </div>
                     </div>
                 </div>
@@ -27,44 +27,49 @@
 
                 <form action="<?= base_url('petty_cash_journal/petty_cash_journal_search'); ?>" method="post">
                     <div class=" row">
-                        <div class="col-lg-5">
+                        <div class="col-lg-4">
+
                             <div class="form-group row align-items-center">
                                 <div class="col-lg-3 col-3">
-                                    <label class="col-form-label" for="month">Bulan</label>
+                                    <label class="col-form-label">Tanggal</label>
                                 </div>
                                 <div class="col-lg-9 col-9">
-                                    <select class="form-select" id="month" name="month">
-                                        <option value="">Pilih Bulan</option>
-                                        <option value="01">Januari</option>
-                                        <option value="02">Februari</option>
-                                        <option value="03">Maret</option>
-                                        <option value="04">April</option>
-                                        <option value="05">Mei</option>
-                                        <option value="06">Juni</option>
-                                        <option value="07">Juli</option>
-                                        <option value="08">Agustus</option>
-                                        <option value="09">September</option>
-                                        <option value="10">Oktober</option>
-                                        <option value="11">November</option>
-                                        <option value="12">Desember</option>
-                                    </select>
+                                    <input type="date" class="form-control" name="tgl_awal" value="<?php $format = "%Y-%m-%d";
+                                                                                                    if (!$_POST) {
+                                                                                                        echo mdate($format);
+                                                                                                    } else {
+                                                                                                        echo $_POST['tgl_awal'];
+                                                                                                    } ?>">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-5">
+                        <div class="col-lg-4">
                             <div class="form-group row align-items-center">
                                 <div class="col-lg-3 col-3">
-                                    <label class="col-form-label" for="year">Tahun</label>
+                                    <label class="col-form-label">Sampai</label>
                                 </div>
                                 <div class="col-lg-9 col-9">
-                                    <input type="number" class="form-control" id="year" name="year" placeholder="2015" min="2015" max="2100">
+                                    <input type="date" class="form-control" name="tgl_akhir" value="<?php $format = "%Y-%m-%d";
+                                                                                                    if (!$_POST) {
+                                                                                                        echo mdate($format);
+                                                                                                    } else {
+                                                                                                        echo $_POST['tgl_akhir'];
+                                                                                                    } ?>">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-2">
-                            <div class="form-group align-items-center pb-2 h-100">
+                        <div class="col-lg-3">
+                            <div class="form-group row align-items-center">
+                                <div class="col">
+                                    <input type="text" class="form-control" name="jenis" placeholder="Jenis Pengeluaran" value="<?php echo $_POST['jenis']; ?>">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-1">
+                            <div class="form-group align-items-center">
                                 <button type="submit" class="btn btn-primary w-100" name="submit"><i class="icon dripicons-search"></i></button>
                             </div>
                         </div>
@@ -76,6 +81,7 @@
                     <thead>
                         <tr>
                             <th>No.</th>
+                            <th>Jenis Pengeluaran</th>
                             <th>Rincian</th>
                             <th>Nominal</th>
                             <th>Tanggal Pembayaran</th>
@@ -91,9 +97,9 @@
                         <?php foreach ($petty_cash_journal->result() as $pcj) : ?>
                             <tr>
                                 <td><?= $i; ?></td>
+                                <td><?= $pcj->output_type; ?></td>
                                 <td><?= $pcj->details; ?></td>
                                 <td>Rp. <?= number_format($pcj->nominal, 2, ',', '.'); ?></td>
-                                <!-- <td><?= date('d F Y', strtotime($pcj->date_payment)); ?></td> -->
                                 <td><?= date('F Y', strtotime($pcj->date_payment)); ?></td>
 
                                 <?php if ($user['role_id'] == 3) : ?>

@@ -35,58 +35,12 @@
         </tr>
     </table>
 
-    <h2 class="head-table">JURNAL KAS KECIL
-        <?php
-        if (!isset($bulan) && !isset($year)) {
-            echo "KESELURUHAN";
-        } else {
-            switch ($bulan) {
-                case "01":
-                    echo "JANUARI ";
-                    break;
-                case "02":
-                    echo "FEBRUARI ";
-                    break;
-                case "03":
-                    echo "MARET ";
-                    break;
-                case "04":
-                    echo "APRIL ";
-                    break;
-                case "05":
-                    echo "MEI ";
-                    break;
-                case "06":
-                    echo "JUNI ";
-                    break;
-                case "07":
-                    echo "JULI ";
-                    break;
-                case "08":
-                    echo "AGUSTUS ";
-                    break;
-                case "09":
-                    echo "SEPTEMBER ";
-                    break;
-                case "10":
-                    echo "OKTOBER ";
-                    break;
-                case "11":
-                    echo "NOVEMBER ";
-                    break;
-                case "12":
-                    echo "DESEMBER ";
-                    break;
-            }
-            echo $tahun;
-        }
-
-        ?>
-    </h2>
+    <h2 class="head-table">JURNAL KAS KECIL</h2>
 
     <table class="table-main" cellpadding="10" cellspacing="0">
         <tr class="head-row">
             <td>NO.</td>
+            <td>JENIS PENGELUARAN</td>
             <td>RINCIAN</td>
             <td>TANGGAL PEMBAYARAN</td>
             <td>NOMINAL</td>
@@ -96,6 +50,7 @@
         <?php foreach ($petty_cash_journal->result() as $pcj) : ?>
             <tr class="body-row">
                 <td><?= $i; ?></td>
+                <td class="text-left"><?= $pcj->output_type; ?></td>
                 <td class="text-left"><?= $pcj->details; ?></td>
                 <td><?= date('d / m / Y', strtotime($pcj->date_payment)); ?></td>
                 <td>Rp. <?= number_format($pcj->nominal, 2, ',', '.'); ?></td>
@@ -104,7 +59,7 @@
         <?php endforeach; ?>
 
         <tr class="foot-row">
-            <td colspan="3">TOTAL PENGELUARAN</td>
+            <td colspan="4">TOTAL PENGELUARAN</td>
             <td>Rp. <?= number_format($total->total, 2, ',', '.'); ?></td>
         </tr>
         </tbody>

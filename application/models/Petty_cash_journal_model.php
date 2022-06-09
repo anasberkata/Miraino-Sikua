@@ -20,18 +20,18 @@ class Petty_cash_journal_model extends CI_Model
     }
 
     // // Mencari Data
-    function search_petty_cash_journal($month, $year)
+    function search_petty_cash_journal($tgl_awal, $tgl_akhir, $jenis)
     {
-        // if (!$month && !$year) {
-        //     $query = $this->db->query("SELECT * FROM `petty_cash_journal` WHERE `output_type` LIKE '%$jenis%' ORDER BY `date_payment` ASC");
-        //     return $query;
-        // } else {
-        //     $query = $this->db->query("SELECT * FROM `petty_cash_journal` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '%$jenis%' ORDER BY `date_payment` ASC");
-        //     return $query;
-        // }
+        if (!$tgl_awal && !$tgl_akhir) {
+            $query = $this->db->query("SELECT * FROM `petty_cash_journal` WHERE `output_type` LIKE '%$jenis%' ORDER BY `date_payment` ASC");
+            return $query;
+        } else {
+            $query = $this->db->query("SELECT * FROM `petty_cash_journal` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '%$jenis%' ORDER BY `date_payment` ASC");
+            return $query;
+        }
 
-        $query = $this->db->query("SELECT * FROM `petty_cash_journal` WHERE MONTH(`date_payment`) = '$month' AND YEAR(`date_payment`) = '$year' ORDER BY `date_payment` ASC");
-        return $query;
+        // $query = $this->db->query("SELECT * FROM `petty_cash_journal` WHERE MONTH(`date_payment`) = '$month' AND YEAR(`date_payment`) = '$year' ORDER BY `date_payment` ASC");
+        // return $query;
     }
 
     // // Menambah Laporan
@@ -92,17 +92,17 @@ class Petty_cash_journal_model extends CI_Model
         return $query->row();
     }
 
-    function search_sum_nominal($month, $year)
+    function search_sum_nominal($tgl_awal, $tgl_akhir, $jenis)
     {
-        // if (!$tgl_awal && !$tgl_akhir) {
-        //     $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `output_type` LIKE '%$jenis%' ORDER BY `date_payment` ASC");
-        //     return $query->row();
-        // } else {
-        //     $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `report` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '%$jenis%' ORDER BY `date_payment` ASC");
-        //     return $query->row();
-        // }
+        if (!$tgl_awal && !$tgl_akhir) {
+            $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `petty_cash_journal` WHERE `output_type` LIKE '%$jenis%' ORDER BY `date_payment` ASC");
+            return $query->row();
+        } else {
+            $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `petty_cash_journal` WHERE `date_payment` BETWEEN '$tgl_awal' AND '$tgl_akhir' AND `output_type` LIKE '%$jenis%' ORDER BY `date_payment` ASC");
+            return $query->row();
+        }
 
-        $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `petty_cash_journal` WHERE MONTH(`date_payment`) = '$month' AND YEAR(`date_payment`) = '$year' ORDER BY `date_payment` ASC");
-        return $query->row();
+        // $query = $this->db->query("SELECT SUM(`nominal`) AS `total` FROM `petty_cash_journal` WHERE MONTH(`date_payment`) = '$month' AND YEAR(`date_payment`) = '$year' ORDER BY `date_payment` ASC");
+        // return $query->row();
     }
 }

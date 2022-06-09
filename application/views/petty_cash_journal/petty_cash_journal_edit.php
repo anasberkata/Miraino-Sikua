@@ -23,6 +23,36 @@
                     <div class="row">
                         <div class="col-md">
                             <input type="hidden" name="id" value="<?= $petty_cash_journal->id; ?>">
+
+                            <div class="form-group">
+                                <label for="output_type">Jenis Pengeluaran</label>
+                                <input type="text" name="output_type" list="output_type" class="form-control" value="<?= $petty_cash_journal->output_type; ?>">
+                                <datalist id="output_type">
+                                    <option value="Gaji">
+                                    <option value="Uang Makan">
+                                    <option value="Uang Makan Karyawan">
+                                    <option value="Konsumsi">
+                                    <option value="Biaya Sewa">
+                                    <option value="Biaya Listrik">
+                                    <option value="Internet">
+                                    <option value="Biaya Air">
+                                    <option value="ATK">
+                                    <option value="Iuran Wajib Lingkungan (RT/Sampah)">
+                                    <option value="Pantry">
+                                    <option value="Hospitalist">
+                                    <option value="Transport Lokal">
+                                    <option value="Transport Luar Negeri">
+                                    <option value="Service">
+                                    <option value="Maintenance">
+                                    <option value="Pengiriman Dokumen">
+                                    <option value="Fotocopy">
+                                    <option value="Promosi & Brosur">
+                                    <option value="Perbaikan">
+                                    <option value="Entertaint">
+                                    <option value="THR">
+                                </datalist>
+                            </div>
+
                             <div class="form-group">
                                 <label for="output_type">Rincian</label>
                                 <!-- <input type="text" name="output_type" list="output_type" class="form-control" value="<?= $petty_cash_journal->details; ?>"> -->

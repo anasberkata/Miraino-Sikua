@@ -54,7 +54,7 @@ header("Content-Disposition: attachment; filename=Data Pengeluaran.xls");
     <tr>
       <td width="10%"></td>
       <td width="15%">
-        <img src="<?= base_url('assets/'); ?>images/logo/Logo MHJ Web.png" class="logo-print m-auto" width="100">
+        <img src="<?= base_url('assets/'); ?>images/logo/logo-miraino-kotak.jpeg" class="logo-print m-auto" width="80">
       </td>
       <td width="50%" style="text-align:center;">
         <h2 class="card-title pt-2 title-print">PT. MIRAINO HASHI JAYA</h2>

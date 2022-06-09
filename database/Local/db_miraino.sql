@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 29, 2022 at 07:29 PM
+-- Generation Time: Jun 09, 2022 at 06:36 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `participants` (
   `id` int(11) NOT NULL,
+  `nik` varchar(100) NOT NULL,
   `name` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `phone` varchar(128) NOT NULL,
@@ -45,14 +46,15 @@ CREATE TABLE `participants` (
 -- Dumping data for table `participants`
 --
 
-INSERT INTO `participants` (`id`, `name`, `address`, `phone`, `email`, `lang_level`, `ipk`, `program`, `date_entry`, `date_created`, `is_active`) VALUES
-(1, 'Anas Berkata', 'Protanmas Samolo Indah Blok C5 No. 15 Desa Babakancaringin Karangtengah Cianjur', '083817002151', 'anasberkata@gmail.com', 'Excellent', '3.83', 'Design', '2022-03-09', '2022-03-09', 1),
-(2, 'Eka Anas Jatnika', 'Sarijadi Blok 24 No. 80 Bandung', '085156334607', 'ideanasdesain@gmail.com', 'Excellent', '3.83', 'Engineering', '2022-03-09', '0000-00-00', 1),
-(3, 'Dela Sri Faujiah', 'Cianjur', '088177651671', 'dela@gmail.com', 'Good', '3.83', 'Ryuugakusei', '2022-03-09', '0000-00-00', 1),
-(9, 'Muhamad Fajriansyah', 'Cibeber Cianjur', '08928176276', 'fajrihacker@gmail.com', 'God', '3.21', 'Ryuugakusei', '2022-03-10', '2022-03-10', 1),
-(11, 'Eross Chandra', 'Yogyakarta', '0898747586478', 'eross@gmail.com', 'good', '3.00', 'Desainer', '2022-03-18', '2022-03-19', 1),
-(12, 'Rianto Ferdinan', 'Cianjur Raya', '098781761761', 'Rio@gmail.com', 'Good', '3.45', 'Desainer', '2022-03-17', '2022-03-19', 1),
-(13, 'Akew', 'b', '0898', 'e@g.com', 'go', '3.4', 'Magang Kontruksi', '2022-02-28', '2022-03-28', 1);
+INSERT INTO `participants` (`id`, `nik`, `name`, `address`, `phone`, `email`, `lang_level`, `ipk`, `program`, `date_entry`, `date_created`, `is_active`) VALUES
+(1, '0', 'Anas Berkata', 'Protanmas Samolo Indah Blok C5 No. 15 Desa Babakancaringin Karangtengah Cianjur', '083817002151', 'anasberkata@gmail.com', 'Excellent', '3.83', 'Design', '2022-03-09', '2022-03-09', 1),
+(2, '3203061502920012', 'Eka Anas Jatnika', 'Sarijadi Blok 24 No. 80 Bandung', '085156334607', 'ideanasdesain@gmail.com', 'Excellent', '3.83', 'Engineering', '2022-03-09', '0000-00-00', 1),
+(3, '0', 'Dela Sri Faujiah', 'Cianjur', '088177651671', 'dela@gmail.com', 'Good', '3.83', 'Ryuugakusei', '2022-03-09', '0000-00-00', 1),
+(9, '0', 'Muhamad Fajriansyah', 'Cibeber Cianjur', '08928176276', 'fajrihacker@gmail.com', 'God', '3.21', 'Ryuugakusei', '2022-03-10', '2022-03-10', 1),
+(11, '0', 'Eross Chandra', 'Yogyakarta', '0898747586478', 'eross@gmail.com', 'good', '3.00', 'Desainer', '2022-03-18', '2022-03-19', 1),
+(12, '0', 'Rianto Ferdinan', 'Cianjur Raya', '098781761761', 'Rio@gmail.com', 'Good', '3.45', 'Desainer', '2022-03-17', '2022-03-19', 1),
+(13, '0', 'Akew', 'b', '0898', 'e@g.com', 'go', '3.4', 'Magang Kontruksi', '2022-02-28', '2022-03-28', 1),
+(14, '320306', 'Kukur Cikukur', 'Cianjur', '0871652637617', 'edan@gmail.com', 'Good', '3.34', 'Magang Kontruksi', '2022-06-09', '2022-06-09', 1);
 
 -- --------------------------------------------------------
 
@@ -111,7 +113,34 @@ INSERT INTO `payment` (`id`, `name`, `program`, `date_payment`, `person_responsi
 (2, 'Didin Rohidin', 'Magang Pengolahan Makanan', '2022-03-10', 'Dela', 500000, 'SPP Juni', '2022-03-10', 1),
 (4, 'Anas Berkata', 'Engineering', '2022-03-24', 'Dela', 340000, 'Konsumsi Lunas', '2022-03-24', 1),
 (5, 'Didin Rohidin', 'Magang Perawat', '2022-03-28', 'Dela', 300000, 'SPP April', '2022-03-28', 1),
-(6, 'Dera Albar', 'Ryuugakusei', '2022-03-30', 'Dela', 1500000, 'Bayar Bangunan', '2022-03-29', 1);
+(6, 'Dera Albar', 'Ryuugakusei', '2022-03-30', 'Dela', 1500000, 'Bayar Bangunan', '2022-03-29', 1),
+(7, 'Anas Berkata', 'Engineering', '2022-02-01', 'Dela', 300000, 'Uang Makan', '2022-03-31', 1),
+(8, 'Anas Berkata', 'Engineering', '2022-01-19', 'Dela', 200000, 'Uang Makan', '2022-03-31', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `petty_cash_journal`
+--
+
+CREATE TABLE `petty_cash_journal` (
+  `id` int(11) NOT NULL,
+  `output_type` varchar(255) NOT NULL,
+  `details` varchar(10000) NOT NULL,
+  `nominal` int(11) NOT NULL,
+  `date_payment` date NOT NULL,
+  `date_created` date NOT NULL,
+  `is_active` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `petty_cash_journal`
+--
+
+INSERT INTO `petty_cash_journal` (`id`, `output_type`, `details`, `nominal`, `date_payment`, `date_created`, `is_active`) VALUES
+(2, 'Uang Makan Karyawan', 'Beban Uang Makan Karyawan', 4270000, '2022-01-18', '2022-06-07', 1),
+(3, 'Konsumsi', 'Beban Konsumsi', 12847700, '2022-01-20', '2022-06-07', 1),
+(7, 'Biaya Listrik', 'Listrik Gedung 1 & Listrik Gedung 2', 1000000, '2022-02-16', '2022-06-09', 1);
 
 -- --------------------------------------------------------
 
@@ -272,7 +301,9 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (12, 2, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
 (13, 2, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
 (14, 2, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1),
-(17, 3, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1);
+(17, 3, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
+(19, 1, 'Jurnal Kas Kecil', 'petty_cash_journal', 'bi bi-cash', 1),
+(20, 2, 'Jurnal Kas Kecil', 'petty_cash_journal', 'bi bi-cash', 1);
 
 --
 -- Indexes for dumped tables
@@ -294,6 +325,12 @@ ALTER TABLE `participants_coe`
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `petty_cash_journal`
+--
+ALTER TABLE `petty_cash_journal`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -340,7 +377,7 @@ ALTER TABLE `user_sub_menu`
 -- AUTO_INCREMENT for table `participants`
 --
 ALTER TABLE `participants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `participants_coe`
@@ -352,7 +389,13 @@ ALTER TABLE `participants_coe`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `petty_cash_journal`
+--
+ALTER TABLE `petty_cash_journal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `report`
@@ -388,7 +431,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

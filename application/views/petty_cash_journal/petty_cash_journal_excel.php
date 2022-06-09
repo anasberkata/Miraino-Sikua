@@ -1,6 +1,6 @@
 <?php
 header("Content-type: application/vnd-ms-excel");
-header("Content-Disposition: attachment; filename=Data Pengeluaran.xls");
+header("Content-Disposition: attachment; filename=Jurnal Kas Kecil.xls");
 ?>
 
 <!DOCTYPE html>
@@ -54,9 +54,9 @@ header("Content-Disposition: attachment; filename=Data Pengeluaran.xls");
         <tr>
             <td width="10%"></td>
             <td width="15%">
-                <img src="<?= base_url('assets/'); ?>images/logo/Logo MHJ Web.png" class="logo-print m-auto" width="100">
+                <img src="<?= base_url('assets/'); ?>images/logo/logo-miraino-kotak.jpeg" class="logo-print m-auto" width="80">
             </td>
-            <td width="50%" style="text-align:center;">
+            <td width="50%" style="text-align:center;" colspan="2">
                 <h2 class="card-title pt-2 title-print">PT. MIRAINO HASHI JAYA</h2>
                 <p>Alamat : Jl. Almuhajirin Raya Ruko No.1, Rt.001/Rw.005 Kel. Satria Jaya, Kec. Tambun Utara Kode Pos 17510
                     <br>
@@ -65,67 +65,19 @@ header("Content-Disposition: attachment; filename=Data Pengeluaran.xls");
                     Website : www.mirainohashi.co.id
                 </p>
             </td>
-            <td width="25%">
-            </td>
         </tr>
     </table>
 
     <hr>
 
-    <h4 style="text-align: center;">JURNAL KAS KECIL
-        <?php
-        if (!isset($bulan) && !isset($year)) {
-            echo "KESELURUHAN";
-        } else {
-            switch ($bulan) {
-                case "01":
-                    echo "JANUARI ";
-                    break;
-                case "02":
-                    echo "FEBRUARI ";
-                    break;
-                case "03":
-                    echo "MARET ";
-                    break;
-                case "04":
-                    echo "APRIL ";
-                    break;
-                case "05":
-                    echo "MEI ";
-                    break;
-                case "06":
-                    echo "JUNI ";
-                    break;
-                case "07":
-                    echo "JULI ";
-                    break;
-                case "08":
-                    echo "AGUSTUS ";
-                    break;
-                case "09":
-                    echo "SEPTEMBER ";
-                    break;
-                case "10":
-                    echo "OKTOBER ";
-                    break;
-                case "11":
-                    echo "NOVEMBER ";
-                    break;
-                case "12":
-                    echo "DESEMBER ";
-                    break;
-            }
-            echo $tahun;
-        }
-
-        ?>
-    </h4>
+    <h4 style="text-align: center;">JURNAL KAS KECIL</h4>
 
     <table class="table-main border" cellpadding="10" cellspacing="0" border="2">
         <thead>
             <tr style="background-color:lightcyan;">
                 <td class="bold border">NO.</td>
                 <td class="bold border">JENIS PENGELUARAN</td>
+                <td class="bold border">RINCIAN</td>
                 <td class="bold border">TANGGAL PEMBAYARAN</td>
                 <td class="bold border">NOMINAL</td>
             </tr>
@@ -135,6 +87,7 @@ header("Content-Disposition: attachment; filename=Data Pengeluaran.xls");
             <?php foreach ($petty_cash_journal->result() as $pcj) : ?>
                 <tr>
                     <td class="border"><?= $i; ?></td>
+                    <td class="border"><?= $pcj->output_type; ?></td>
                     <td class="border"><?= $pcj->details; ?></td>
                     <td class="border"><?= date('d / m / Y', strtotime($pcj->date_payment)); ?></td>
                     <td class="border">Rp. <?= number_format($pcj->nominal, 2, ',', '.'); ?></td>
@@ -142,7 +95,7 @@ header("Content-Disposition: attachment; filename=Data Pengeluaran.xls");
                 <?php $i++; ?>
             <?php endforeach; ?>
             <tr style="background-color: lightcyan;">
-                <td colspan="3" class="bold border font-italic">TOTAL PENGELUARAN</td>
+                <td colspan="4" class="bold border font-italic">TOTAL PENGELUARAN</td>
                 <td class="bold border font-italic">Rp. <?= number_format($total->total, 2, ',', '.'); ?></td>
             </tr>
         </tbody>

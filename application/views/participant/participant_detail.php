@@ -18,6 +18,12 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="row">
+                            <div class="col-4">NIK (Nomor Induk Kependudukan)</div>
+                            <div class="col-8">: <?= $participant->nik; ?></div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
                             <div class="col-4">Nama Lengkap</div>
                             <div class="col-8">: <?= $participant->name; ?></div>
                         </div>

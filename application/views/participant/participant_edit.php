@@ -23,17 +23,18 @@
                     <div class="row">
                         <div class="col-md-6">
                             <input type="hidden" name="id" value="<?= $participant->id; ?>">
+
+                            <div class="form-group">
+                                <label for="nik">NIK (Nomor Induk Kependudukan)</label>
+                                <input type="text" class="form-control" id="nik" placeholder="Nomor Induk kependudukan" name="nik" value="<?= $participant->nik; ?>" required>
+                                <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
+                            </div>
+
                             <div class="form-group">
                                 <label for="name">Nama Lengkap</label>
                                 <input type="text" class="form-control" id="name" placeholder="Nama Lengkap" name="name" value="<?= $participant->name; ?>" required>
                                 <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
-
-                            <!-- <div class="form-group">
-                                <label for="address">Alamat</label>
-                                <input type="text" class="form-control" id="address" placeholder="Alamat Lengkap" name="address" value="<?= $participant->address; ?>" required>
-                                <?= form_error('address', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div> -->
 
                             <div class="form-group">
                                 <label for="phone">Nomor Telepon (WA)</label>
@@ -46,15 +47,9 @@
                                 <input type="email" class="form-control" id="email" placeholder="Alamat Email" name="email" value="<?= $participant->email; ?>" required>
                                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
-
-                            <div class="form-group">
-                                <label for="address">Alamat</label>
-                                <textarea class="form-control" id="address" rows="3" name="address"><?= $participant->address; ?></textarea>
-                                <?= form_error('address', '<small class="text-danger pl-3">', '</small>'); ?>
-                            </div>
                         </div>
 
-                        <div class=" col-md-6">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="lang_level">Level Bahasa</label>
                                 <input type="text" class="form-control" id="lang_level" placeholder="Level Bahasa" name="lang_level" value="<?= $participant->lang_level; ?>" required>
@@ -105,6 +100,14 @@
                             <div class="form-group">
                                 <label for="date">Tanggal Masuk</label>
                                 <input type="date" class="form-control" id="date" name="date_entry" value="<?= $participant->date_entry; ?>" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="address">Alamat</label>
+                                <textarea class="form-control" id="address" rows="3" name="address"><?= $participant->address; ?></textarea>
+                                <?= form_error('address', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
 
                             <div class="form-group">

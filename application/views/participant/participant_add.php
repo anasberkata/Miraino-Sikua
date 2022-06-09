@@ -21,6 +21,12 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
+                <label for="nik">NIK (Nomor Induk Kependudukan)</label>
+                <input type="number" class="form-control" id="nik" placeholder="Nomor Induk Kependudukan" name="nik" required>
+                <?= form_error('nik', '<small class="text-danger pl-3">', '</small>'); ?>
+              </div>
+
+              <div class="form-group">
                 <label for="name">Nama Lengkap</label>
                 <input type="text" class="form-control" id="name" placeholder="Nama Lengkap" name="name" required>
                 <?= form_error('name', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -37,13 +43,6 @@
                 <input type="email" class="form-control" id="email" placeholder="Alamat Email" name="email" required>
                 <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
-
-              <div class="form-group">
-                <label for="address">Alamat</label>
-                <textarea class="form-control" id="address" rows="3" name="address"></textarea>
-                <?= form_error('address', '<small class="text-danger pl-3">', '</small>'); ?>
-              </div>
-
             </div>
 
             <div class="col-md-6">
@@ -96,6 +95,14 @@
               <div class="form-group">
                 <label for="date">Tanggal Masuk</label>
                 <input type="date" class="form-control" id="date" name="date_entry" required>
+              </div>
+            </div>
+
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="address">Alamat</label>
+                <textarea class="form-control" id="address" rows="3" name="address"></textarea>
+                <?= form_error('address', '<small class="text-danger pl-3">', '</small>'); ?>
               </div>
 
               <div class="form-group">
