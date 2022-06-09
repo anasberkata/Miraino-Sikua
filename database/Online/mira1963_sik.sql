@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 02, 2022 at 06:42 PM
+-- Generation Time: Jun 09, 2022 at 11:17 PM
 -- Server version: 10.2.43-MariaDB-cll-lve
 -- PHP Version: 7.4.29
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `participants` (
   `id` int(11) NOT NULL,
+  `nik` varchar(100) NOT NULL,
   `name` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `phone` varchar(128) NOT NULL,
@@ -46,144 +47,144 @@ CREATE TABLE `participants` (
 -- Dumping data for table `participants`
 --
 
-INSERT INTO `participants` (`id`, `name`, `address`, `phone`, `email`, `lang_level`, `ipk`, `program`, `date_entry`, `date_created`, `is_active`) VALUES
-(14, 'JULIANTO SILALAHI', 'Dusun I Malasori RT/RW 000/000 Kel. Malasori, Kec. Dolok Masihul, Kab. Serdang Bedagai, Sumatera Utara', '081290721543', 'csakun003@gmail.com', 'BAB 50', 'LPK Gapindo', 'Magang Kontruksi', '2022-11-16', '2022-03-31', 1),
-(15, 'HAIRUL ANWAR', 'KP. Kebantenan RT/RW 002/006 Kel. Jati Asih, Kec. Jati Asih, Kota Bekasi, Jawa Barat', '081290837207', 'irul021193@gmail.com', 'BAB 50', 'MANDIRI', 'Magang Kontruksi', '2021-10-27', '2022-03-31', 1),
-(16, 'A A GEDE NGURAH RADITYA SAPUTRA', 'Banjar Tibu Beleng Kelod RT/RW 000/000 Kel. Penyaringan, Kec. Mendoyo, Kab. Jembrana, Bali', '087858770983 / 085847976540', 'Radityasaputra0705@gmail.com', 'BAB 50', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-11-26', '2022-03-31', 1),
-(17, 'I PUTU ARYA JUNI ASTRAWAN', 'Banjar Menduk RT/RW 000/000 Kel. Pohsaten, Kec. Mendoyo, Kab. Jembrana, Bali', '085738543534', 'Aryajuni477@gmail.com', 'BAB 50', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-12-20', '2022-03-31', 1),
-(19, 'MUHAMMAD RIZKY CANDRA', 'Dusun I Jl. Pelita Tg. RT/RW 000/000 Kel. Tanjung Mulya, Kec. Hinai, Lab. Langkat, Sumatera Utara', '085262529616', 'candramuhammad04@gmail.com', 'N4', 'LPK Gapindo', 'Magang Kontruksi', '2021-05-28', '2022-03-31', 1),
-(20, 'RIMHOT SITANGGANG', 'Sosor Galung RT/RW 000/000 Kel. Tomok Parsaorang, Kec. Simanindo, Kab. Samosir, Sumatera Utara', '088263760809', 'rimhotsitanggang26@gmail.com', 'BAB 50', 'LPK Gapindo', 'Magang Kontruksi', '2021-11-16', '2022-03-31', 1),
-(21, 'I PUTU ADI SUMADIANA', 'Banjar Petapan RT/RW 000/000 Kel. Pergung, Kec. Mendoyo, Kab. Jembrana, Bali', '085932166012', 'tuadi8885@gmail.com', 'BAB 50', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2022-01-05', '2022-03-31', 1),
-(22, 'FIKRI SHOLEHUL AKBAR', 'Blok Tisem RT/RW 003/001 Kel. sendang, Kec. KarangAmpel, Kab. Indramayu, Jawa Barat', '081316105052', 'fikriakbar949@gmail.com', 'BAB 50', 'LPK Itsuka Juu', 'Magang Pertanian', '2021-12-13', '2022-03-31', 1),
-(23, 'RUSTAM SURYADI PANJAITAN', 'Simpang Kerikil RT/RW 002/003 Kel. Kandis Kota, Kec. Kandis, Kab. Siak, Riau', '082276373898', 'rustam_s_yanjaittan@gmail.com', 'BAB 50', 'LPK Gapindo', 'Magang Kontruksi', '2021-11-16', '2022-03-31', 1),
-(24, 'ELVANY FEBRIANTI', 'Kertobanyon RT/RW 006/002 Kel. Kertobanyon, Kec. Geger Kab. Madiun, Jawa Barat', '089525459457', 'elvanyfebri@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Perawat', '2021-05-25', '2022-04-04', 1),
-(25, 'EMIL ZHABIL FAUZIA', 'Dusun Krajan I RT/RW 005/001 Kel. Gintungkerta, Kec. Klari, Kab. Karawang, Jawa Barat', '085846219458', 'emilfauzia26@gmail.com', 'BAB 30 / N5', 'LPK PMS KARAWANG', 'Magang Pengolahan Makanan', '2021-05-25', '2022-04-04', 1),
-(26, 'SRI ANISA RAHAYU', 'Dusun Margatani RT/RW 002/003 Kel. Ciasem Baru, Kec. Ciasem, Kab. Subang, Jawa Barat', '082110053121', 'Srianisarahayu@gmail.com', 'BAB 30', 'LPK PUDJI UTAMI', 'Magang Pengolahan Makanan', '2021-05-25', '2022-04-04', 1),
-(27, 'MUHAMMAD DIEGO OKTAVIANDO FIRDAUS', 'Perum Pesona Jl. Rajawali BB 11/11 RT/RW 054/010 Kel. Karyasari, Kec. Rengasdengklok, Kab. Karawang, Jawa Barat', '081385663986', 'firdausdiego201@gmail.com', 'N4', 'LPK PMS KARAWANG', 'Magang Kontruksi', '2021-04-01', '2022-04-04', 1),
-(28, 'SHIFA RAFIFAH', 'Perum mega Regency Blok C 31 No. 22 RT/RW 009/007 Kel. sukasari, Kec. Serang Baru, Kab. Bekasi, Jawa Barat', '085880707824', 'shifarafifah11@gmail.com', 'BAB 50', 'LPK MOMOTARO', 'Magang Pengolahan Makanan', '2021-11-16', '2022-04-04', 1),
-(29, 'DYAH NUR SAPUTRI', 'Perum Terangsari Blok J 8 No. 24 RT/RW 004/007 Kel. Cibalongsari, Kec. Klari, Kab. Karawang, Jawa Barat', '082125266469', 'dyahnursaputri01@gmail.com', 'N5', 'LPK PMS KARAWANG', 'Magang Pengolahan Makanan', '2021-03-25', '2022-04-04', 1),
-(30, 'REDI HERIANTO', 'Rena Panjang RT/RW 000/000 Kel. Rena Panjang, Kec. Lubuk Sandi, Kab. Seluma, Bengkulu', '082186536400', 'rediherianto99@gmail.com', 'BAB 50', 'MANDIRI', 'Magang Kontruksi', '2021-04-05', '2022-04-04', 1),
-(31, 'IBNU ABBAS ALFAROQHI', 'Dusun 2 RT/RW 009/003 Kel. Sri Sawahan, Kec. Punggur, Kab. Lampung Tengah, Lampung', '085840109482', 'alfaroqhi@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-05-27', '2022-04-04', 1),
-(32, 'GUNTUR DARMAWAN', 'desa Negara Ratu Wates kec.Tegineneng kab.Pesawaran Lampung', '085768616450', 'gunturdarmawan0@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-05-19', '2022-04-04', 1),
-(33, 'UTTA FIANNA PUTRI', 'Kalipakis RT/RW 001/001 Kel. Kalipakis, Kec. Sukorejo, Kab. Kendal, Jawa Tengah', '082220477280', 'Uttafianna@gmail.com', 'N3', 'LPK AKENO GAKUEN', 'Magang Perawat', '2021-04-27', '2022-04-04', 1),
-(34, 'PUTRI', 'Blok Bogor RT/RW 011/004 Kel. Temiyang, Kec. Kroya, Kab. Indramayu, Jawa Barat', '085711059013', 'puputri0702@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-05-25', '2022-04-04', 1),
-(36, 'AGUNG ALI WASKITO', 'Jl. Nangka LK VII RT/RW 000/000 Kel. Suka Maju, Kec. Binjai Barat, Kab. Binjai, Sumatera Utara', '083199870749', 'Agungali1602@gmail.com', 'N4', 'LPK GAPINDO', 'Magang Kontruksi', '2021-05-25', '2022-04-04', 1),
-(37, 'SRI MARYATI DAMANIK', 'Parsaguan Siboulangit RT/RW 000/000 Kel. Simpang Raya, Kec. Panei, Kab. Simalungun, Sumatera Utara', '081995596466', 'Srimaryatidamanik1@gmail.com', 'N4', 'LPK GAPINDO', 'Magang Perawat', '2021-05-25', '2022-04-04', 1),
-(38, 'RIPALDO HASUDUNGAN LIMBONG', ' Jl. Agate Utara H 10/38 Regency RT/RW 003/018 Kel. Cikampek Utara, Kec. Kota Baru, Kab. Karawang, Jawa Barat', '081218448551', 'ripaldolimbong24@gmail.com', 'N4', 'LPK GAPINDO', 'Magang Kontruksi', '2021-05-25', '2022-04-04', 1),
-(39, 'YOGA ARI SANDI', 'Karang Rejo RT/RW 024/006 Kel. Karang Rejo, Kec. Metro Utara, Kota Metro, Lampung', '086366817581', 'yogarisandi876@gmail.com', 'N5', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-06-29', '2022-04-04', 1),
-(40, 'ADI SATYA MUKTI', 'LINGK NGEMPLAK 003/001 BAWEN,BAWEN, KABUPATEN SEMARANG, PROVINSI JAWA TENGAH', '085792362565', 'adisatya416@gmail.com', 'N5', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-06-14', '2022-04-04', 1),
-(41, 'AMELIA', 'Kejobong RT/RW 010/005 Kel. Kejobong, Kec. Kejobong, Kab. Purbalingga, Jawa Tengah', '082226436873', 'Amel9956@gmail.com', 'N5', 'LPK MIRAINO HASHI JAYA', 'Magang Pengolahan Makanan', '2021-08-12', '2022-04-04', 1),
-(42, 'GRESA JUNIO SRIBU', 'Gandu RT/RW 002/003 Kel. Plosorejo, Kec. Matesih, Kab. Karang Anyar, Jawa Tengah', '082324373287', 'Juniosribu@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
-(43, 'DIMAS ADI SEPTIAN', 'Ngampin Kulon RT/RW 001/002 Kel. Ngampin, Kec. Ambarawa, Kab. Semarang, Jawa Tengah', '081392317169', 'Dimasadi796@gmai.com', 'N5', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
-(44, 'I KOMANG ADI PUTRA', 'Banjar Munduk RT/RW 000/000 Kel. Pohsanten, Kec. Mendoyo, Kab. Jembrana, Bali', '085847875866', 'komangadiputra1509@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
-(45, 'JEPRI YULIANTO', '-', '081238354500', 'jefryyuliyanto@gmail.com', 'N5', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
-(46, 'I MADE WIRA KUSUMA', 'Banjar Dauh Marga RT/RW 000/000 Kel. Delod Berawah, Kec. Mendoyo, Kab. Jembrana, Bali', '083115954605', 'madewirakusuma02@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
-(47, 'REZA MAULANA HAQ', 'Kali Bening RT/RW 003/004 Kel. Kebon dalem, Kec. Jambu, Kab. Semarang, Jawa Tengah', '085950825114', 'Rezamaulanahaq@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
-(48, 'I KOMANG ADI WIRAWAN', 'Lingkungan Dlod Bale agung RT/RW 000/000 Kel. Tegal cangkring, Kec. mendoyo, Kab. Jembrana, Bali', '081337196312', 'Adiwirawan147@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
-(49, 'I GEDE ANDIKA MAHESA PUTRA', 'Banjar Dinas Desa RT/RW 000/000 Kel. Galunga, Kec. Sawan Kab. Buleleng, Bali', '08873435282', 'andikayashiro@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
-(50, 'I PUTU GEDE SUDANA MERTA', 'Banjar Pangkung Languan Mekar RT/RW 000/000 Kel. Yeh Sumbul, Kec. Mendoyo, Kab. Jembrana, Bali', '0895705920906', 'sudanamerta123@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
-(51, 'I GUSTI PUTU CANDRA WIDIADNYANA', 'Banjar Puana RT/RW / Kel. Tegal Badeng Barat, Kec. Negara, Kab. Jembrana, Bali', '081547311309', 'Balioppo420@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-09-20', '2022-04-04', 1),
-(52, 'I KADEK PANDE JULIANANTA', 'Banjar Yehbuah RT/RW 000/000 Kel. Penyaringan, Kec. Mendoyo, Kab. Jembrana, Bali', '081932755849', 'Pandejuliananta@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-09-20', '2022-04-04', 1),
-(53, 'I PUTU AGUS SETIAWAN', 'Banjar Baler Pasar RT/RW 000/000 Kel. Pergung, Kec. Mendoyo, Kab. Jembrana, Bali', '087863510425', 'agussetiawan241098@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-09-20', '2022-04-04', 1),
-(54, 'I PUTU OKTA SANTIKA', 'Banjar Yehbuah RT/RW 000/000 Kel. Penyaringan, Kec. Mendoyo, Kab. Jembrana, Bali', '087762475482', 'Oktasantika23@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-09-20', '2022-04-04', 1),
-(55, 'HILDA ALVIONITA', '-', '081381144472', 'hildaalvionita4@gmail.com', 'N3', 'MANDIRI', 'Tg Perawat', '2021-10-25', '2022-04-04', 1),
-(56, 'SULANI', 'Blok Bendungan RT/RW 014/005 Kel. Kroya, Kec. Kroya, Kab. Indramayu, Jawa Barat', '089520552444', 'sulanilani28@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-12-13', '2022-04-04', 1),
-(57, 'RYAN RAMADHAN', 'Dusun Gukabaru RT/RW 002/006 Kel. Tanjung Tiga, Kec. Blanakan, Kab. Subang, Jawa Barat', '083120445835', 'rianramadhan772@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Kontruksi', '2022-03-22', '2022-04-04', 1),
-(58, 'MUTIARA KHAERUNNISA', 'Kp. Rujak Gedang RT/RW 003/012 Kel. Cipakat, Kec. Singaparna, Kab. Tasikmalaya, Jawa Barat', '089656860635', 'tiaranisa15@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Perawat', '2021-12-01', '2022-04-04', 1),
-(59, 'ANDRI SETYAWAN', 'JL. Merdeka RT/RW 009/003 Kel. Pasuruhan, Kec. Binangun, Kab. Cilacap, Jawa Tengah', '081229164238', 'Setyawanandri747@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Kontruksi', '2022-01-05', '2022-04-04', 1),
-(60, 'HANI KHOIRUNNISA', 'Perum Tanjung Sari Blok E No.22 RT/RW 006/007 Kel. Raharja, Kec. Tanjung sari, Kab. Sumedang, Jawa Barat', '087845750431', 'hanikhoirunnisa2@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Perawat', '2021-12-01', '2022-04-04', 1),
-(61, 'WAIS AL QORNI', 'Dusun Krajan RT/RW 002/002 Kel. Mangir, Kec. Rogo Jampi, Kab. Banyuwangi, Jawa Tengah', '087843955184', 'alqorni.wais26@gmail.com', 'BAB 40', 'MANDIRI', 'Tg Perikanan', '2021-11-17', '2022-04-04', 1),
-(63, 'LARAS PERTIWI', 'Perum Cipatat Elok Blok D.33 RT/RW 006/015 Kel. Ciptaharja, Kec. Cipatat, Kab. Bandung Barat, Jawa Barat', '089637507651', 'Laraspertiwi0708@gmail.com', 'N4', 'MANDIRI', 'Magang Perawat', '2022-05-18', '2022-04-04', 1),
-(64, 'NANANG DARMAWAN', 'Jl. Setia Utama Dsn 8 RT/RW 000/000 Kel. Sambi Rejo, Kec. Binjai, Kab. Langkat, Sumatera Utara', '083198631695', 'nanang45darmawan@gmail.com', 'N4', 'LPK MOMIJI', 'Magang Perawat', '2019-10-24', '2022-04-04', 1),
-(65, 'NICKO AL JABAR', 'Dusun tempel 000/000 desa mancang kec.selesai, kab.Langkat, Prov. Sumatera Utara', '0821275995530', 'nickoaljabar198@gmail.com', 'N4', 'LPK MOMIJI', 'Magang Perawat', '2019-11-01', '2022-04-04', 1),
-(66, 'TASYA AMANDA', 'Dusun IV Desa Kota Tengah, Kec. Dolok Masihul, Kab. Serdang Bedagai, Prov. Sumatera Utara', '081314022164', 'tasyaamd8@gmail.com', 'JFT A2', 'MANDIRI', 'Magang Pengolahan Makanan', '2021-11-23', '2022-04-04', 1),
-(67, 'RIZKI ROMADON', 'Dsn Dilem RT/RW 001/004 Kel. Kebondalem Kec. Jambu, Kab. Semarang, Jawa Tengah', '085850238339', 'rizkiromadhonn@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-05-25', '2022-04-04', 1),
-(68, 'IMAM SUNGKONO', 'Tempuran RT/RW 002/004 Kel. Cangkring, Kec. Bluluk, Kab. Lamongan, Jawa Timur', '081803457041', 'ImamSungkono47@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2022-01-21', '2022-04-05', 1),
-(69, 'MUHYI ZAMZAMI', 'Dusun Sikancil RT/RW 004/006 Kel. Slatri Kec. larangan, Kab. Brebes, Jawa Tengah\r\n', '08564796248', 'muhyizamzami69@gmail.com', 'BAB 25', 'LPK YAMAGUCI', 'Magang Kontruksi', '2021-11-27', '2022-04-12', 1),
-(70, 'SRI KUNINGSIH', 'Dukuh Sikancil RT/RW 006/006 Kel. Slatri, Kec. Laragan, Kab. Brebes, Jawa Tengah', '085797619704', 'srikuningsih2804@gmail.com', 'N5', 'LPK YAMAGUCI', 'Magang Perawat', '2022-01-10', '2022-04-12', 1),
-(71, 'AGUNG CARYANTO', 'Blok Soga RT/RW 008/002 Kel. Cipatat, Kec. Bongas, Kab. Indramayu, Jawa Barat', '083823347587', 'agungcaryantoo@gmail.com', 'BAB 25', 'LPK NAGASAKI', 'Magang Kontruksi', '2022-01-05', '2022-04-12', 1),
-(72, 'MAULINDA KURNIASARI', 'Dusun Getas RT/RW 001/005 Kel. termas, Kec. Karang Rayung, Kab. Grobongan, Jawa Tengah', '088802481424', 'maulindakurniasari376@gmail.com', 'N4', 'MANDIRI', 'Magang Perawat', '2022-01-10', '2022-04-12', 1),
-(73, 'NURKHOLIS', 'Blok Kampong RT/RW 006/003 Kel. drunten wetan, Kec. Gabuswetan, Kab. Indramayu, Jawa Barat', '083148415137', 'nurkh@gmail.com', 'BAB 50', 'LPK AOKI', 'Magang Perawat', '2022-02-07', '2022-04-12', 1),
-(74, 'ANDRE PRAWIRA', 'Dsn. KedungRejo RT/Rw 001/001 Kel. Sambimulyo, Kec. Bangorejo, Kab. Banyuwangi, Jawa Timur', '081288363214', 'andreprawira27@gmail.com', 'BAB 50', 'MANDIRI', 'Magang Kontruksi', '2021-12-13', '2022-04-12', 1),
-(75, 'SHAZA DHEA PUTRA ANDALUS', 'Dusun I RT/RW 005/003 Kel. Buntet, Kec. Astanajapura, Kab. Cirebon, Jawa Barat', '083890098021', 'shazadheaputraandalus@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Kontruksi', '2022-01-25', '2022-04-12', 1),
-(76, 'NASRA SITUMORANG', 'Harapan RT/RW 000/000 Kel. Pasaran Parsaoran, Kec. Nainggolan, Kab. Samosir, Sumatera Utara', '082274653224', 'nasrasitumorang@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Pengolahan Makanan', '2022-01-15', '2022-04-12', 1),
-(77, 'ERDAYANTI SIMAMORA', 'Dusun IV Solok RT/RW 000/000 Kel. Sitiris Tiris, Kec. Andam Dewi, Kab. Tapanuli Tengah, Sumatera Utara', '082267167007', 'erday1000@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Pengolahan Makanan', '2022-01-15', '2022-04-12', 1),
-(78, 'RAMA DJATIL IMAD', 'Bakti Mulya RT/RW 007/000 Kel. Bakti Mulya, Kec. Sungai Bahar, Kab. Muaro Jambi, Jambi', '085526264716', 'djatilimadrama@gmail.com', 'BAB 15', 'LPK NAGASAKI', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
-(79, 'ANUGRAH NUR AFITROH', 'Marga RT/RW 006/000 Kel. Marga Manunggal Jaya, Kec. Sungai Bahar, Kab. Muaro Jambi, Jambi', '082278751757', 'Anugrahnura03@gmail.com', 'BAB 15', 'LPK NAGASAKI', 'Magang Perawat', '2022-01-16', '2022-04-12', 1),
-(80, 'TAMRIN ANDREAS PARULIAN NAPITUPULU', 'Dusun V RT/RW 000/000 Kel. Alang Bonbon, Kec. aek Kuasan, Kab. Asahan, Sumatera Utara', '082314946981', 'Sindyvitaloka33@gmail.com', 'BAB 10', 'LPK GAPINDO', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
-(81, 'ANISA BR SEMBIRING', 'Pergendangen RT/RW 000/000 Kel. Pergendangen Kec. Tigabinanga Kab. Karo, Sumatera Utara', '082274384926', 'anisasmb13@gmail.com', 'BAB 33', 'LPK GAPINDO', 'Magang Perawat', '2022-01-16', '2022-04-12', 1),
-(82, 'EKA ASTINA NAJARA', 'Dusun VI solok RT/RW 000/000 Kel. Sitiris Tiris, Kec. Andam Dewi, Kab. Tapanuli Tengah, Sumatera Utara', '082236375791', 'asheka@gmail.com', 'BAB 10', 'LPK GAPINDO', 'Magang Perawat', '2022-01-16', '2022-04-12', 1),
-(83, 'JONATAN TAMPUBOLON', 'Jl. Bunga Raya I RT/RW 000/000 Kel. Asam Kumbang, Kec. Medan Selayang, Kota Medan, Sumatera Utara', '083199760669', 'jonatantampubolon292@gmail.com', 'BAB 10', 'LPK GAPINDO', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
-(84, 'MUHAMMAD RIZQI ZULKARNAIN DAULAY', 'Jl. Bajak II-H Villa Mutiara 3 Blok J-14 RT/RW 000/000 Kel. Harjosari II Kec. Medan Amplas, Kota Medan, Sumatera Utara', '0895603258960', 'rizqidaulay55@gmail.com', 'N4', 'LPK GAPINDO', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
-(85, 'PARNINGOTAN SIRINGO - RINGO', 'Jln Serma Ghajali RT/RW 000/000 Kel. Aek Kanopan, Kec. Kualuh Hulu, Kab. Labuhanbatu Utara, Sumatera Utara', '082272738612', 'artosiringo12@gmail.com', 'BAB 10', 'LPK GAPINDO', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
-(86, 'SAMUEL F M SIMATUPANG', 'Afd. II Kwala Sawit RT/RW 000/000 Kel. Namo Sialang, Kec. Batang serangan, Kab. Langkat, Sumatera Utara', '081325836334', 'samuelsimatupang436@gmail.com', 'BAB 10', 'LPK GAPINDO', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
-(87, 'EDU HUTAHAEAN', 'Sigaol RT/RW 000/000 Kel. Bosar Bayu, Kec. Huta Bayu Raja, Kab. Simalungun, Sumatera Utara', '085383576756', 'hutahaeanedu944@gmail.com', 'BAB 50', 'LPK GAPINDO', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
-(88, 'MUHAMMAD PATIH ADIWIKARTA', 'Jl. Mesjid Gg. Kaum V No. 40 RT/RW 002/004 Kel. Gunung Parang, Kec. Cikole, Kab. Sukabumi, Jawa Barat', '0895341760867', 'adenpatih@gmail.com', 'BAB 50', 'MANDIRI', 'Magang Perawat', '2022-01-17', '2022-04-12', 1),
-(89, 'RYAN AHMAD JAELANI', 'Bumi Asriyasmin Blok B 09 RT/RW 002/009 Kel. Munjul, Kec. Cilaku, Kab. Cianjur, Jawa Barat', '085156845291', 'Ryand.z3991@gmail.com', 'N4', 'Lpk BTC', 'Magang Perawat', '2022-01-18', '2022-04-12', 1),
-(90, 'MELDA MEDIANA KUSDIANTI', 'Jl. Kapten Bahrudin RT/RW 002/004 Kel. Sawahgede, Kec. Cianjur, Kab. Cianjur, Jawa Barat', '089501160495', 'meldamediana28@gmail.com', 'N4', 'Lpk BTC', 'Magang Perawat', '2022-02-02', '2022-04-12', 1),
-(91, 'NADILA PRATAMA', 'Kp. Pasir Cengkeh RT/RW 001/001 Kel. Mandalawangi, Kec. Leles, Kab. Cianjur, Jawa Barat', '081573314866', 'nadilapratamasukses@gmail.com', 'N4', 'Lpk BTC', 'Magang Perawat', '2022-02-02', '2022-04-12', 1),
-(92, 'ERNITA', 'Kp. citamiang, RT/RW 018/006 Kel. Cikancana, Kec. Gekbrong, Kab. Cianjur, Cianjur', '087822914030', 'ernitawidya.31@gmail.com', 'N4', 'Lpk BTC', 'Magang Perawat', '2022-02-02', '2022-04-12', 1),
-(93, 'NISA DEWI HERLINA', '-', '085782665120', 'nisaherlina91@gmail.com', 'N4', 'Lpk BTC', 'Magang Perawat', '2022-02-02', '2022-04-12', 1),
-(94, 'DIAN ANDARISTA', 'Dusun Geri RT/RW 002/009 Kel. Kandangan, Kec. Purwodadi, Kab. Grobongan, Jawa Tengah', '087831256961', 'diandianwijayanto@gmail.com', 'N4', 'LPK YUTAKA', 'Magang Pengolahan Makanan', '2022-02-07', '2022-04-12', 1),
-(95, 'MELARESA ELFIANA', 'Lingkungan Bangkalan RT/RW 009/005 Kel. Kalongan, Kec. Purwodadi, Kab. Grobongan, Jawa Tengah', '081298780754', 'melaresaelfiana@gmail.com', 'N4', 'LPK YUTAKA', 'Magang Pengolahan Makanan', '2022-02-07', '2022-04-12', 1),
-(96, 'GINA AMALIAH', 'Kp. Awi Lega RT/RW 005/005 Kel. Prianganjaya, Kec. Sukalarang, Kab. Sukabumi, Jawa Barat', '085721115404', 'ginaamlh@gmail.com', 'JFT A2', 'LPK IGC', 'Magang Perawat', '2022-02-14', '2022-04-12', 1),
-(97, 'DENA MILKA', 'Kp. Bojong RT/RW 003/008 Kel. Sukalarang, Kec. Sukalarang, Kab. Sukabumi, Jawa Barat', '085846139760', 'denamilka80@gmail.com', 'BAB 50', 'LPK IGC', 'Magang Perawat', '2022-02-14', '2022-04-12', 1),
-(98, 'NENG ZAHRA', 'Kp. Awi Lega RT/RW 005/005 Kel. Prianganjaya, Kec. Sukalarang, Kab. Sukabumi, Jawa Barat', '085871255549', 'Zhraaaaaa73@gmail.com', 'JFT A2', 'LPK IGC', 'Magang Perawat', '2022-02-14', '2022-04-12', 1),
-(99, 'LISTRA MUNTHE', 'Bah Torop RT/RW 000/000 Kel. Pematang Panombeian, Kec. Panombeian Panei, Kab. Simalungun, Sumatera Utara', '087893258944', 'Alicekindaich@icloud.com', 'N4', 'MANDIRI', 'Magang Perawat', '2022-02-17', '2022-04-12', 1),
-(100, 'SANGGA BUANA RAJA', 'Gading Rejo Utara RT/RW 001/001 Kel. Gading Rejo Utara, Kec. Gading Rejo, Kab. Pringsewu, Lampung', '087878003657', 'Sangga8765432@gmail.com', 'BAB 35', 'LPK KWH', 'Magang Kontruksi', '2022-02-28', '2022-04-12', 1),
-(101, 'SUMARNO', 'Tegongan RT/RW 003/003 Kel. Tegongan, Kec. Tanjung, Kab. Brebes, Jawa Tengah', '082137224768', 'markoajah98@gmail.com', 'N5', 'BBK ADIWERNA TEGAL', 'Magang Kontruksi', '2019-10-04', '2022-04-12', 1),
-(102, 'BUDIHARTO', 'nogosari RT 08 Gilagharjo Pandak Bantul Yogyakarta', '082233040276', 'budihartox@gmail.com', 'N3', 'LPK PT.MIRAINO HASHI JAYA', 'Tg Perawat', '2022-04-12', '2022-04-12', 1),
-(103, 'ELSA TIARA ANGGRAENI', 'Kalibening RT/RW 002/004 Kel. Kebondalem, Kec. Jambu, Kab, Semarang, Jawa Tengah', '082176434527', 'elsata6@gmail.com', 'N5', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-04-14', '2022-04-12', 1),
-(104, 'TAUFIQ HIDAYAT FIRDAUS', 'JL. Bumi Raya VI RT/RW 0008/003 Kel. Duren Sawit, Kec. Duren Sawit, Kota Jakarta Timur, Jakarta', '087729281388', 'taufikconslate@gmail.com', 'N5', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Kontruksi', '2019-01-29', '2022-04-12', 1),
-(105, 'WAHYU DWI NINGTIAS', 'Dusun Bumi Agung RT/RW 002/001 Kel. Pulau Jaya, Kec. Palas, Kab. Lampung Selatan, Lampung', '085838313793', 'wahyudwiningtias149@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Perawat', '2020-10-12', '2022-04-12', 1),
-(106, 'FITRI UTAMI', 'Dsn Krageman RT/RW 001/009 Kel. Kradenan, Kec. Srumbung, Kab. Magelang, Jawa Tengah', '085840403099', 'fitriutami967@gmail.com', 'N4', 'LPK TAKAHASHI YOGYAKARTA', 'Magang Perawat', '2020-10-01', '2022-04-12', 1),
-(107, 'MELISA ULIBASA  BR MARPAUNG', 'Jl. Air Bersih Ujung NO. 226 RT/RW 000/000 Kel. Binjai, Kec. Medan Denai, Kota Medan, Sumatera Utara', '6282182312902', 'melisamarpaung57@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Perawat', '2020-07-27', '2022-04-12', 1),
-(108, 'ELLA AGUSTIN', 'Dusun  III RT/RW 010/004 Kel. Batang Hari Ogan, Kec. Tegineneng, Kab. Pesawaran, Lampung', '081213631669', 'ellaagustin413@gmail.com', 'N5', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-05-25', '2022-04-12', 1),
-(109, 'NOVI OKTAVIANI', 'Kp. Hamerang II RT/RW 017/001 Kel. Hamerang, Kec. Cibinong, Kab. Cianjur, Jawa Barat', '085795741005', 'fiaaaokta@gmail.com', 'N4', 'Lpk BTC', 'Magang Perawat', '2021-01-19', '2022-04-12', 1),
-(110, 'DWI HAINUN NINGSIH', 'Karanganom RT/RW 009/002 Kel. Karanganom, Kec. Weleri, Kab. Kendal, Jawa Tengah', '085290705302', 'dwihainun05@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Perawat', '2020-10-12', '2022-04-12', 1),
-(111, 'AGRESIH YOLANDA SINAGA', 'AFD. I Padang Brahrang RT/RW 000/000 Kel. Padang Brahrang, Kec. Selesai, Kab. Langkat, Sumatera Utara', '083171723026', 'yolandasinaga1234@gmail.com', 'N4', 'LPK HOZY', 'Magang Perawat', '2020-09-01', '2022-04-12', 1),
-(112, 'TRI HARTONO', 'Lingk. Langen RT/RW 003/002 Kel. muktisari, Kec. Langensari, Kota Banjar, Jawa Barat', '085977520975', 'bianpermana5@gmail.com', 'BAB 50', 'LPK OYAMA GAKKO', 'Magang Kontruksi', '2021-12-26', '2022-04-12', 1),
-(113, 'FAJAR SETIADI', 'Dk Putuk RT/RW 001/003 Kel. Ngloram, Kec. Cepu, Kab. Blora, Jawa Tengah', '089601454540', 'bintangagung101@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Ryuugakusei', '2021-05-25', '2022-04-12', 1),
-(114, 'RIMA PUSPITA PRADANA', 'Dsn Sanggar RT/RW 003/001 Kel. Ngepeh, Kec. Bandung, Kab. Tulungagung, Jawa Timur', '089501136080', 'misspradana1996@gmail.com', 'N4', 'LPK HIRATA GAKKOU MADIUN', 'Magang Perawat', '2020-09-04', '2022-04-12', 1),
-(115, 'YOSSI ANDRIYAN', 'Blok I RT/RW 002/003 Kel. Kertasura, Kec. Kapetakan, Kab. Cirebon, Jawa Barat', '085881168056', 'yossiandriyan46@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Kontruksi', '2020-06-07', '2022-04-13', 1),
-(116, 'FAHAD ARISUL HAKIM', 'Dusun Kebogoran RT/RW 001/011 Kel. Kamulyaan, Kec. Bantarsari, Kab. Cilcap, Jawa Tengah', '082135170119', 'fahadarisul.158240@gmail.com', 'N4', 'LPK HIRATA GAKKOU MADIUN', 'Magang Kontruksi', '2020-09-04', '2022-04-13', 1),
-(117, 'REANOLD MARTIN SAMUEL SIMORANGKIR', 'Kp. Gembong RT/RW 001/006 Kel. Mekar Mukti, Kab. Cikarang Utara, Kab. Bekasi, Jawa Barat', '081316059826', 'mrtnsams1@gmail.com', 'N4', 'LPK GAPINDO', 'Magang Kontruksi', '2021-01-11', '2022-04-13', 1),
-(118, 'AHMAD RIFA\'I', 'Dusun Sidadadi RT/RW 001/005 Kel. Bulak Sari, Kec. Bantas sari, Kab. Cilacap, Jawa Tengah', '085641798897', 'rifai221199@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Perawat', '2018-11-05', '2022-04-13', 1),
-(119, 'IMAM SYAFII', 'Jl. Angke Barat No. 84 RT/RW 004/002 Kel. Angke, Kec. Tambora, Jakarta Barat, DKI Jakarta', '085740926585', 'imamc614@gmail.com', 'N5', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Kontruksi', '2018-08-27', '2022-04-13', 1),
-(120, 'AHMAD HARDIANSYAH', 'Dusun Kawali RT/RW 005/004 Kel. Pancawati, Kec. Klari, Kab. Karawang, Jawa Barat', '081385210986', 'ahmadhardiansyah2309@gmail.com', 'N3', 'LPK PANCA MULTIGUNA SUKSES', 'Magang Kontruksi', '2021-02-05', '2022-04-13', 1),
-(121, 'DERRY KRISTIAN P SITUMORANG', 'Jl. Perwira II GG Simare Mare No 52 A Comp Ikes RT/RW 000/000 Kel. Pulo Brayan Bengkel, Kec. Medan Timur, Kota Medan, Sumatera Utara', '082367567128', 'derrysitumorang31@yahoo.com', 'N4', 'LPK GAPINDO', 'Magang Kontruksi', '2021-05-28', '2022-04-13', 1),
-(122, 'DWIK HARDIYANTO', 'Karang Sari RT/RW 021/008 Kel. Negara Nabung, Kec. Sukadana, Kab. Lampung Timur, Lampung', '085769734297', 'dwikhardiyanto115@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Kontruksi', '2020-09-14', '2022-04-13', 1),
-(123, 'RISMA', 'Dusun IV RT/RW 010/004 Kel. Gunung Sugih Kecil, Kec. Jabung, Kab. Lampung Timur, Lampung', '081322071723', 'rismahakim94@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Perawat', '2020-03-12', '2022-04-13', 1),
-(124, 'DYAH HARDIYANTI', 'Tlogolelo RT/RW 018/004 Kel. Hargo Mulyo, Kec. Kokap, Kab. Kulon Progo, Daerah Istimewa Yogyakarta', '089637471000', 'hardiyantidyah24@gmail.com', 'N4', 'LPK KENJANI', 'Magang Perawat', '2021-10-01', '2022-04-13', 1),
-(125, 'SINDY AINURIZQI', 'Blok Pangarangsari RT/RW 003/003 Kel. Waringin, Kec. Palasah, Kab. Majalengka, Jawa Barat', '082114582592', 'shindyar05@gmail.com', 'N4', 'OHJ STUDY JAPAN', 'Magang Perawat', '2020-03-16', '2022-04-13', 1),
-(126, 'RIZKY ANUGRAH PUTRI', 'Losari Sawahan RT/RW 004/004 Kel. Lodoyong, Kec. Ambarawaa, Kab. Semarang, Jawa Tengah', '082242339199/08818584122', 'Rizkyanugrahputri32@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Perawat', '2021-05-29', '2022-04-13', 1),
-(127, 'CITRA ASTRIANI BUTAR BUTAR', 'Bahkisat RT/RW 000/000 Kel. Marihat  Raja, Kec. DOlok Panribuan Kab. Simalungun, Sumatera Utara', '082370703077', 'citrabutar335@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Perawat', '2020-11-18', '2022-04-13', 1),
-(128, 'IRMA ABRIANTIKA NURYANI', 'Lingkungan 01 Ciriung RT/RW 002/001 Kel. Ciriung, Kec. Cibinong, Kab. Bogor, Jawa Barat', '-', '-@gmail.com', '-', 'LPK MIRAINO HASHI JAYA', 'Magang Pengolahan Makanan', '2020-03-16', '2022-04-15', 1),
-(129, 'MAULANA ABDUSSALAM', 'Desa Bukit Harapan RT/RW 008/002 Kel. Bukit Harapan, Kec. Mersam, Kab. Batang Hari, Jambi', '085220941118', 'maulasta010214@gmail.com', 'JFT A2', 'LPK NAGASAKI', 'Tg Perawat', '2022-01-11', '2022-04-18', 1),
-(130, 'DELA SRI FAUZAH', 'KP. Buni Sari RT/RW 001/003 Kel. Sukarame, Kec. Sukanagara, Kab. Cianjur, Jawa Barat', '085759367404', 'delasrifauzah36@gmail.com', 'N4', 'Lpk BTC', 'Magang Pengolahan Makanan', '2021-01-11', '2022-04-18', 1),
-(131, 'RESNAWATI', 'Kp. Sinar Mulya RT/RW 003/004 Kel. Karyamukti, Kec. Leles, Kab. Cianjur, Jawa Barat', '085794095924', 'watiresna915@gmail.com', 'N4', 'Lpk BTC', 'Magang Pengolahan Makanan', '2021-01-11', '2022-04-18', 1),
-(132, 'BIMA PRAKARSA', 'AFD VII KW. Sawit RT/RW 000/000 Kel. Sei Serdang, Kec. Batang Serangan, Kab. Langkat, Sumatera Utara', '082366179404', 'bimaprakarsa@gmail.com', 'BAB 50', 'LPK HOZY', 'Magang Kontruksi', '2020-09-01', '2022-05-30', 1),
-(133, 'ANDHARA EARLY SYAHRA', 'Dukuh Turi RT/RW 003/003 Kel. Dukuh Turi, Kec. Bumi Ayu, Kec. Brebes, Jawa Tengah', '082220477280', 'earlysyahra@gmail.com', 'N4', 'UNNES', 'Magang Perawat', '2020-12-28', '2022-05-30', 1),
-(134, 'CINDY KRISTINA SINAGA', 'Tangga Batu RT/RW 000/000 Kel. Tangga Batu, Kec. Hatonduhan, Kab. Simalungun, Sumatera Utara', '085362075487', 'cindykristina@gmail.com', 'BAB 50', 'LPK HOZY', 'Magang Perawat', '2020-11-18', '2022-05-30', 1),
-(135, 'DANIEL YULISMAN', 'Piai Tangah RT/RW 001/002 Kel. Piai Tangah, Kec. Pauh, Kota Padang, Sumatera Barat', '082287151459', 'daniel.dn270@gmail.com', 'BAB 50', 'LPK HARUKI GAKKOU', 'Magang Kontruksi', '2019-05-08', '2022-05-30', 1),
-(136, 'DESI HANDAYANI TAMBUNAN', 'Jl. Mufakat No. 132 RT/RW 002/009 Kel. Sukadame, Kec. Siantar Utara, Kota Pematang Siantar, Sumatera Utara', '082267888640', 'desihandayani121997@gmai.com', 'BAB 50', 'LPK GAPINDO', 'Magang Pengolahan Makanan', '2020-06-29', '2022-05-30', 1),
-(137, 'DESI NATALIA SIANIPAR', 'Jl. Pattimura Ujung RT/RW 001/001 Kel. Mekar Nauli, Kec. Siantar Marihat, Kota Pematang Siantar, Sumatera Utara', '088263516818', 'desinatalia@gmail.com', 'BAB 50', 'LPK Gapindo', 'Magang Pengolahan Makanan', '2020-06-29', '2022-05-30', 1),
-(138, 'FITRI NURAZIZAH', 'Kp. Warung Bawang RT/RW 003/004 Kel. Cibeureum, Kec. Cugenang, Kab. Cianjur, Jawa Barat', '085759859287', 'fitrinurazizah@gmail.com', 'N4', 'LPK MASSAIHARA', 'Magang Perawat', '2020-07-03', '2022-06-01', 1),
-(139, 'GUSTI AYU PURNAMASARI', 'Perum Bumi SIndang Asri Blok. B 2 No.. 13 RT/RW 002/010 Kel. Sindang Mulya, Kec. Cibarusah, Kab. Bekasi, Jawa Barat', '+821032919155', 'gustiayu@gmail.com', 'N4', 'LPK MASSAIHARA', 'Magang Perawat', '2020-01-06', '2022-06-01', 1),
-(140, 'HOTDIANA BR TAMBUNAN', 'Desa Tanjung Pamah RT/RW 000/000 Kel. Tanjung Pamah, Kec. Ardingding, Kab. Karo, Sumatera Utara', '081263814941', 'dianatambunan@gmail.com', 'N4', 'LPK GAPINDO', 'Magang Perawat', '2020-06-29', '2022-06-02', 1),
-(141, 'HAYATUDDIN', 'Mada Jaya RT/RW 010/005 Kel. Mada Jaya, Kec. Way Khilau, Kab. Pesawaran, Lampung', '082258417072', 'hayatudin@gmail.com', 'N4', 'LPK MIRAINO HASHI JAYA', 'Magang Kontruksi', '2019-11-12', '2022-06-02', 1),
-(142, 'IKE YULI WIDIASTUTI', 'Pajaresuk RT/RW 003/001 Kel. Pajaresuk, Kec. Pringsewu, Kab. Pringsewu, Lampung', '0895392395888', 'Ikewidiastuti@gmail.com', 'J TEST Level E', 'LPK AKENO GAKUEN', 'Magang Perawat', '2020-07-18', '2022-06-02', 1),
-(143, 'INDAH AGUSTIN SASADARA', 'Jl. Kenangan RT/RW 001/010 Kel. Kedung Jati, Kec. Buka Teja, Kab. Purbalingga, Jawa Tengah', '082329200538', 'Indahagustin@gmail.com', 'N4', 'UNNES', 'Magang Perawat', '2020-12-28', '2022-06-02', 1),
-(144, 'JOHAN ALFA REZA', 'Jl. Mawar RT/RW 003/009 Kel. Pakembaran, Kec. Slawi, Kab. Tegal, Jawa Tengah', '085225228840', 'Alfareza@gmail.com', 'N4', 'LPK YAMAGUCHI', 'Magang Kontruksi', '2021-02-05', '2022-06-02', 1),
-(145, 'KHANIFAH', 'Blok Masjid RT/RW 011/004 Kel. Kaplongan, Kec. Kedokan Bunder, Kab. Indramayu', '08985612675', 'Khanifah@gmail.com', 'N4', 'LPK MASSAIHARA', 'Magang Perawat', '2020-01-06', '2022-06-02', 1),
-(146, 'KHOFIFAH INDAH', 'Desa Pengodengan RT/RW 001/002 Kel. Wirakanan, Kec. Kandang Haur, Kab. Indramayu, Jawa Barat', '083807064546', 'Khofifahindah@gmail.com', 'N4', 'LPK MIRAINO HASHI JAYA', 'Magang Perawat', '2019-03-21', '2022-06-02', 1),
-(147, 'LAILATUL QOMARIYAH', 'Kebanyon RT/RW 003/004 Kel. Kasepuhan, Kec. Batang, Kab. Batang, Jawa Tengah', '089670800424', 'lailatulqomariyah@gmail.com', 'N4', 'UNNES', 'Magang Perawat', '2020-12-28', '2022-06-02', 1),
-(148, 'MAGFIRA SARIJUDDIN TAKBI', '-', '085398209014', 'magfira@gmail.com', 'N4', 'LPK YAWATA', 'Magang Perawat', '2020-09-09', '2022-06-02', 1),
-(149, 'METRI NOFITA', 'Perum Villa Gading Harapan \r\nBlok Al 4 No. 18 RT/RW 001/024 Kel. Kebalen, Kec. Babelan, Kab. Bekasi, Jawa Barat', '082384340844', 'metri@gmail.com', 'N4', 'LPK HARUKI GAKKOU', 'Magang Perawat', '2019-08-05', '2022-06-02', 1),
-(150, 'MOHAMAD SOLIKIN', 'Ngrancah RT/RW 001/001 Kel. Ngrancah, Kec. Grabag Kab. Magelang, Jawa Barat', '085877877885', 'solikin@gmail.com', 'N3', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-04-09', '2022-06-02', 1),
-(151, 'MUHAMAD HIDAYAT UMASANGAJI', 'Kp. Cibinong RT/RW 003/007 Kel. Ciwalen, Kec. Warung Kondang, Kab. Cianjur, Jawa Barat', '083891524655', 'hidayat@gmail.com', 'N4', 'LPK CBT', 'Magang Kontruksi', '2020-07-06', '2022-06-02', 1),
-(152, 'MUHAMAD ARYA PUTERA', 'Koto Rawang RT/RW 000/000 Kel. Koto Rawang, Kec. IV Jurai, Kab. Pesisir Selatan, Sumatera Barat', '089602615054', 'aryaputera@gmail.com', 'N4', 'LPK HARUKI GAKKOU', 'Magang Kontruksi', '2019-05-08', '2022-06-02', 1),
-(153, 'NURHOLIK', 'Pende RT/RW 005/003 Kel. Pende, Kec. Kersana, Kab. Brebes, Jawa Tengah', '083837364148', 'Nurholik@gmail.com', '-', 'LPK HIROKU', 'Magang Kontruksi', '2020-01-30', '2022-06-02', 1);
+INSERT INTO `participants` (`id`, `nik`, `name`, `address`, `phone`, `email`, `lang_level`, `ipk`, `program`, `date_entry`, `date_created`, `is_active`) VALUES
+(14, '', 'JULIANTO SILALAHI', 'Dusun I Malasori RT/RW 000/000 Kel. Malasori, Kec. Dolok Masihul, Kab. Serdang Bedagai, Sumatera Utara', '081290721543', 'csakun003@gmail.com', 'BAB 50', 'LPK Gapindo', 'Magang Kontruksi', '2022-11-16', '2022-03-31', 1),
+(15, '', 'HAIRUL ANWAR', 'KP. Kebantenan RT/RW 002/006 Kel. Jati Asih, Kec. Jati Asih, Kota Bekasi, Jawa Barat', '081290837207', 'irul021193@gmail.com', 'BAB 50', 'MANDIRI', 'Magang Kontruksi', '2021-10-27', '2022-03-31', 1),
+(16, '', 'A A GEDE NGURAH RADITYA SAPUTRA', 'Banjar Tibu Beleng Kelod RT/RW 000/000 Kel. Penyaringan, Kec. Mendoyo, Kab. Jembrana, Bali', '087858770983 / 085847976540', 'Radityasaputra0705@gmail.com', 'BAB 50', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-11-26', '2022-03-31', 1),
+(17, '', 'I PUTU ARYA JUNI ASTRAWAN', 'Banjar Menduk RT/RW 000/000 Kel. Pohsaten, Kec. Mendoyo, Kab. Jembrana, Bali', '085738543534', 'Aryajuni477@gmail.com', 'BAB 50', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-12-20', '2022-03-31', 1),
+(19, '', 'MUHAMMAD RIZKY CANDRA', 'Dusun I Jl. Pelita Tg. RT/RW 000/000 Kel. Tanjung Mulya, Kec. Hinai, Lab. Langkat, Sumatera Utara', '085262529616', 'candramuhammad04@gmail.com', 'N4', 'LPK Gapindo', 'Magang Kontruksi', '2021-05-28', '2022-03-31', 1),
+(20, '', 'RIMHOT SITANGGANG', 'Sosor Galung RT/RW 000/000 Kel. Tomok Parsaorang, Kec. Simanindo, Kab. Samosir, Sumatera Utara', '088263760809', 'rimhotsitanggang26@gmail.com', 'BAB 50', 'LPK Gapindo', 'Magang Kontruksi', '2021-11-16', '2022-03-31', 1),
+(21, '', 'I PUTU ADI SUMADIANA', 'Banjar Petapan RT/RW 000/000 Kel. Pergung, Kec. Mendoyo, Kab. Jembrana, Bali', '085932166012', 'tuadi8885@gmail.com', 'BAB 50', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2022-01-05', '2022-03-31', 1),
+(22, '', 'FIKRI SHOLEHUL AKBAR', 'Blok Tisem RT/RW 003/001 Kel. sendang, Kec. KarangAmpel, Kab. Indramayu, Jawa Barat', '081316105052', 'fikriakbar949@gmail.com', 'BAB 50', 'LPK Itsuka Juu', 'Magang Pertanian', '2021-12-13', '2022-03-31', 1),
+(23, '', 'RUSTAM SURYADI PANJAITAN', 'Simpang Kerikil RT/RW 002/003 Kel. Kandis Kota, Kec. Kandis, Kab. Siak, Riau', '082276373898', 'rustam_s_yanjaittan@gmail.com', 'BAB 50', 'LPK Gapindo', 'Magang Kontruksi', '2021-11-16', '2022-03-31', 1),
+(24, '', 'ELVANY FEBRIANTI', 'Kertobanyon RT/RW 006/002 Kel. Kertobanyon, Kec. Geger Kab. Madiun, Jawa Barat', '089525459457', 'elvanyfebri@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Perawat', '2021-05-25', '2022-04-04', 1),
+(25, '', 'EMIL ZHABIL FAUZIA', 'Dusun Krajan I RT/RW 005/001 Kel. Gintungkerta, Kec. Klari, Kab. Karawang, Jawa Barat', '085846219458', 'emilfauzia26@gmail.com', 'BAB 30 / N5', 'LPK PMS KARAWANG', 'Magang Pengolahan Makanan', '2021-05-25', '2022-04-04', 1),
+(26, '', 'SRI ANISA RAHAYU', 'Dusun Margatani RT/RW 002/003 Kel. Ciasem Baru, Kec. Ciasem, Kab. Subang, Jawa Barat', '082110053121', 'Srianisarahayu@gmail.com', 'BAB 30', 'LPK PUDJI UTAMI', 'Magang Pengolahan Makanan', '2021-05-25', '2022-04-04', 1),
+(27, '', 'MUHAMMAD DIEGO OKTAVIANDO FIRDAUS', 'Perum Pesona Jl. Rajawali BB 11/11 RT/RW 054/010 Kel. Karyasari, Kec. Rengasdengklok, Kab. Karawang, Jawa Barat', '081385663986', 'firdausdiego201@gmail.com', 'N4', 'LPK PMS KARAWANG', 'Magang Kontruksi', '2021-04-01', '2022-04-04', 1),
+(28, '', 'SHIFA RAFIFAH', 'Perum mega Regency Blok C 31 No. 22 RT/RW 009/007 Kel. sukasari, Kec. Serang Baru, Kab. Bekasi, Jawa Barat', '085880707824', 'shifarafifah11@gmail.com', 'BAB 50', 'LPK MOMOTARO', 'Magang Pengolahan Makanan', '2021-11-16', '2022-04-04', 1),
+(29, '', 'DYAH NUR SAPUTRI', 'Perum Terangsari Blok J 8 No. 24 RT/RW 004/007 Kel. Cibalongsari, Kec. Klari, Kab. Karawang, Jawa Barat', '082125266469', 'dyahnursaputri01@gmail.com', 'N5', 'LPK PMS KARAWANG', 'Magang Pengolahan Makanan', '2021-03-25', '2022-04-04', 1),
+(30, '', 'REDI HERIANTO', 'Rena Panjang RT/RW 000/000 Kel. Rena Panjang, Kec. Lubuk Sandi, Kab. Seluma, Bengkulu', '082186536400', 'rediherianto99@gmail.com', 'BAB 50', 'MANDIRI', 'Magang Kontruksi', '2021-04-05', '2022-04-04', 1),
+(31, '', 'IBNU ABBAS ALFAROQHI', 'Dusun 2 RT/RW 009/003 Kel. Sri Sawahan, Kec. Punggur, Kab. Lampung Tengah, Lampung', '085840109482', 'alfaroqhi@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-05-27', '2022-04-04', 1),
+(32, '', 'GUNTUR DARMAWAN', 'Dusun Tanjung Anom RT/RW 003/002 Kel. Negara Ratu Wates, Kec. Tegineneng, Kab. Pesawaran, Lampung', '085768616450', 'gunturdarmawan0@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-05-19', '2022-04-04', 1),
+(33, '', 'UTTA FIANNA PUTRI', 'Kalipakis RT/RW 001/001 Kel. Kalipakis, Kec. Sukorejo, Kab. Kendal, Jawa Tengah', '082220477280', 'Uttafianna@gmail.com', 'N3', 'LPK AKENO GAKUEN', 'Magang Perawat', '2021-04-27', '2022-04-04', 1),
+(34, '', 'PUTRI', 'Blok Bogor RT/RW 011/004 Kel. Temiyang, Kec. Kroya, Kab. Indramayu, Jawa Barat', '085711059013', 'puputri0702@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-05-25', '2022-04-04', 1),
+(36, '', 'AGUNG ALI WASKITO', 'Jl. Nangka LK VII RT/RW 000/000 Kel. Suka Maju, Kec. Binjai Barat, Kab. Binjai, Sumatera Utara', '083199870749', 'Agungali1602@gmail.com', 'N4', 'LPK GAPINDO', 'Magang Kontruksi', '2021-05-25', '2022-04-04', 1),
+(37, '', 'SRI MARYATI DAMANIK', 'Parsaguan Siboulangit RT/RW 000/000 Kel. Simpang Raya, Kec. Panei, Kab. Simalungun, Sumatera Utara', '081995596466', 'Srimaryatidamanik1@gmail.com', 'N4', 'LPK GAPINDO', 'Magang Perawat', '2021-05-25', '2022-04-04', 1),
+(38, '', 'RIPALDO HASUDUNGAN LIMBONG', ' Jl. Agate Utara H 10/38 Regency RT/RW 003/018 Kel. Cikampek Utara, Kec. Kota Baru, Kab. Karawang, Jawa Barat', '081218448551', 'ripaldolimbong24@gmail.com', 'N4', 'LPK GAPINDO', 'Magang Kontruksi', '2021-05-25', '2022-04-04', 1),
+(39, '', 'YOGA ARI SANDI', 'Karang Rejo RT/RW 024/006 Kel. Karang Rejo, Kec. Metro Utara, Kota Metro, Lampung', '086366817581', 'yogarisandi876@gmail.com', 'N5', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-06-29', '2022-04-04', 1),
+(40, '', 'ADI SATYA MUKTI', 'Lingk Ngemplak RT/RW 003/001 Kel. Bawen, Kec. Bawen, Kab. Semarang, Jawa Tengah', '085792362565', 'adisatya416@gmail.com', 'N5', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-06-14', '2022-04-04', 1),
+(41, '', 'AMELIA', 'Kejobong RT/RW 010/005 Kel. Kejobong, Kec. Kejobong, Kab. Purbalingga, Jawa Tengah', '082226436873', 'Amel9956@gmail.com', 'N5', 'LPK MIRAINO HASHI JAYA', 'Magang Pengolahan Makanan', '2021-08-12', '2022-04-04', 1),
+(42, '', 'GRESA JUNIO SRIBU', 'Gandu RT/RW 002/003 Kel. Plosorejo, Kec. Matesih, Kab. Karang Anyar, Jawa Tengah', '082324373287', 'Juniosribu@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
+(43, '', 'DIMAS ADI SEPTIAN', 'Ngampin Kulon RT/RW 001/002 Kel. Ngampin, Kec. Ambarawa, Kab. Semarang, Jawa Tengah', '081392317169', 'Dimasadi796@gmai.com', 'N5', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
+(44, '', 'I KOMANG ADI PUTRA', 'Banjar Munduk RT/RW 000/000 Kel. Pohsanten, Kec. Mendoyo, Kab. Jembrana, Bali', '085847875866', 'komangadiputra1509@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
+(45, '', 'JEPRI YULIANTO', '-', '081238354500', 'jefryyuliyanto@gmail.com', 'N5', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
+(46, '', 'I MADE WIRA KUSUMA', 'Banjar Dauh Marga RT/RW 000/000 Kel. Delod Berawah, Kec. Mendoyo, Kab. Jembrana, Bali', '083115954605', 'madewirakusuma02@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
+(47, '', 'REZA MAULANA HAQ', 'Kali Bening RT/RW 003/004 Kel. Kebon dalem, Kec. Jambu, Kab. Semarang, Jawa Tengah', '085950825114', 'Rezamaulanahaq@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
+(48, '', 'I KOMANG ADI WIRAWAN', 'Lingkungan Dlod Bale agung RT/RW 000/000 Kel. Tegal cangkring, Kec. mendoyo, Kab. Jembrana, Bali', '081337196312', 'Adiwirawan147@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
+(49, '', 'I GEDE ANDIKA MAHESA PUTRA', 'Banjar Dinas Desa RT/RW 000/000 Kel. Galunga, Kec. Sawan Kab. Buleleng, Bali', '08873435282', 'andikayashiro@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
+(50, '', 'I PUTU GEDE SUDANA MERTA', 'Banjar Pangkung Languan Mekar RT/RW 000/000 Kel. Yeh Sumbul, Kec. Mendoyo, Kab. Jembrana, Bali', '0895705920906', 'sudanamerta123@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pertanian', '2021-09-06', '2022-04-04', 1),
+(51, '', 'I GUSTI PUTU CANDRA WIDIADNYANA', 'Banjar Puana RT/RW / Kel. Tegal Badeng Barat, Kec. Negara, Kab. Jembrana, Bali', '081547311309', 'Balioppo420@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-09-20', '2022-04-04', 1),
+(52, '', 'I KADEK PANDE JULIANANTA', 'Banjar Yehbuah RT/RW 000/000 Kel. Penyaringan, Kec. Mendoyo, Kab. Jembrana, Bali', '081932755849', 'Pandejuliananta@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-09-20', '2022-04-04', 1),
+(53, '', 'I PUTU AGUS SETIAWAN', 'Banjar Baler Pasar RT/RW 000/000 Kel. Pergung, Kec. Mendoyo, Kab. Jembrana, Bali', '087863510425', 'agussetiawan241098@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-09-20', '2022-04-04', 1),
+(54, '', 'I PUTU OKTA SANTIKA', 'Banjar Yehbuah RT/RW 000/000 Kel. Penyaringan, Kec. Mendoyo, Kab. Jembrana, Bali', '087762475482', 'Oktasantika23@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-09-20', '2022-04-04', 1),
+(55, '', 'HILDA ALVIONITA', '-', '081381144472', 'hildaalvionita4@gmail.com', 'N3', 'MANDIRI', 'Tg Perawat', '2021-10-25', '2022-04-04', 1),
+(56, '', 'SULANI', 'Blok Bendungan RT/RW 014/005 Kel. Kroya, Kec. Kroya, Kab. Indramayu, Jawa Barat', '089520552444', 'sulanilani28@gmail.com', 'BAB 25', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-12-13', '2022-04-04', 1),
+(57, '', 'RYAN RAMADHAN', 'Dusun Gukabaru RT/RW 002/006 Kel. Tanjung Tiga, Kec. Blanakan, Kab. Subang, Jawa Barat', '083120445835', 'rianramadhan772@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Kontruksi', '2022-03-22', '2022-04-04', 1),
+(58, '', 'MUTIARA KHAERUNNISA', 'Kp. Rujak Gedang RT/RW 003/012 Kel. Cipakat, Kec. Singaparna, Kab. Tasikmalaya, Jawa Barat', '089656860635', 'tiaranisa15@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Perawat', '2021-12-01', '2022-04-04', 1),
+(59, '', 'ANDRI SETYAWAN', 'JL. Merdeka RT/RW 009/003 Kel. Pasuruhan, Kec. Binangun, Kab. Cilacap, Jawa Tengah', '081229164238', 'Setyawanandri747@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Kontruksi', '2022-01-05', '2022-04-04', 1),
+(60, '', 'HANI KHOIRUNNISA', 'Perum Tanjung Sari Blok E No.22 RT/RW 006/007 Kel. Raharja, Kec. Tanjung sari, Kab. Sumedang, Jawa Barat', '087845750431', 'hanikhoirunnisa2@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Perawat', '2021-12-01', '2022-04-04', 1),
+(61, '', 'WAIS AL QORNI', 'Dusun Krajan RT/RW 002/002 Kel. Mangir, Kec. Rogo Jampi, Kab. Banyuwangi, Jawa Tengah', '087843955184', 'alqorni.wais26@gmail.com', 'BAB 40', 'MANDIRI', 'Tg Perikanan', '2021-11-17', '2022-04-04', 1),
+(63, '', 'LARAS PERTIWI', 'Perum Cipatat Elok Blok D.33 RT/RW 006/015 Kel. Ciptaharja, Kec. Cipatat, Kab. Bandung Barat, Jawa Barat', '089637507651', 'Laraspertiwi0708@gmail.com', 'N4', 'MANDIRI', 'Magang Perawat', '2022-05-18', '2022-04-04', 1),
+(64, '1205050911000003', 'NANANG DARMAWAN', 'Jl. Setia Utama Dsn 8 RT/RW 000/000 Kel. Sambi Rejo, Kec. Binjai, Kab. Langkat, Sumatera Utara', '083198631695', 'nanang45darmawan@gmail.com', 'N4', 'LPK MOMIJI', 'Magang Perawat', '2019-10-24', '2022-04-04', 1),
+(65, '1205061912980002', 'NICKO AL JABAR', 'Dusun tempel 000/000 desa mancang kec.selesai, kab.Langkat, Prov. Sumatera Utara', '0821275995530', 'nickoaljabar198@gmail.com', 'N4', 'LPK MOMIJI', 'Magang Perawat', '2019-11-01', '2022-04-04', 1),
+(66, '', 'TASYA AMANDA', 'Dusun IV Desa Kota Tengah, Kec. Dolok Masihul, Kab. Serdang Bedagai, Prov. Sumatera Utara', '081314022164', 'tasyaamd8@gmail.com', 'JFT A2', 'MANDIRI', 'Magang Pengolahan Makanan', '2021-11-23', '2022-04-04', 1),
+(67, '', 'RIZKI ROMADON', 'Dsn Dilem RT/RW 001/004 Kel. Kebondalem Kec. Jambu, Kab. Semarang, Jawa Tengah', '085850238339', 'rizkiromadhonn@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-05-25', '2022-04-04', 1),
+(68, '', 'IMAM SUNGKONO', 'Tempuran RT/RW 002/004 Kel. Cangkring, Kec. Bluluk, Kab. Lamongan, Jawa Timur', '081803457041', 'ImamSungkono47@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2022-01-21', '2022-04-05', 1),
+(69, '', 'MUHYI ZAMZAMI', 'Dusun Sikancil RT/RW 004/006 Kel. Slatri Kec. larangan, Kab. Brebes, Jawa Tengah\r\n', '08564796248', 'muhyizamzami69@gmail.com', 'BAB 25', 'LPK YAMAGUCI', 'Magang Kontruksi', '2021-11-27', '2022-04-12', 1),
+(70, '', 'SRI KUNINGSIH', 'Dukuh Sikancil RT/RW 006/006 Kel. Slatri, Kec. Laragan, Kab. Brebes, Jawa Tengah', '085797619704', 'srikuningsih2804@gmail.com', 'N5', 'LPK YAMAGUCI', 'Magang Perawat', '2022-01-10', '2022-04-12', 1),
+(71, '', 'AGUNG CARYANTO', 'Blok Soga RT/RW 008/002 Kel. Cipatat, Kec. Bongas, Kab. Indramayu, Jawa Barat', '083823347587', 'agungcaryantoo@gmail.com', 'BAB 25', 'LPK NAGASAKI', 'Magang Kontruksi', '2022-01-05', '2022-04-12', 1),
+(72, '', 'MAULINDA KURNIASARI', 'Dusun Getas RT/RW 001/005 Kel. termas, Kec. Karang Rayung, Kab. Grobongan, Jawa Tengah', '088802481424', 'maulindakurniasari376@gmail.com', 'N4', 'MANDIRI', 'Magang Perawat', '2022-01-10', '2022-04-12', 1),
+(73, '', 'NURKHOLIS', 'Blok Kampong RT/RW 006/003 Kel. drunten wetan, Kec. Gabuswetan, Kab. Indramayu, Jawa Barat', '083148415137', 'nurkh@gmail.com', 'BAB 50', 'LPK AOKI', 'Magang Perawat', '2022-02-07', '2022-04-12', 1),
+(74, '', 'ANDRE PRAWIRA', 'Dsn. KedungRejo RT/Rw 001/001 Kel. Sambimulyo, Kec. Bangorejo, Kab. Banyuwangi, Jawa Timur', '081288363214', 'andreprawira27@gmail.com', 'BAB 50', 'MANDIRI', 'Magang Kontruksi', '2021-12-13', '2022-04-12', 1),
+(75, '', 'SHAZA DHEA PUTRA ANDALUS', 'Dusun I RT/RW 005/003 Kel. Buntet, Kec. Astanajapura, Kab. Cirebon, Jawa Barat', '083890098021', 'shazadheaputraandalus@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Kontruksi', '2022-01-25', '2022-04-12', 1),
+(76, '', 'NASRA SITUMORANG', 'Harapan RT/RW 000/000 Kel. Pasaran Parsaoran, Kec. Nainggolan, Kab. Samosir, Sumatera Utara', '082274653224', 'nasrasitumorang@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Pengolahan Makanan', '2022-01-15', '2022-04-12', 1),
+(77, '', 'ERDAYANTI SIMAMORA', 'Dusun IV Solok RT/RW 000/000 Kel. Sitiris Tiris, Kec. Andam Dewi, Kab. Tapanuli Tengah, Sumatera Utara', '082267167007', 'erday1000@gmail.com', 'BAB 25', 'MANDIRI', 'Magang Pengolahan Makanan', '2022-01-15', '2022-04-12', 1),
+(78, '', 'RAMA DJATIL IMAD', 'Bakti Mulya RT/RW 007/000 Kel. Bakti Mulya, Kec. Sungai Bahar, Kab. Muaro Jambi, Jambi', '085526264716', 'djatilimadrama@gmail.com', 'BAB 15', 'LPK NAGASAKI', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
+(79, '', 'ANUGRAH NUR AFITROH', 'Marga RT/RW 006/000 Kel. Marga Manunggal Jaya, Kec. Sungai Bahar, Kab. Muaro Jambi, Jambi', '082278751757', 'Anugrahnura03@gmail.com', 'BAB 15', 'LPK NAGASAKI', 'Magang Perawat', '2022-01-16', '2022-04-12', 1),
+(80, '', 'TAMRIN ANDREAS PARULIAN NAPITUPULU', 'Dusun V RT/RW 000/000 Kel. Alang Bonbon, Kec. aek Kuasan, Kab. Asahan, Sumatera Utara', '082314946981', 'Sindyvitaloka33@gmail.com', 'BAB 10', 'LPK GAPINDO', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
+(81, '', 'ANISA BR SEMBIRING', 'Pergendangen RT/RW 000/000 Kel. Pergendangen Kec. Tigabinanga Kab. Karo, Sumatera Utara', '082274384926', 'anisasmb13@gmail.com', 'BAB 33', 'LPK GAPINDO', 'Magang Perawat', '2022-01-16', '2022-04-12', 1),
+(82, '', 'EKA ASTINA NAJARA', 'Dusun VI solok RT/RW 000/000 Kel. Sitiris Tiris, Kec. Andam Dewi, Kab. Tapanuli Tengah, Sumatera Utara', '082236375791', 'asheka@gmail.com', 'BAB 10', 'LPK GAPINDO', 'Magang Perawat', '2022-01-16', '2022-04-12', 1),
+(83, '', 'JONATAN TAMPUBOLON', 'Jl. Bunga Raya I RT/RW 000/000 Kel. Asam Kumbang, Kec. Medan Selayang, Kota Medan, Sumatera Utara', '083199760669', 'jonatantampubolon292@gmail.com', 'BAB 10', 'LPK GAPINDO', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
+(84, '', 'MUHAMMAD RIZQI ZULKARNAIN DAULAY', 'Jl. Bajak II-H Villa Mutiara 3 Blok J-14 RT/RW 000/000 Kel. Harjosari II Kec. Medan Amplas, Kota Medan, Sumatera Utara', '0895603258960', 'rizqidaulay55@gmail.com', 'N4', 'LPK GAPINDO', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
+(85, '', 'PARNINGOTAN SIRINGO - RINGO', 'Jln Serma Ghajali RT/RW 000/000 Kel. Aek Kanopan, Kec. Kualuh Hulu, Kab. Labuhanbatu Utara, Sumatera Utara', '082272738612', 'artosiringo12@gmail.com', 'BAB 10', 'LPK GAPINDO', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
+(86, '', 'SAMUEL F M SIMATUPANG', 'Afd. II Kwala Sawit RT/RW 000/000 Kel. Namo Sialang, Kec. Batang serangan, Kab. Langkat, Sumatera Utara', '081325836334', 'samuelsimatupang436@gmail.com', 'BAB 10', 'LPK GAPINDO', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
+(87, '', 'EDU HUTAHAEAN', 'Sigaol RT/RW 000/000 Kel. Bosar Bayu, Kec. Huta Bayu Raja, Kab. Simalungun, Sumatera Utara', '085383576756', 'hutahaeanedu944@gmail.com', 'BAB 50', 'LPK GAPINDO', 'Magang Kontruksi', '2022-01-16', '2022-04-12', 1),
+(88, '', 'MUHAMMAD PATIH ADIWIKARTA', 'Jl. Mesjid Gg. Kaum V No. 40 RT/RW 002/004 Kel. Gunung Parang, Kec. Cikole, Kab. Sukabumi, Jawa Barat', '0895341760867', 'adenpatih@gmail.com', 'BAB 50', 'MANDIRI', 'Magang Perawat', '2022-01-17', '2022-04-12', 1),
+(89, '', 'RYAN AHMAD JAELANI', 'Bumi Asriyasmin Blok B 09 RT/RW 002/009 Kel. Munjul, Kec. Cilaku, Kab. Cianjur, Jawa Barat', '085156845291', 'Ryand.z3991@gmail.com', 'N4', 'Lpk BTC', 'Magang Perawat', '2022-01-18', '2022-04-12', 1),
+(90, '', 'MELDA MEDIANA KUSDIANTI', 'Jl. Kapten Bahrudin RT/RW 002/004 Kel. Sawahgede, Kec. Cianjur, Kab. Cianjur, Jawa Barat', '089501160495', 'meldamediana28@gmail.com', 'N4', 'Lpk BTC', 'Magang Perawat', '2022-02-02', '2022-04-12', 1),
+(91, '', 'NADILA PRATAMA', 'Kp. Pasir Cengkeh RT/RW 001/001 Kel. Mandalawangi, Kec. Leles, Kab. Cianjur, Jawa Barat', '081573314866', 'nadilapratamasukses@gmail.com', 'N4', 'Lpk BTC', 'Magang Perawat', '2022-02-02', '2022-04-12', 1),
+(92, '', 'ERNITA', 'Kp. citamiang, RT/RW 018/006 Kel. Cikancana, Kec. Gekbrong, Kab. Cianjur, Cianjur', '087822914030', 'ernitawidya.31@gmail.com', 'N4', 'Lpk BTC', 'Magang Perawat', '2022-02-02', '2022-04-12', 1),
+(93, '', 'NISA DEWI HERLINA', '-', '085782665120', 'nisaherlina91@gmail.com', 'N4', 'Lpk BTC', 'Magang Perawat', '2022-02-02', '2022-04-12', 1),
+(94, '', 'DIAN ANDARISTA', 'Dusun Geri RT/RW 002/009 Kel. Kandangan, Kec. Purwodadi, Kab. Grobongan, Jawa Tengah', '087831256961', 'diandianwijayanto@gmail.com', 'N4', 'LPK YUTAKA', 'Magang Pengolahan Makanan', '2022-02-07', '2022-04-12', 1),
+(95, '', 'MELARESA ELFIANA', 'Lingkungan Bangkalan RT/RW 009/005 Kel. Kalongan, Kec. Purwodadi, Kab. Grobongan, Jawa Tengah', '081298780754', 'melaresaelfiana@gmail.com', 'N4', 'LPK YUTAKA', 'Magang Pengolahan Makanan', '2022-02-07', '2022-04-12', 1),
+(96, '', 'GINA AMALIAH', 'Kp. Awi Lega RT/RW 005/005 Kel. Prianganjaya, Kec. Sukalarang, Kab. Sukabumi, Jawa Barat', '085721115404', 'ginaamlh@gmail.com', 'JFT A2', 'LPK IGC', 'Magang Perawat', '2022-02-14', '2022-04-12', 1),
+(97, '', 'DENA MILKA', 'Kp. Bojong RT/RW 003/008 Kel. Sukalarang, Kec. Sukalarang, Kab. Sukabumi, Jawa Barat', '085846139760', 'denamilka80@gmail.com', 'BAB 50', 'LPK IGC', 'Magang Perawat', '2022-02-14', '2022-04-12', 1),
+(98, '', 'NENG ZAHRA', 'Kp. Awi Lega RT/RW 005/005 Kel. Prianganjaya, Kec. Sukalarang, Kab. Sukabumi, Jawa Barat', '085871255549', 'Zhraaaaaa73@gmail.com', 'JFT A2', 'LPK IGC', 'Magang Perawat', '2022-02-14', '2022-04-12', 1),
+(99, '', 'LISTRA MUNTHE', 'Bah Torop RT/RW 000/000 Kel. Pematang Panombeian, Kec. Panombeian Panei, Kab. Simalungun, Sumatera Utara', '087893258944', 'Alicekindaich@icloud.com', 'N4', 'MANDIRI', 'Magang Perawat', '2022-02-17', '2022-04-12', 1),
+(100, '', 'SANGGA BUANA RAJA', 'Gading Rejo Utara RT/RW 001/001 Kel. Gading Rejo Utara, Kec. Gading Rejo, Kab. Pringsewu, Lampung', '087878003657', 'Sangga8765432@gmail.com', 'BAB 35', 'LPK KWH', 'Magang Kontruksi', '2022-02-28', '2022-04-12', 1),
+(101, '', 'SUMARNO', 'Tegongan RT/RW 003/003 Kel. Tegongan, Kec. Tanjung, Kab. Brebes, Jawa Tengah', '082137224768', 'markoajah98@gmail.com', 'N5', 'BBK ADIWERNA TEGAL', 'Magang Kontruksi', '2019-10-04', '2022-04-12', 1),
+(102, '', 'BUDIHARTO', 'nogosari RT 08 Gilagharjo Pandak Bantul Yogyakarta', '082233040276', 'budihartox@gmail.com', 'N3', 'LPK PT.MIRAINO HASHI JAYA', 'Tg Perawat', '2022-04-12', '2022-04-12', 1),
+(103, '', 'ELSA TIARA ANGGRAENI', 'Kalibening RT/RW 002/004 Kel. Kebondalem, Kec. Jambu, Kab, Semarang, Jawa Tengah', '082176434527', 'elsata6@gmail.com', 'N5', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-04-14', '2022-04-12', 1),
+(104, '', 'TAUFIQ HIDAYAT FIRDAUS', 'JL. Bumi Raya VI RT/RW 0008/003 Kel. Duren Sawit, Kec. Duren Sawit, Kota Jakarta Timur, Jakarta', '087729281388', 'taufikconslate@gmail.com', 'N5', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Kontruksi', '2019-01-29', '2022-04-12', 1),
+(105, '', 'WAHYU DWI NINGTIAS', 'Dusun Bumi Agung RT/RW 002/001 Kel. Pulau Jaya, Kec. Palas, Kab. Lampung Selatan, Lampung', '085838313793', 'wahyudwiningtias149@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Perawat', '2020-10-12', '2022-04-12', 1),
+(106, '', 'FITRI UTAMI', 'Dsn Krageman RT/RW 001/009 Kel. Kradenan, Kec. Srumbung, Kab. Magelang, Jawa Tengah', '085840403099', 'fitriutami967@gmail.com', 'N4', 'LPK TAKAHASHI YOGYAKARTA', 'Magang Perawat', '2020-10-01', '2022-04-12', 1),
+(107, '', 'MELISA ULIBASA  BR MARPAUNG', 'Jl. Air Bersih Ujung NO. 226 RT/RW 000/000 Kel. Binjai, Kec. Medan Denai, Kota Medan, Sumatera Utara', '6282182312902', 'melisamarpaung57@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Perawat', '2020-07-27', '2022-04-12', 1),
+(108, '', 'ELLA AGUSTIN', 'Dusun  III RT/RW 010/004 Kel. Batang Hari Ogan, Kec. Tegineneng, Kab. Pesawaran, Lampung', '081213631669', 'ellaagustin413@gmail.com', 'N5', 'LPK AKENO GAKUEN', 'Magang Pengolahan Makanan', '2021-05-25', '2022-04-12', 1),
+(109, '', 'NOVI OKTAVIANI', 'Kp. Hamerang II RT/RW 017/001 Kel. Hamerang, Kec. Cibinong, Kab. Cianjur, Jawa Barat', '085795741005', 'fiaaaokta@gmail.com', 'N4', 'Lpk BTC', 'Magang Perawat', '2021-01-19', '2022-04-12', 1),
+(110, '', 'DWI HAINUN NINGSIH', 'Karanganom RT/RW 009/002 Kel. Karanganom, Kec. Weleri, Kab. Kendal, Jawa Tengah', '085290705302', 'dwihainun05@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Perawat', '2020-10-12', '2022-04-12', 1),
+(111, '', 'AGRESIH YOLANDA SINAGA', 'AFD. I Padang Brahrang RT/RW 000/000 Kel. Padang Brahrang, Kec. Selesai, Kab. Langkat, Sumatera Utara', '083171723026', 'yolandasinaga1234@gmail.com', 'N4', 'LPK HOZY', 'Magang Perawat', '2020-09-01', '2022-04-12', 1),
+(112, '', 'TRI HARTONO', 'Lingk. Langen RT/RW 003/002 Kel. muktisari, Kec. Langensari, Kota Banjar, Jawa Barat', '085977520975', 'bianpermana5@gmail.com', 'BAB 50', 'LPK OYAMA GAKKO', 'Magang Kontruksi', '2021-12-26', '2022-04-12', 1),
+(113, '', 'FAJAR SETIADI', 'Dk Putuk RT/RW 001/003 Kel. Ngloram, Kec. Cepu, Kab. Blora, Jawa Tengah', '089601454540', 'bintangagung101@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Ryuugakusei', '2021-05-25', '2022-04-12', 1),
+(114, '', 'RIMA PUSPITA PRADANA', 'Dsn Sanggar RT/RW 003/001 Kel. Ngepeh, Kec. Bandung, Kab. Tulungagung, Jawa Timur', '089501136080', 'misspradana1996@gmail.com', 'N4', 'LPK HIRATA GAKKOU MADIUN', 'Magang Perawat', '2020-09-04', '2022-04-12', 1),
+(115, '', 'YOSSI ANDRIYAN', 'Blok I RT/RW 002/003 Kel. Kertasura, Kec. Kapetakan, Kab. Cirebon, Jawa Barat', '085881168056', 'yossiandriyan46@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Kontruksi', '2020-06-07', '2022-04-13', 1),
+(116, '', 'FAHAD ARISUL HAKIM', 'Dusun Kebogoran RT/RW 001/011 Kel. Kamulyaan, Kec. Bantarsari, Kab. Cilcap, Jawa Tengah', '082135170119', 'fahadarisul.158240@gmail.com', 'N4', 'LPK HIRATA GAKKOU MADIUN', 'Magang Kontruksi', '2020-09-04', '2022-04-13', 1),
+(117, '', 'REANOLD MARTIN SAMUEL SIMORANGKIR', 'Kp. Gembong RT/RW 001/006 Kel. Mekar Mukti, Kab. Cikarang Utara, Kab. Bekasi, Jawa Barat', '081316059826', 'mrtnsams1@gmail.com', 'N4', 'LPK GAPINDO', 'Magang Kontruksi', '2021-01-11', '2022-04-13', 1),
+(118, '3301202211990001', 'AHMAD RIFA\'I', 'Dusun Sidadadi RT/RW 001/005 Kel. Bulak Sari, Kec. Bantas sari, Kab. Cilacap, Jawa Tengah', '085641798897', 'rifai221199@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Perawat', '2018-11-05', '2022-04-13', 1),
+(119, '', 'IMAM SYAFII', 'Jl. Angke Barat No. 84 RT/RW 004/002 Kel. Angke, Kec. Tambora, Jakarta Barat, DKI Jakarta', '085740926585', 'imamc614@gmail.com', 'N5', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Kontruksi', '2018-08-27', '2022-04-13', 1),
+(120, '', 'AHMAD HARDIANSYAH', 'Dusun Kawali RT/RW 005/004 Kel. Pancawati, Kec. Klari, Kab. Karawang, Jawa Barat', '081385210986', 'ahmadhardiansyah2309@gmail.com', 'N3', 'LPK PANCA MULTIGUNA SUKSES', 'Magang Kontruksi', '2021-02-05', '2022-04-13', 1),
+(121, '', 'DERRY KRISTIAN P SITUMORANG', 'Jl. Perwira II GG Simare Mare No 52 A Comp Ikes RT/RW 000/000 Kel. Pulo Brayan Bengkel, Kec. Medan Timur, Kota Medan, Sumatera Utara', '082367567128', 'derrysitumorang31@yahoo.com', 'N4', 'LPK GAPINDO', 'Magang Kontruksi', '2021-05-28', '2022-04-13', 1),
+(122, '', 'DWIK HARDIYANTO', 'Karang Sari RT/RW 021/008 Kel. Negara Nabung, Kec. Sukadana, Kab. Lampung Timur, Lampung', '085769734297', 'dwikhardiyanto115@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Kontruksi', '2020-09-14', '2022-04-13', 1),
+(123, '', 'RISMA', 'Dusun IV RT/RW 010/004 Kel. Gunung Sugih Kecil, Kec. Jabung, Kab. Lampung Timur, Lampung', '081322071723', 'rismahakim94@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Perawat', '2020-03-12', '2022-04-13', 1),
+(124, '', 'DYAH HARDIYANTI', 'Tlogolelo RT/RW 018/004 Kel. Hargo Mulyo, Kec. Kokap, Kab. Kulon Progo, Daerah Istimewa Yogyakarta', '089637471000', 'hardiyantidyah24@gmail.com', 'N4', 'LPK KENJANI', 'Magang Perawat', '2021-10-01', '2022-04-13', 1),
+(125, '', 'SINDY AINURIZQI', 'Blok Pangarangsari RT/RW 003/003 Kel. Waringin, Kec. Palasah, Kab. Majalengka, Jawa Barat', '082114582592', 'shindyar05@gmail.com', 'N4', 'OHJ STUDY JAPAN', 'Magang Perawat', '2020-03-16', '2022-04-13', 1),
+(126, '', 'RIZKY ANUGRAH PUTRI', 'Losari Sawahan RT/RW 004/004 Kel. Lodoyong, Kec. Ambarawaa, Kab. Semarang, Jawa Tengah', '082242339199/08818584122', 'Rizkyanugrahputri32@gmail.com', 'N4', 'LPK AKENO GAKUEN', 'Magang Perawat', '2021-05-29', '2022-04-13', 1),
+(127, '', 'CITRA ASTRIANI BUTAR BUTAR', 'Bahkisat RT/RW 000/000 Kel. Marihat  Raja, Kec. DOlok Panribuan Kab. Simalungun, Sumatera Utara', '082370703077', 'citrabutar335@gmail.com', 'N4', 'LPK PT.MIRAINO HASHI JAYA', 'Magang Perawat', '2020-11-18', '2022-04-13', 1),
+(128, '3201014510930004', 'IRMA ABRIANTIKA NURYANI', 'Lingkungan 01 Ciriung RT/RW 002/001 Kel. Ciriung, Kec. Cibinong, Kab. Bogor, Jawa Barat', '088210005350', '-@gmail.com', '-', 'LPK MIRAINO HASHI JAYA', 'Magang Pengolahan Makanan', '2020-03-16', '2022-04-15', 1),
+(129, '', 'MAULANA ABDUSSALAM', 'Desa Bukit Harapan RT/RW 008/002 Kel. Bukit Harapan, Kec. Mersam, Kab. Batang Hari, Jambi', '085220941118', 'maulasta010214@gmail.com', 'JFT A2', 'LPK NAGASAKI', 'Tg Perawat', '2022-01-11', '2022-04-18', 1),
+(130, '', 'DELA SRI FAUZAH', 'KP. Buni Sari RT/RW 001/003 Kel. Sukarame, Kec. Sukanagara, Kab. Cianjur, Jawa Barat', '085759367404', 'delasrifauzah36@gmail.com', 'N4', 'Lpk BTC', 'Magang Pengolahan Makanan', '2021-01-11', '2022-04-18', 1),
+(131, '', 'RESNAWATI', 'Kp. Sinar Mulya RT/RW 003/004 Kel. Karyamukti, Kec. Leles, Kab. Cianjur, Jawa Barat', '085794095924', 'watiresna915@gmail.com', 'N4', 'Lpk BTC', 'Magang Pengolahan Makanan', '2021-01-11', '2022-04-18', 1),
+(132, '', 'BIMA PRAKARSA', 'AFD VII KW. Sawit RT/RW 000/000 Kel. Sei Serdang, Kec. Batang Serangan, Kab. Langkat, Sumatera Utara', '082366179404', 'bimaprakarsa@gmail.com', 'BAB 50', 'LPK HOZY', 'Magang Kontruksi', '2020-09-01', '2022-05-30', 1),
+(133, '', 'ANDHARA EARLY SYAHRA', 'Dukuh Turi RT/RW 003/003 Kel. Dukuh Turi, Kec. Bumi Ayu, Kec. Brebes, Jawa Tengah', '082220477280', 'earlysyahra@gmail.com', 'N4', 'UNNES', 'Magang Perawat', '2020-12-28', '2022-05-30', 1),
+(134, '', 'CINDY KRISTINA SINAGA', 'Tangga Batu RT/RW 000/000 Kel. Tangga Batu, Kec. Hatonduhan, Kab. Simalungun, Sumatera Utara', '085362075487', 'cindykristina@gmail.com', 'BAB 50', 'LPK HOZY', 'Magang Perawat', '2020-11-18', '2022-05-30', 1),
+(135, '', 'DANIEL YULISMAN', 'Piai Tangah RT/RW 001/002 Kel. Piai Tangah, Kec. Pauh, Kota Padang, Sumatera Barat', '082287151459', 'daniel.dn270@gmail.com', 'BAB 50', 'LPK HARUKI GAKKOU', 'Magang Kontruksi', '2019-05-08', '2022-05-30', 1),
+(136, '', 'DESI HANDAYANI TAMBUNAN', 'Jl. Mufakat No. 132 RT/RW 002/009 Kel. Sukadame, Kec. Siantar Utara, Kota Pematang Siantar, Sumatera Utara', '082267888640', 'desihandayani121997@gmai.com', 'BAB 50', 'LPK GAPINDO', 'Magang Pengolahan Makanan', '2020-06-29', '2022-05-30', 1),
+(137, '1272056812950001', 'DESI NATALIA SIANIPAR', 'Jl. Pattimura Ujung RT/RW 001/001 Kel. Mekar Nauli, Kec. Siantar Marihat, Kota Pematang Siantar, Sumatera Utara', '088263516818', '-@gmail.com', 'BAB 50', 'LPK Gapindo', 'Magang Pengolahan Makanan', '2020-06-29', '2022-05-30', 1),
+(138, '', 'FITRI NURAZIZAH', 'Kp. Warung Bawang RT/RW 003/004 Kel. Cibeureum, Kec. Cugenang, Kab. Cianjur, Jawa Barat', '085759859287', 'fitrinurazizah@gmail.com', 'N4', 'LPK MASSAIHARA', 'Magang Perawat', '2020-07-03', '2022-06-01', 1),
+(139, '3216224608930006', 'GUSTI AYU PURNAMASARI', 'Perum Bumi SIndang Asri Blok. B 2 No.. 13 RT/RW 002/010 Kel. Sindang Mulya, Kec. Cibarusah, Kab. Bekasi, Jawa Barat', '+821032919155', '-@gmail.com', 'N4', 'LPK MASSAIHARA', 'Magang Perawat', '2020-01-06', '2022-06-01', 1),
+(140, '', 'HOTDIANA BR TAMBUNAN', 'Desa Tanjung Pamah RT/RW 000/000 Kel. Tanjung Pamah, Kec. Ardingding, Kab. Karo, Sumatera Utara', '081263814941', 'dianatambunan@gmail.com', 'N4', 'LPK GAPINDO', 'Magang Perawat', '2020-06-29', '2022-06-02', 1),
+(141, '', 'HAYATUDDIN', 'Mada Jaya RT/RW 010/005 Kel. Mada Jaya, Kec. Way Khilau, Kab. Pesawaran, Lampung', '082258417072', 'hayatudin@gmail.com', 'N4', 'LPK MIRAINO HASHI JAYA', 'Magang Kontruksi', '2019-11-12', '2022-06-02', 1),
+(142, '', 'IKE YULI WIDIASTUTI', 'Pajaresuk RT/RW 003/001 Kel. Pajaresuk, Kec. Pringsewu, Kab. Pringsewu, Lampung', '0895392395888', 'Ikewidiastuti@gmail.com', 'J TEST Level E', 'LPK AKENO GAKUEN', 'Magang Perawat', '2020-07-18', '2022-06-02', 1),
+(143, '', 'INDAH AGUSTIN SASADARA', 'Jl. Kenangan RT/RW 001/010 Kel. Kedung Jati, Kec. Buka Teja, Kab. Purbalingga, Jawa Tengah', '082329200538', 'Indahagustin@gmail.com', 'N4', 'UNNES', 'Magang Perawat', '2020-12-28', '2022-06-02', 1),
+(144, '', 'JOHAN ALFA REZA', 'Jl. Mawar RT/RW 003/009 Kel. Pakembaran, Kec. Slawi, Kab. Tegal, Jawa Tengah', '085225228840', 'Jhonalfareza87@gmail.com', 'N4', 'LPK YAMAGUCHI', 'Magang Kontruksi', '2021-02-05', '2022-06-02', 1),
+(145, '3212286105000001', 'KHANIFAH', 'Blok Masjid RT/RW 011/004 Kel. Kaplongan, Kec. Kedokan Bunder, Kab. Indramayu', '08985612675', '-@gmail.com', 'N4', 'LPK MASSAIHARA', 'Magang Perawat', '2020-01-06', '2022-06-02', 1),
+(146, '3216014408000005', 'KHOFIFAH INDAH', 'Desa Pengodengan RT/RW 001/002 Kel. Wirakanan, Kec. Kandang Haur, Kab. Indramayu, Jawa Barat', '083807064546', '-@gmail.com', 'N4', 'LPK MIRAINO HASHI JAYA', 'Magang Perawat', '2019-03-21', '2022-06-02', 1),
+(147, '', 'LAILATUL QOMARIYAH', 'Kebanyon RT/RW 003/004 Kel. Kasepuhan, Kec. Batang, Kab. Batang, Jawa Tengah', '089670800424', 'lailatulqomariyah@gmail.com', 'N4', 'UNNES', 'Magang Perawat', '2020-12-28', '2022-06-02', 1),
+(148, '', 'MAGFIRA SARIJUDDIN TAKBI', '-', '085398209014', 'magfira@gmail.com', 'N4', 'LPK YAWATA', 'Magang Perawat', '2020-09-09', '2022-06-02', 1),
+(149, '1304086907950002', 'METRI NOFITA', 'Perum Villa Gading Harapan Blok Al 4 No. 18 RT/RW 001/024 Kel. Kebalen, Kec. Babelan, Kab. Bekasi, Jawa Barat', '082384340844', '-@gmail.com', 'N4', 'LPK HARUKI GAKKOU', 'Magang Perawat', '2019-08-05', '2022-06-02', 1),
+(150, '', 'MOHAMAD SOLIKIN', 'Ngrancah RT/RW 001/001 Kel. Ngrancah, Kec. Grabag Kab. Magelang, Jawa Barat', '085877877885', 'solikin@gmail.com', 'N3', 'LPK AKENO GAKUEN', 'Magang Kontruksi', '2021-04-09', '2022-06-02', 1),
+(151, '', 'MUHAMAD HIDAYAT UMASANGAJI', 'Kp. Cibinong RT/RW 003/007 Kel. Ciwalen, Kec. Warung Kondang, Kab. Cianjur, Jawa Barat', '083891524655', 'hidayat@gmail.com', 'N4', 'LPK CBT', 'Magang Kontruksi', '2020-07-06', '2022-06-02', 1),
+(152, '1301050302000001', 'MUHAMAD ARYA PUTERA', 'Koto Rawang RT/RW 000/000 Kel. Koto Rawang, Kec. IV Jurai, Kab. Pesisir Selatan, Sumatera Barat', '089602615054', 'Muhamadarya.dimas3@gmail.com', 'N4', 'LPK HARUKI GAKKOU', 'Magang Kontruksi', '2019-05-08', '2022-06-02', 1),
+(153, '', 'NURHOLIK', 'Pende RT/RW 005/003 Kel. Pende, Kec. Kersana, Kab. Brebes, Jawa Tengah', '083837364148', 'mrholik2000@gmail.com', '-', 'LPK HIROKU', 'Magang Kontruksi', '2020-01-30', '2022-06-02', 1);
 
 -- --------------------------------------------------------
 
@@ -1140,7 +1141,86 @@ INSERT INTO `payment` (`id`, `name`, `program`, `date_payment`, `person_responsi
 (832, 'SRI MARYATI DAMANIK', 'Magang Perawat', '2022-05-26', 'LPK Gapindo', 1000000, 'Pelunasan Biaya Sertifikasi', '2022-06-01', 1),
 (833, 'IBNU HARIS', 'Tg Pertanian', '2022-05-27', 'Mandiri', 250000, 'Biaya pendaftaran SSW', '2022-06-01', 1),
 (834, 'IRMA ABRIANTIKA NURYANI', 'Magang Pengolahan Makanan', '2022-05-27', 'Mandiri', 5850000, 'Biaya Karantina ¥50.000', '2022-06-01', 1),
-(835, 'ANUGRAH NUR AFITROH', 'Magang Perawat', '2022-05-27', 'LPK Konayuki', 10000000, 'Deposit biaya pendidikan dan pemantapan', '2022-06-01', 1);
+(835, 'ANUGRAH NUR AFITROH', 'Magang Perawat', '2022-05-27', 'LPK Konayuki', 10000000, 'Deposit biaya pendidikan dan pemantapan', '2022-06-01', 1),
+(836, 'ANUGRAH NUR AFITROH', 'Magang Perawat', '2022-05-28', 'LPK Konayuki', 5000000, 'Pelunasan biaya pemantapan', '2022-06-04', 1),
+(837, 'ANUGRAH NUR AFITROH', 'Magang Perawat', '2022-05-28', 'LPK Konayuki', 3000000, 'Biaya sertifikasi', '2022-06-04', 1),
+(838, 'AGUS KURNIAWAN', 'Magang Kontruksi', '2022-05-30', 'PT. Gunung Seribu Permata', 250000, 'Biaya Pendaftaran Magang', '2022-06-04', 1),
+(839, 'ALPINDO CYAHYA SIPAYUNG', 'Magang Kontruksi', '2022-05-30', 'PT. Gunung Seribu Permata', 250000, 'Biaya Pendaftaran Magang', '2022-06-04', 1),
+(840, 'SUPRIYONO', 'Tg Kontruksi', '2022-05-31', 'Mandiri', 250000, 'Biaya pendaftaran SSW', '2022-06-04', 1),
+(841, 'BANGUN TRIYONO', 'Tg Kontruksi', '2022-05-31', 'Mandiri', 250000, 'Biaya pendaftaran SSW', '2022-06-04', 1),
+(842, 'SURONO', 'Magang Supir', '2022-05-31', 'Mandiri', 250000, 'Biaya Pendaftaran Magang', '2022-06-04', 1),
+(843, 'KUSDIANA', 'Tg Kontruksi', '2022-06-01', 'Mandiri', 250000, 'Biaya pendaftaran SSW', '2022-06-04', 1),
+(844, 'IKLAN SUSANTO ABADI', 'Tg Kontruksi', '2022-06-01', 'Mandiri', 250000, 'Biaya pendaftaran SSW', '2022-06-04', 1),
+(845, 'SANGGA BUANA RAJA', 'Magang Kontruksi', '2022-06-01', 'Mandiri', 10000000, 'Deposit biaya pengurusan COE dan Keberangkatan', '2022-06-04', 1),
+(846, 'EKA NUDIYAH AYUNI HABSARI', 'Magang Perawat', '2022-06-01', 'Mandiri', 250, 'Biaya Pendaftaran Magang', '2022-06-04', 1),
+(847, 'AZIK KURNIA ILALUDIN', 'Magang Kontruksi', '2022-06-04', 'Mandiri', 10000000, 'Deposit biaya keberangkatan', '2022-06-08', 1),
+(848, 'MINAKHUS TSANIA', 'Magang Perawat', '2022-06-05', 'Mandiri', 250000, 'Biaya Pendaftaran Magang', '2022-06-08', 1),
+(849, 'HANI KHOIRUNNISA', 'Magang Perawat', '2022-06-05', 'Mandiri', 5000000, 'Pelunasan biaya pemantapan', '2022-06-08', 1),
+(850, 'YOPI SEFTA VALDONA', 'Magang Kontruksi', '2022-06-07', 'Mandiri', 250000, 'Biaya Pendaftaran Magang', '2022-06-08', 1),
+(851, 'RYAN RAMADHAN', 'Magang Kontruksi', '2022-06-07', 'Mandiri', 20000000, 'Pelunasan biaya keberangkatan ke Jepang', '2022-06-08', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `petty_cash_journal`
+--
+
+CREATE TABLE `petty_cash_journal` (
+  `id` int(11) NOT NULL,
+  `output_type` varchar(255) NOT NULL,
+  `details` varchar(10000) NOT NULL,
+  `nominal` int(11) NOT NULL,
+  `date_payment` date NOT NULL,
+  `date_created` date NOT NULL,
+  `is_active` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `petty_cash_journal`
+--
+
+INSERT INTO `petty_cash_journal` (`id`, `output_type`, `details`, `nominal`, `date_payment`, `date_created`, `is_active`) VALUES
+(1, 'Konsumsi', 'Kupon Makan Siswa di Geprek', 370000, '2022-06-01', '2022-06-09', 1),
+(2, 'Konsumsi', 'Kupon Makan Siswa di Warteg', 160000, '2022-06-01', '2022-06-09', 1),
+(3, 'Internet', 'Pembayaran Wifi XL Home Bulan Juni 2022', 553890, '2022-06-01', '2022-06-09', 1),
+(4, 'Konsumsi', 'Kupon Makan Siswa di Geprek', 330000, '2022-06-02', '2022-06-09', 1),
+(5, 'Konsumsi', 'Kupon Makan Siswa di Warteg', 180000, '2022-06-02', '2022-06-09', 1),
+(6, 'Konsumsi', 'Pembelian Teh Pucuk 2 Untuk Tamu', 8000, '2022-01-01', '2022-06-09', 1),
+(7, 'ATK', 'Pembelian Swt500Ml & Lain-lain', 55700, '2022-06-03', '2022-06-09', 1),
+(8, 'Konsumsi', 'Pembelian Air Galon Aqua', 19000, '2022-06-03', '2022-06-09', 1),
+(9, 'Uang Makan Karyawan', 'Uang Makan Karyawan dari Tgl 28 Mei - 03 Juni 2022', 1100000, '2022-06-03', '2022-06-09', 1),
+(10, 'Uang Makan Karyawan', 'Uang Makan Marketing dari Tgl 28 Mei - 03 Juni 2022', 400000, '2022-06-03', '2022-06-09', 1),
+(11, 'Uang Makan Karyawan', 'Uang Makan Pelatihan dari Tgl 28 Mei - 03 Juni 2022', 600000, '2022-06-03', '2022-06-09', 1),
+(12, 'Gaji', 'Gaji Mbk Fariha dari Tgl 30 Mei - 03 Juni 2022', 300000, '2022-06-03', '2022-06-09', 1),
+(13, 'Konsumsi', 'Kupon Makan Siswa di Geprek', 380000, '2022-06-03', '2022-06-09', 1),
+(14, 'Konsumsi', 'Kupon Makan Siswa di Bakso', 20000, '2022-06-03', '2022-06-09', 1),
+(15, 'Konsumsi', 'Kupon Makan Siswa di Warteg', 140000, '2022-06-03', '2022-06-09', 1),
+(16, 'Transport Lokal', 'Biaya Grab dari Mhj Ke Bandara', 250000, '2022-06-03', '2022-06-09', 1),
+(17, 'Transport Lokal', 'Biaya E-Toll Ke Bandara', 150000, '2022-06-05', '2022-06-09', 1),
+(18, 'Biaya Sewa', 'Sewa Mobil Untuk Siswa Ke Bandara & Bensin', 402500, '2022-06-03', '2022-06-09', 1),
+(19, 'Konsumsi', 'Pembelian Makan & Minum di Bandara Untuk 2 Staf Ferry &  Bang Aimin', 261500, '2022-06-03', '2022-06-09', 1),
+(20, 'Transport Lokal', 'Biaya E-Toll Ke Bandara', 50000, '2022-06-03', '2022-06-09', 1),
+(21, 'Transport Lokal', 'Biaya E-Toll Ke Bandara', 150000, '2022-06-05', '2022-06-09', 1),
+(22, 'Konsumsi', 'Kupon Makan Karyawan & Shift Malam dari Tgl 04 Juni - 05 Juni 2022', 80000, '2022-06-06', '2022-06-09', 1),
+(23, 'Konsumsi', 'Kupon Makan Siswa di Geprek', 230000, '2022-06-06', '2022-06-09', 1),
+(24, 'Konsumsi', 'Kupon Makan Siswa di Bakso', 30000, '2022-06-06', '2022-06-09', 1),
+(25, 'Konsumsi', 'Kupon Makan Siswa di Warteg', 80000, '2022-06-06', '2022-06-09', 1),
+(26, 'ATK', 'Pembelian Map Bening A4 (2 Qt)', 66000, '2022-06-06', '2022-06-09', 1),
+(27, 'ATK', 'Pembelian Gagang Pintu 1 Set Untuk asrama 6', 85000, '2022-06-06', '2022-06-09', 1),
+(28, 'ATK', 'Pembelian Ib Engkel Brolo Untuk Asrama 6', 15000, '2022-06-06', '2022-06-09', 1),
+(29, 'Transport Lokal', 'Biaya Cukai Kantor Pos', 7770, '2022-06-07', '2022-06-09', 1),
+(30, 'Konsumsi', 'Kupon Makan Siswa di Geprek', 220000, '2022-06-07', '2022-06-09', 1),
+(31, 'Konsumsi', 'Kupon Makan Siswa di Bakso', 20000, '2022-06-07', '2022-06-09', 1),
+(32, 'Konsumsi', 'Kupon Makan Siswa di Warteg', 130000, '2022-06-07', '2022-06-09', 1),
+(33, 'ATK', 'Pembelian Gas 5,5 Kg Untuk Asrama Wsj', 100000, '2022-06-07', '2022-06-09', 1),
+(34, 'ATK', 'Pembelian Lampu 15 Wat Untuk Asrama 6', 30000, '2022-06-07', '2022-06-09', 1),
+(35, 'Pantry', 'Pembelian Kopi Kapal Api yang Sedang 1 Pcs', 4000, '2022-06-07', '2022-06-09', 1),
+(36, 'Iuran Wajib Lingkungan (RT/Sampah)', 'Pembayaran Iuran Sampah di Claster No. 1 & Wsj', 50000, '2022-06-07', '2022-06-09', 1),
+(37, 'ATK', 'Pembelian Gas 12 Kg Untuk Asrama 1', 210000, '2022-06-08', '2022-06-09', 1),
+(38, 'Konsumsi', 'Kupon Makan Siswa di Geprek', 220000, '2022-06-08', '2022-06-09', 1),
+(39, 'Konsumsi', 'Kupon Makan Siswa di Warteg', 130000, '2022-06-08', '2022-06-09', 1),
+(40, 'ATK', 'Pembelian Kertas HVS 2 Rim', 96000, '2022-06-08', '2022-06-09', 1),
+(41, 'ATK', 'Pembelian Spidol Snowman 1 Pcs Untuk Asrama 6', 9000, '2022-06-08', '2022-06-09', 1);
 
 -- --------------------------------------------------------
 
@@ -1189,10 +1269,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `image`, `role_id`, `is_active`, `date_created`) VALUES
 (1, 'Eka Anas Jatnika', 'anasberkata', 'ideanasdesain@gmail.com', '$2y$10$bFHVog6BHgnix/bEaXCWZe/cIRvgOrdf5XIXfbxeezoA97w/A/fTq', 'anas.jpg', 1, 1, '2022-03-07'),
-(2, 'PT. MIRAINO HASHI JAYA', 'direktur', 'lpkmirainohashijaya@gmail.com', '$2y$10$xCFJBbyK.sstyKY9pFTyyegymZitBU11DcfQq6WB22GsEgKkCkq3W', 'admin.jpg', 2, 1, '2022-03-07'),
-(3, 'Manager Miraino Hashi', 'manager', 'ptmirainohashijaya@gmail.com', '$2y$10$3ERvat1OI7DrmHvwxYbWtuBqY5gKtI9zTYCC42YdiJZU3Fl6W5S8q', 'manager.jpg', 3, 1, '2022-03-07'),
+(2, 'PT. MIRAINO HASHI JAYA', 'direktur', 'lpkmirainohashijaya@gmail.com', '$2y$10$nfDvL8Rpyhjcuz1aTB4eBOaW6LFdej3IuqLJUVCUsM3AL5JM4uali', 'admin.jpg', 2, 1, '2022-03-07'),
+(3, 'Manager Miraino Hashi', 'manager', 'ptmirainohashijaya@gmail.com', '$2y$10$3ERvat1OI7DrmHvwxYbWtuBqY5gKtI9zTYCC42YdiJZU3Fl6W5S8q', 'manager.jpg', 2, 1, '2022-03-07'),
 (9, 'Magfirah Putri', 'admin1', 'magfirah.mhj@gmail.com', '$2y$10$EHYu3br345n75/aRFE95GujExkihVWVy6Zg6nlDSUykTGiwn2roMu', 'default.jpg', 3, 1, '2022-03-29'),
-(10, 'Sabrina Salsabilah', 'admin2', 'sabrinasalsabilah92@gmail.com', '$2y$10$EzuIqZIdDcNv/D/.1jibdu1weKCBzQyGG7i5S5BcRfPcsRbKWGMV.', 'default.jpg', 3, 1, '2022-03-29');
+(10, 'Sabrina Salsabilah', 'admin2', 'sabrinasalsabilah92@gmail.com', '$2y$10$EzuIqZIdDcNv/D/.1jibdu1weKCBzQyGG7i5S5BcRfPcsRbKWGMV.', 'default.jpg', 3, 1, '2022-03-29'),
+(13, 'Anisa Kumala', 'keuanganMHJ', 'anisakumala3107@gmail.com', '$2y$10$fiHQXZgbIMIGynr5w4KIV.vpCtO4FMCBMPAFiSZF2y9b57ZKw159S', 'default.jpg', 5, 1, '2022-06-09');
 
 -- --------------------------------------------------------
 
@@ -1212,11 +1293,14 @@ CREATE TABLE `user_access_menu` (
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
-(2, 1, 4),
-(3, 1, 5),
-(4, 2, 2),
-(5, 2, 4),
-(6, 3, 3);
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 4),
+(5, 1, 5),
+(6, 2, 2),
+(11, 2, 5),
+(12, 3, 3),
+(13, 5, 4);
 
 -- --------------------------------------------------------
 
@@ -1238,8 +1322,8 @@ INSERT INTO `user_menu` (`id`, `menu`, `menu_order`) VALUES
 (1, 'Super', 1),
 (2, 'Direktur', 2),
 (3, 'Admin', 3),
-(4, 'User', 4),
-(5, 'Menu', 5);
+(4, 'Keuangan', 4),
+(5, 'User', 5);
 
 -- --------------------------------------------------------
 
@@ -1259,7 +1343,8 @@ CREATE TABLE `user_role` (
 INSERT INTO `user_role` (`id`, `role`) VALUES
 (1, 'Super'),
 (2, 'Direktur'),
-(3, 'Admin');
+(3, 'Admin'),
+(5, 'Keuangan');
 
 -- --------------------------------------------------------
 
@@ -1282,20 +1367,16 @@ CREATE TABLE `user_sub_menu` (
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
 (1, 1, 'Dashboard', 'super', 'bi bi-grid-fill', 1),
-(2, 1, 'Peserta', 'participant', 'bi bi-person-square', 1),
-(3, 1, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
-(4, 1, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
-(5, 1, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1),
-(6, 3, 'Dashboard', 'admin', 'bi bi-grid-fill', 1),
 (7, 3, 'Peserta', 'participant', 'bi bi-person-square', 1),
-(8, 4, 'User', 'user/users', 'bi bi-people', 1),
-(9, 4, 'My Profile', 'user', 'bi bi-person-fill', 1),
-(10, 2, 'Dashboard', 'admin', 'bi bi-grid-fill', 1),
+(8, 5, 'User', 'user/users', 'bi bi-people', 1),
+(9, 5, 'My Profile', 'user', 'bi bi-person-fill', 1),
 (11, 2, 'Peserta', 'participant', 'bi bi-person-square', 1),
 (12, 2, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
 (13, 2, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
 (14, 2, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1),
-(17, 3, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1);
+(17, 3, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
+(19, 2, 'Jurnal Kas Kecil', 'petty_cash_journal', 'bi bi-cash', 1),
+(20, 4, 'Jurnal Kas Kecil', 'petty_cash_journal', 'bi bi-cash', 1);
 
 --
 -- Indexes for dumped tables
@@ -1317,6 +1398,12 @@ ALTER TABLE `participants_coe`
 -- Indexes for table `payment`
 --
 ALTER TABLE `payment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `petty_cash_journal`
+--
+ALTER TABLE `petty_cash_journal`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1375,43 +1462,49 @@ ALTER TABLE `participants_coe`
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=836;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=852;
+
+--
+-- AUTO_INCREMENT for table `petty_cash_journal`
+--
+ALTER TABLE `petty_cash_journal`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

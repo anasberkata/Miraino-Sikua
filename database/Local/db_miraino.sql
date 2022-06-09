@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 09, 2022 at 11:27 AM
+-- Generation Time: Jun 09, 2022 at 06:15 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -292,7 +292,7 @@ CREATE TABLE `user_sub_menu` (
 --
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
-(1, 1, 'Dashboard', 'super', 'bi bi-grid-fill', 1),
+(1, 1, 'Dashboard', 'super', 'bi bi-grid-fill', 0),
 (7, 3, 'Peserta', 'participant', 'bi bi-person-square', 1),
 (8, 5, 'User', 'user/users', 'bi bi-people', 1),
 (9, 5, 'My Profile', 'user', 'bi bi-person-fill', 1),
@@ -302,7 +302,8 @@ INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active
 (14, 2, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1),
 (17, 3, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
 (20, 2, 'Jurnal Kas Kecil', 'petty_cash_journal', 'bi bi-cash', 1),
-(22, 4, 'Jurnal Kas Kecil', 'petty_cash_journal', 'bi bi-cash', 1);
+(22, 4, 'Jurnal Kas Kecil', 'petty_cash_journal', 'bi bi-cash', 1),
+(23, 1, 'Database', 'super/database', 'bi bi-stack', 1);
 
 --
 -- Indexes for dumped tables
@@ -430,7 +431,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

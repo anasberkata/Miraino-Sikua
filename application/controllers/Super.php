@@ -31,4 +31,37 @@ class Super extends CI_Controller
     $this->load->view('admin/index', $data);
     $this->load->view('templates/footer');
   }
+
+  // ----------------------------------------------- DATABASE ------------------------------------------ //
+  public function database()
+  {
+    $data['title'] = 'Database';
+    $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+
+    $this->load->view('templates/header', $data);
+    $this->load->view('templates/sidebar', $data);
+    $this->load->view('admin/database', $data);
+    $this->load->view('templates/footer');
+  }
+
+  public function database_backup()
+  {
+    date_default_timezone_set("Asia/Jakarta");
+
+    $this->load->dbutil();
+    $pref = [
+      'format' => 'zip',
+      'filename' => 'miraino_sik.sql'
+    ];
+
+    $backup     = $this->dbutil->backup($pref);
+    $db_name    = 'backup_database__' . date("d-m-Y__H-i-s") . '.zip';
+    $save       = './database/' . $db_name;
+
+    $this->load->helper('file');
+    write_file($save, $backup);
+
+    $this->load->helper("download");
+    force_download($db_name, $backup);
+  }
 }
