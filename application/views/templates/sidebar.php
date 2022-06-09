@@ -15,8 +15,14 @@
 
     <div class="sidebar-menu">
       <ul class="menu">
-        <hr>
+        <li class="sidebar-item  ">
+          <a href="<?= base_url("admin") ?>" class='sidebar-link'>
+            <i class="bi bi-grid-fill"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
 
+        <hr>
 
         <!-- QUERY MENU -->
         <?php

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 09, 2022 at 11:27 AM
+-- Generation Time: Jun 09, 2022 at 06:36 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -196,10 +196,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `image`, `role_id`, `is_active`, `date_created`) VALUES
 (1, 'Eka Anas Jatnika', 'anasberkata', 'ideanasdesain@gmail.com', '$2y$10$ZokNofyyqCwnVjJkoEWoUuUSH9trHRP/Rs4Mx5letlvZIB2upi2G.', 'anas.jpg', 1, 1, '2022-03-07'),
-(2, 'Direktur', 'direktur', 'direktur@mirainohashi.co.id', '$2y$10$T6tkdTm7jQVxid4aRB/YCus9vYrfm8dpWpcKVKFbywtNHWaVhB4F6', 'admin.jpg', 2, 1, '2022-03-07'),
-(3, 'Admin 01', 'admin01', 'admin01@mirainohashi.co.id', '$2y$10$o5yYGy163PMSNz1hunWFXuOaNNe10VlyxUDd4avDQ8Z90Ge5OGZwS', 'manager.jpg', 3, 1, '2022-03-07'),
-(7, 'Admin 02', 'admin02', 'admin02@mirainohashi.co.id', '$2y$10$DCe7fQFCR0FnjxO8GHhMXeQcmPDHNjv/EvR0XwoI..6u4XmMzJhXq', 'default.jpg', 3, 1, '2022-03-25'),
-(11, 'Keuangan 1', 'keuangan', 'keuangan@mirainohashi.co.id', '$2y$10$n1C.G32qMm4nueJZrv386u4YLtDp4DzQA/QCrBAAqdIE9jI8QgHpy', 'default.jpg', 5, 1, '2022-06-09');
+(2, 'Direktur', 'direktur', 'direktur@mirainohashi.co.id', '$2y$10$lOfg.qqEYx9jUYClWfA2wuekCSGt5ADqLVUMKiZxKCHFOOd90xBAe', 'admin.jpg', 2, 1, '2022-03-07'),
+(3, 'Admin 01', 'admin01', 'admin01@mirainohashi.co.id', '$2y$10$72tdhRa1SDNSHkKNQzdU3uC/EDrUTIaZFtgKsRIdlMKwDv7X28TRm', 'manager.jpg', 3, 1, '2022-03-07'),
+(7, 'Admin 02', 'admin02', 'admin02@mirainohashi.co.id', '$2y$10$0yz26.c/4rMlX/ziS4oxeup1WCFhlTQCiCPbMUpXpPdrO4XdTaLqa', 'default.jpg', 3, 1, '2022-03-25');
 
 -- --------------------------------------------------------
 
@@ -219,14 +218,11 @@ CREATE TABLE `user_access_menu` (
 
 INSERT INTO `user_access_menu` (`id`, `role_id`, `menu_id`) VALUES
 (1, 1, 1),
-(2, 1, 2),
-(3, 1, 3),
-(4, 1, 4),
-(5, 1, 5),
-(6, 2, 2),
-(11, 2, 5),
-(12, 3, 3),
-(14, 5, 4);
+(2, 1, 4),
+(3, 1, 5),
+(4, 2, 2),
+(5, 2, 4),
+(6, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -248,8 +244,8 @@ INSERT INTO `user_menu` (`id`, `menu`, `menu_order`) VALUES
 (1, 'Super', 1),
 (2, 'Direktur', 2),
 (3, 'Admin', 3),
-(4, 'Keuangan', 4),
-(5, 'User', 5);
+(4, 'User', 4),
+(5, 'Menu', 5);
 
 -- --------------------------------------------------------
 
@@ -269,8 +265,7 @@ CREATE TABLE `user_role` (
 INSERT INTO `user_role` (`id`, `role`) VALUES
 (1, 'Super'),
 (2, 'Direktur'),
-(3, 'Admin'),
-(5, 'Keuangan');
+(3, 'Admin');
 
 -- --------------------------------------------------------
 
@@ -293,16 +288,22 @@ CREATE TABLE `user_sub_menu` (
 
 INSERT INTO `user_sub_menu` (`id`, `menu_id`, `title`, `url`, `icon`, `is_active`) VALUES
 (1, 1, 'Dashboard', 'super', 'bi bi-grid-fill', 1),
+(2, 1, 'Peserta', 'participant', 'bi bi-person-square', 1),
+(3, 1, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
+(4, 1, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
+(5, 1, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1),
+(6, 3, 'Dashboard', 'admin', 'bi bi-grid-fill', 1),
 (7, 3, 'Peserta', 'participant', 'bi bi-person-square', 1),
-(8, 5, 'User', 'user/users', 'bi bi-people', 1),
-(9, 5, 'My Profile', 'user', 'bi bi-person-fill', 1),
+(8, 4, 'User', 'user/users', 'bi bi-people', 1),
+(9, 4, 'My Profile', 'user', 'bi bi-person-fill', 1),
+(10, 2, 'Dashboard', 'admin', 'bi bi-grid-fill', 1),
 (11, 2, 'Peserta', 'participant', 'bi bi-person-square', 1),
 (12, 2, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
 (13, 2, 'Data Keuangan', 'payment', 'bi bi-wallet', 1),
 (14, 2, 'Laporan Keuangan', 'report', 'bi bi-wallet-fill', 1),
 (17, 3, 'Peserta CoE', 'coe', 'bi bi-person-bounding-box', 1),
-(20, 2, 'Jurnal Kas Kecil', 'petty_cash_journal', 'bi bi-cash', 1),
-(22, 4, 'Jurnal Kas Kecil', 'petty_cash_journal', 'bi bi-cash', 1);
+(19, 1, 'Jurnal Kas Kecil', 'petty_cash_journal', 'bi bi-cash', 1),
+(20, 2, 'Jurnal Kas Kecil', 'petty_cash_journal', 'bi bi-cash', 1);
 
 --
 -- Indexes for dumped tables
@@ -406,13 +407,13 @@ ALTER TABLE `report`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user_access_menu`
 --
 ALTER TABLE `user_access_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user_menu`
@@ -424,13 +425,13 @@ ALTER TABLE `user_menu`
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_sub_menu`
 --
 ALTER TABLE `user_sub_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

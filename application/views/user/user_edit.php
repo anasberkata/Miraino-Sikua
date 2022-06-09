@@ -58,6 +58,7 @@
                   </option>
                   <option value="2">Direktur</option>
                   <option value="3">Admin</option>
+                  <option value="5">Keuangan</option>
                 </select>
               </div>
 

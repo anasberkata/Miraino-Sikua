@@ -77,7 +77,7 @@
                 <p><i>ADMINISTRASI</i></p>
             </td>
             <td width="50%" style="text-align: center;">
-                <br>
+                <br><br>
                 MENGETAHUI,
                 <br><br><br><br><br><br><br>
                 <b><u>NURJANNAH</u></b>

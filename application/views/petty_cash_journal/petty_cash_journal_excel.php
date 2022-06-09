@@ -108,21 +108,28 @@ header("Content-Disposition: attachment; filename=Jurnal Kas Kecil.xls");
             <td></td>
             <td width="25%" style="text-align: center;">
                 <br><br>
-                Pembuat
+                MEMBUAT,
+                <br><br><br><br><br><br><br>
+                <b><u>ANISA KUMALA</u></b>
+                <p><i>MANAGER KEUANGAN</i></p>
+            </td>
+            <td width="50%" style="text-align: center;">
+                <br><br>
+                MENGETAHUI,
                 <br><br><br><br><br><br><br>
                 <b><u>NURJANNAH</u></b>
-                <p>Direktur</p>
+                <p><i>MANAGER KEUANGAN</i></p>
             </td>
-            <td width="50%"></td>
+            <!-- <td width="50%"></td> -->
             <td width="25%" style="text-align: center;">
                 Bekasi, <?php echo date("d F Y"); ?>
                 <br>
-                Mengetahui,
+                MENYETUJUI,
                 <br>
                 LPK PT. Miraino Hashi Jaya
                 <br><br><br><br><br><br><br>
                 <b><u>MURDIYONO JAYA</u></b>
-                <p>Direktur Utama</p>
+                <p><i>DIREKTUR UTAMA</i></p>
             </td>
         </tr>
     </table>
